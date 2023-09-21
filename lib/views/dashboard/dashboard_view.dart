@@ -27,8 +27,8 @@ class DashboardView extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Colors.yellow,
-              Colors.green, // Start color (top)
-              Colors.yellow, // Middle color
+              // Colors.green, // Start color (top)
+              // Colors.yellow, // Middle color
               Colors.white // End color (bottom)
             ],
           ),
