@@ -68,17 +68,17 @@ class _DonutChartPainter extends CustomPainter {
     final unprocessedPaint = Paint()
       ..color = Colors.green
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 40.0; // Adjust for the desired "thickness" of the donut
+      ..strokeWidth = 20.0; // Adjust for the desired "thickness" of the donut
 
     final processedPaint = Paint()
       ..color = Colors.blue
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 40.0; // Adjust for the desired "thickness" of the donut
+      ..strokeWidth = 20.0; // Adjust for the desired "thickness" of the donut
 
     final ultraprocessedPaint = Paint()
       ..color = Colors.purple
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 40.0; // Adjust for the desired "thickness" of the donut
+      ..strokeWidth = 20.0; // Adjust for the desired "thickness" of the donut
 
     // Draw unprocessed segment
     canvas.drawArc(

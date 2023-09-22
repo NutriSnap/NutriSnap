@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/shared/widgets/custom_app_bar.dart';
+import '../../core/constants/colors.dart';
 import 'widgets/food_processing_indicator.dart';
 import 'widgets/challenges.dart';
 // import 'widgets/acheivements.dart';
@@ -10,10 +10,59 @@ class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: AppBar(
+        title: const Text('Title'),
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            Navigator.pushNamed(context, '/dashboard');
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              // Here, you may need context to push to settings or any other page
+              Navigator.pushNamed(context, '/settings');
+            },
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.message),
+              title: Text('Messages'),
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Logic for the floating action button
+          // Open the camera view
+          Navigator.pushNamed(context, '/camera');
         },
         child: const Icon(Icons.camera_alt),
       ),
@@ -27,8 +76,6 @@ class DashboardView extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Colors.yellow,
-              // Colors.green, // Start color (top)
-              // Colors.yellow, // Middle color
               Colors.white // End color (bottom)
             ],
           ),
@@ -39,13 +86,13 @@ class DashboardView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Title
-                const Text(
-                  'Dashboard',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 2),
+                // // Title
+                // const Text(
+                //   'Dashboard',
+                //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                //   textAlign: TextAlign.center,
+                // ),
+                // const SizedBox(height: 2),
                 // Food Processing Indicator
                 Container(
                   decoration: BoxDecoration(

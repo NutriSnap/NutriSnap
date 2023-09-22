@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/home_view.dart';
 import 'package:nutrisnap/views/dashboard/dashboard_view.dart';
 // import 'package:nutrisnap/views/journal/journal_view.dart';
 // import 'package:nutrisnap/views/trends/trends_view.dart';
@@ -12,6 +13,7 @@ import 'package:nutrisnap/views/dashboard/dashboard_view.dart';
 // import 'package:nutrisnap/views/admin/admin_view.dart';
 
 class AppRoutes {
+  static const home = '/';
   static const dashboard = '/dashboard';
   static const journal = '/journal';
   static const trends = '/trends';
@@ -26,6 +28,7 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> all() {
     return {
+      home: (ctx) => const HomeView(),
       dashboard: (ctx) => const DashboardView(),
       // journal: (ctx) => JournalView(),
       // trends: (ctx) => TrendsView(),

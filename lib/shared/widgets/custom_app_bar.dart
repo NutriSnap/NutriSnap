@@ -1,65 +1,79 @@
-import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/colors.dart';
+// import 'package:flutter/material.dart';
+// import 'package:nutrisnap/core/constants/colors.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+// class CustomAppBar extends AppBar {
 
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.green,
-              Colors.yellow,
-            ],
-          ),
-        ),
-      ),
-      title: const Text('NutriSnap',
-          style: TextStyle(
-              color: AppColors.charcoal,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              fontFamily: 'Montserrat')),
-      leading: IconButton(
-        icon: const Icon(Icons.menu, color: AppColors.charcoal),
-        onPressed: () {
-          // Logic to open a drawer or navigation menu
-        },
-      ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.book_outlined, color: AppColors.charcoal),
-          onPressed: () {
-            // Logic for the book_icon
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.home_outlined, color: AppColors.charcoal),
-          onPressed: () {
-            // Logic for the home_icon
-          },
-        ),
-        CircleAvatar(
-          backgroundColor: Colors.transparent,
-          child: IconButton(
-            icon: const Icon(Icons.account_circle_outlined,
-                color: AppColors.charcoal),
-            onPressed: () {
-              // Logic to navigate to profile or other user-related actions
-            },
-          ),
-        ),
-      ],
-      backgroundColor: Colors.white,
-      elevation: 2.0,
-    );
-  }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}
+
+//   CustomAppBar({super.key, Widget? title, List<Widget>? actions})
+//       : super(
+//           title: title ?? const Text('Home View'),
+//                   leading: IconButton(
+//             icon: const Icon(Icons.menu),
+//             onPressed: () {
+//               Navigator.pushNamed(context, '/dashboard');
+//             },
+//           ),
+//           actions: actions ??
+//               [
+//                 IconButton(
+//                   icon: const Icon(Icons.settings),
+//                   onPressed: () {
+//                     // Here, you may need context to push to settings or any other page
+//                     // Navigator.pushNamed(context, '/settings');
+//                   },
+//                 ),
+//               ],
+//           flexibleSpace: Container(
+//             decoration: const BoxDecoration(
+//               gradient: LinearGradient(
+//                 begin: Alignment.topCenter,
+//                 end: Alignment.bottomCenter,
+//                 colors: [
+//                   AppColors.darkGreen,
+//                   AppColors.paleYellow,
+//                 ],
+//               ),
+//             ),
+//           ),
+//         );
+// }
+
+
+//       // drawer: Drawer(
+//       //   child: ListView(
+//       //     padding: EdgeInsets.zero,
+//       //     children: <Widget>[
+//       //       const DrawerHeader(
+//       //         decoration: BoxDecoration(
+//       //           color: AppColors.darkGreen,
+//       //         ),
+//       //         child: Text(
+//       //           'NutriSnap',
+//       //           style: TextStyle(
+//       //             color: Colors.white,
+//       //             fontSize: 24,
+//       //           ),
+//       //         ),
+//       //       ),
+//       //       ListTile(
+//       //         title: const Text('Home'),
+//       //         onTap: () {
+//       //           Navigator.pushNamed(context, '/home');
+//       //         },
+//       //       ),
+//       //       ListTile(
+//       //         title: const Text('Dashboard'),
+//       //         onTap: () {
+//       //           Navigator.pushNamed(context, '/dashboard');
+//       //         },
+//       //       ),
+//       //       ListTile(
+//       //         title: const Text('Settings'),
+//       //         onTap: () {
+//       //           Navigator.pushNamed(context, '/settings');
+//       //         },
+//       //       ),
+//       //     ],
+//       //   ),
+//       // ),
