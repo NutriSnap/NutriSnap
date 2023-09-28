@@ -12,18 +12,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  firebase_auth:
-  firebase_core:
-  cloud_firestore:
-  firebase_ui_auth:
-  firebase_storage:
-  flutter_svg:
-  google_sign_in:
-  sign_in_with_apple:
-  http:
-  foundation:
+  cloud_firestore: ^4.9.2
+  firebase_auth: ^4.10.0
+  firebase_core: ^2.16.0
+  firebase_storage: ^11.2.7
+  firebase_ui_auth: ^1.8.0
+  flutter_svg: ^2.0.7
+  foundation: ^0.0.5
+  google_sign_in: ^6.1.5
+  http: ^1.1.0
+  sign_in_with_apple: ^5.0.0
 
 dev_dependencies:
   flutter_test:
