@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nutrisnap/common/themes.dart';
 import 'package:nutrisnap/core/constants/app_colors.dart';
 import 'package:nutrisnap/views/account/account_screen.dart';
 import 'package:nutrisnap/views/challenges/challenges_screen.dart';
@@ -19,13 +20,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final user = FirebaseAuth.instance.currentUser!;
+  final user = FirebaseAuth.instance.currentUser;
   late PageController _pageController;
   int currentPageIndex = 0;
 
   @override
   void initState() {
     super.initState();
+
+    if (user == null) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+            builder: (context) => LoginScreen(onTap: () {
+                  null;
+                })),
+      );
+    }
+
     _pageController = PageController(initialPage: currentPageIndex);
   }
 
@@ -40,11 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (mounted) {
       setState(() {
-        currentPageIndex = 0;
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
               builder: (context) => LoginScreen(onTap: () {
-                    true;
+                    null;
                   })),
         );
       });
@@ -105,11 +115,14 @@ class NavigationDrawer extends StatelessWidget {
   final Function(int) onPageSelected;
   final VoidCallback onSignOut;
 
-  const NavigationDrawer({
+  NavigationDrawer({
     Key? key,
     required this.onPageSelected,
     required this.onSignOut,
   }) : super(key: key);
+
+  final User? user =
+      FirebaseAuth.instance.currentUser; // Allow 'user' to be null
 
   @override
   Widget build(BuildContext context) {
@@ -117,18 +130,42 @@ class NavigationDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: AppColors.unprocessedGreen,
             ),
-            child: Text(
-              'NutriSnap',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
+            child: Column(
+              children: [
+                const Text(
+                  'NutriSnap',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  user != null
+                      ? 'Logged in as ${user?.email}'
+                      : 'Not logged in',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
             ),
           ),
+          // ADMIN ONLY SECTION
+          if (user != null && user?.email == 'admin@nutrisnap.app')
+            ListTile(
+              leading: const Icon(Icons.admin_panel_settings_outlined),
+              title: const Text('Admin'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.pushNamed(context, '/admin');
+              },
+            ),
           ListTile(
             leading: const Icon(Icons.dashboard_outlined),
             title: const Text('Dashboard'),
@@ -167,6 +204,30 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop();
               onPageSelected(4);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.chat_outlined),
+            title: const Text('Coach'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.pushNamed(context, '/coach');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.group_outlined),
+            title: const Text('Friends'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.pushNamed(context, '/social');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.camera_alt_outlined),
+            title: const Text('Snaps'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.pushNamed(context, '/snaps');
             },
           ),
           ListTile(
