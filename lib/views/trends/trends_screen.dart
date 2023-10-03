@@ -7,9 +7,12 @@ class TrendsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Trends'),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'Trends Screen',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
     );
   }

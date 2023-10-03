@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/login/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
