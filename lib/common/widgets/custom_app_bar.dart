@@ -29,6 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         icon: const Icon(Icons.menu, color: AppColors.charcoal),
         onPressed: () {
           // Logic to open a drawer or navigation menu
+          Navigator.pushNamed(context, '/about');
         },
       ),
       actions: [
@@ -36,12 +37,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.book_outlined, color: AppColors.charcoal),
           onPressed: () {
             // Logic for the book_icon
+            Navigator.pushNamed(context, '/journal');
           },
         ),
         IconButton(
           icon: const Icon(Icons.home_outlined, color: AppColors.charcoal),
           onPressed: () {
             // Logic for the home_icon
+            Navigator.pushNamed(context, '/home');
           },
         ),
         CircleAvatar(

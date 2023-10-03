@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/challenges/challenges_screen.dart';
+import 'package:nutrisnap/views/dashboard/dashboard_screen.dart';
+import 'package:nutrisnap/views/journal/journal_screen.dart';
+import 'package:nutrisnap/views/trends/trends_screen.dart';
+import 'package:nutrisnap/common/widgets/bottom_nav_bar.dart';
 
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({super.key});
@@ -13,58 +18,80 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: Colors.amber[800],
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(Icons.dashboard),
-            icon: Icon(Icons.dashboard_outlined),
-            label: 'Dashboard',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.description_outlined),
-            label: 'Journal',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.insert_chart),
-            icon: Icon(Icons.insert_chart_outlined),
-            label: 'Trends',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.emoji_events),
-            icon: Icon(Icons.emoji_events_outlined),
-            label: 'Challenges',
-          ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+      body: IndexedStack(
+        index: currentPageIndex,
+        children: const [
+          DashboardScreen(),
+          JournalScreen(),
+          TrendsScreen(),
+          ChallengesScreen(),
         ],
       ),
-      body: <Widget>[
-        Container(
-          color: Colors.red,
-          alignment: Alignment.center,
-          child: const Text('Page 1'),
+      // bottomNavigationBar: customBottomNavBar(),
+    );
+  }
+
+  NavigationBar customBottomNavBar() {
+    return NavigationBar(
+      onDestinationSelected: (int index) {
+        setState(() {
+          currentPageIndex = index;
+        });
+      },
+      indicatorColor: Colors.amber[800],
+      selectedIndex: currentPageIndex,
+      destinations: const <Widget>[
+        NavigationDestination(
+          selectedIcon: Icon(Icons.dashboard),
+          icon: Icon(Icons.dashboard_outlined),
+          label: 'Dashboard',
         ),
-        Container(
-          color: Colors.green,
-          alignment: Alignment.center,
-          child: const Text('Page 2'),
+        NavigationDestination(
+          icon: Icon(Icons.description_outlined),
+          label: 'Journal',
         ),
-        Container(
-          color: Colors.blue,
-          alignment: Alignment.center,
-          child: const Text('Page 3'),
+        NavigationDestination(
+          selectedIcon: Icon(Icons.insert_chart),
+          icon: Icon(Icons.insert_chart_outlined),
+          label: 'Trends',
         ),
-        Container(
-          color: Colors.yellow,
-          alignment: Alignment.center,
-          child: const Text('Page 4'),
+        NavigationDestination(
+          selectedIcon: Icon(Icons.emoji_events),
+          icon: Icon(Icons.emoji_events_outlined),
+          label: 'Challenges',
         ),
-      ][currentPageIndex],
+      ],
     );
   }
 }

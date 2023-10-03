@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/about/about_screen.dart';
 import 'package:nutrisnap/views/admin/admin_screen.dart';
 import 'package:nutrisnap/views/auth/auth_screen.dart';
 import 'package:nutrisnap/views/camera/camera_screen.dart';
@@ -33,8 +34,10 @@ class AppRoutes {
   static const String settings = '/settings';
   static const String snaps = '/snaps';
   static const String trends = '/trends';
+  static const String about = '/about';
 
   static const List<String> routes = [
+    about,
     admin,
     auth,
     camera,
@@ -56,6 +59,8 @@ class AppRoutes {
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case AppRoutes.about:
+      return MaterialPageRoute(builder: (context) => const AboutScreen());
     case AppRoutes.admin:
       return MaterialPageRoute(builder: (context) => const AdminScreen());
     case AppRoutes.auth:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/common/widgets/custom_app_bar.dart';
 import 'widgets/food_processing_indicator.dart';
 import 'widgets/challenges.dart';
 
@@ -9,10 +8,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Logic for the floating action button
+          Navigator.pushNamed(context, '/camera');
         },
         child: const Icon(Icons.camera_alt),
       ),
@@ -38,12 +36,6 @@ class DashboardScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Title
-                const Text(
-                  'Dashboard',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
                 const SizedBox(height: 2),
                 // Food Processing Indicator
                 Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../common/widgets/bottom_nav_bar.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class AboutScreen extends StatelessWidget {
           style: TextStyle(fontSize: 24),
         ),
       ),
+      bottomNavigationBar: const CustomNavigationBar(),
     );
   }
 }

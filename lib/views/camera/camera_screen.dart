@@ -10,7 +10,16 @@ class CameraScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Camera'),
+        backgroundColor: Colors.green,
+      ),
+      body: const Center(
+        child: Text(
+          'Camera',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
     );
   }
 }
+
+// use source: https://docs.flutter.dev/cookbook/plugins/picture-using-camera

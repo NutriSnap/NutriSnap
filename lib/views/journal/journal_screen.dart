@@ -19,9 +19,12 @@ class JournalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Journal'),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'Journal Screen',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
       body: GridView.count(
         crossAxisCount: 1,
