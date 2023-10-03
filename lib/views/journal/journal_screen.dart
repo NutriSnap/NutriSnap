@@ -5,7 +5,7 @@ import 'package:nutrisnap/views/journal/widgets/snap_card.dart';
 List<SnapCard> _buildGridCards(int count) {
   List<SnapCard> cards = List.generate(
     count,
-        (int index) {
+    (int index) {
       return SnapCard();
     },
   );
@@ -19,13 +19,7 @@ class JournalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          'Journal Screen',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+    return Scaffold(
       body: GridView.count(
         crossAxisCount: 1,
         padding: const EdgeInsets.all(16.0),
