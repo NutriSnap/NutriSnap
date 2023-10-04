@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class CameraScreen extends StatelessWidget {
   const CameraScreen({Key? key}) : super(key: key);
@@ -12,10 +13,22 @@ class CameraScreen extends StatelessWidget {
         title: const Text('Camera'),
         backgroundColor: Colors.green,
       ),
-      body: const Center(
-        child: Text(
-          'Camera',
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              'Camera',
+              style: TextStyle(fontSize: 24),
+            ),
+            IconButton(
+              icon: Icon(Icons.camera_alt),
+              onPressed: () {
+                // Logic for the camera_icon
+                Navigator.of(context).pop();
+                Navigator.pushNamed(context, '/snaps');
+              },
+            ),
+          ],
         ),
       ),
     );
