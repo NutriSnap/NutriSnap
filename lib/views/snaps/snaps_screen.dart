@@ -91,6 +91,8 @@ class _SnapsState extends State<SnapsScreen> {
                     iconSize: 72,
                     onPressed: () {
                       // Navigation action
+                      Navigator.of(context).pop();
+                      Navigator.pushNamed(context, '/snapsEdit');
                     },
                   ),
                 ),

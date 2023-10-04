@@ -15,6 +15,7 @@ class CameraScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Camera',

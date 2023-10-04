@@ -15,6 +15,7 @@ import 'package:nutrisnap/views/not_found_screen.dart';
 import 'package:nutrisnap/views/profile/profile_screen.dart';
 import 'package:nutrisnap/views/settings/settings_screen.dart';
 import 'package:nutrisnap/views/snaps/snaps_screen.dart';
+import 'package:nutrisnap/views/snaps/edit_snap.dart';
 import 'package:nutrisnap/views/trends/trends_screen.dart';
 
 class AppRoutes {
@@ -33,6 +34,7 @@ class AppRoutes {
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String snaps = '/snaps';
+  static const String snapsEdit = '/snapsEdit';
   static const String trends = '/trends';
   static const String about = '/about';
 
@@ -54,6 +56,7 @@ class AppRoutes {
     settings,
     snaps,
     trends,
+    snapsEdit
   ];
 }
 
@@ -90,6 +93,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SettingsScreen());
     case AppRoutes.snaps:
       return MaterialPageRoute(builder: (context) => const SnapsScreen());
+    case AppRoutes.snapsEdit:
+      return MaterialPageRoute(builder: (context) => const SnapsEditScreen());
     case AppRoutes.trends:
       return MaterialPageRoute(builder: (context) => const TrendsScreen());
     default:
