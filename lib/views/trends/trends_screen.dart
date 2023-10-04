@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/line_chart.dart';
 
 class TrendsScreen extends StatelessWidget {
   const TrendsScreen({Key? key}) : super(key: key);
@@ -9,9 +10,32 @@ class TrendsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text(
-          'Trends Screen',
-          style: TextStyle(fontSize: 24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                'Food Category Trends',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            FoodCategoryTrendsChart(),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                'Logging Trends',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Text('Make a calendar-based logging chart here'),
+          ],
         ),
       ),
     );
