@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'widgets/meal_dropdown_menu.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class SnapsScreen extends StatefulWidget {
   const SnapsScreen({super.key});
@@ -50,51 +48,25 @@ class _SnapsState extends State<SnapsScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             // Show the image from the assets folder
-            Image.asset(
-            _image,
-            width: 300,
-            height: 300,
+            Image.asset(_image),
+            const Text(
+              'Label your Snap',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            const MealDropdownMenu(),
-            const SizedBox(height: 25.0),
-            const Text('Food 1'),
-            const SizedBox(height: 8.0),
-            const Text('Food 2'),
-            const SizedBox(height: 8.0),
-            const Text('Food 3'),
-            const SizedBox(height: 25.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Ink(
-                  decoration: const ShapeDecoration(
-                    color: Colors.red,
-                    shape: CircleBorder(),
-                  ),
-                  child: IconButton(
-                    icon: const Icon(Icons.close),
-                    color: Colors.black,
-                    iconSize: 72,
-                    onPressed: () {
-                      // Navigation action
-                    },
-                  ),
-                ),
-                Ink(
-                  decoration: const ShapeDecoration(
-                    color: AppColors.green,
-                    shape: CircleBorder(),
-                  ),
-                  child: IconButton(
-                    icon: const Icon(Icons.done),
-                    color: Colors.black,
-                    iconSize: 72,
-                    onPressed: () {
-                      // Navigation action
-                    },
-                  ),
-                ),
-              ],
+            const Text(
+              'Take a picture of your food to get nutritional information!',
+            ),
+            const Text(
+              'Enter your food here:',
+            ),
+            const TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Enter a food item',
+              ),
             ),
           ],
         ),
