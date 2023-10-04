@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/snaps/widgets/meal_dropdown_menu.dart';
 
-class SnapsScreen extends StatefulWidget {
-  const SnapsScreen({super.key});
+class SnapsEditScreen extends StatefulWidget {
+  const SnapsEditScreen({super.key});
+
+  static const String routeName = '/snapsEdit';
 
   @override
-  State<SnapsScreen> createState() => _SnapsState();
+  State<SnapsEditScreen> createState() => _SnapsState();
 }
 
-class _SnapsState extends State<SnapsScreen> {
+class _SnapsState extends State<SnapsEditScreen> {
   // image
   static const String _image = 'assets/images/layout/foodplaceholder.png';
 
@@ -49,24 +52,66 @@ class _SnapsState extends State<SnapsScreen> {
           children: <Widget>[
             // Show the image from the assets folder
             Image.asset(_image),
-            const Text(
-              'Label your Snap',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: MealDropdownMenu(),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Food 1',
+                ),
               ),
             ),
-            const Text(
-              'Take a picture of your food to get nutritional information!',
-            ),
-            const Text(
-              'Enter your food here:',
-            ),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter a food item',
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Food 2',
+                ),
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Food 3',
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    // save the snap
+                  },
+                  child: const Text('Discard', style: TextStyle(color: Colors.white)),
+                ),
+                ElevatedButton(
+                  child: Text('Save'),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    // save the snap
+                    Navigator.of(context).pop();
+                    Navigator.pushNamed(context, '/home');
+                  },
+                ),
+              ]
             ),
           ],
         ),
