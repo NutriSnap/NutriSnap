@@ -6,7 +6,7 @@ List<SnapCard> _buildGridCards(int count) {
   List<SnapCard> cards = List.generate(
     count,
     (int index) {
-      return SnapCard();
+      return const SnapCard();
     },
   );
   return cards;
