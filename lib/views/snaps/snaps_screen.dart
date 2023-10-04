@@ -51,9 +51,9 @@ class _SnapsState extends State<SnapsScreen> {
           children: <Widget>[
             // Show the image from the assets folder
             Image.asset(
-            _image,
-            width: 300,
-            height: 300,
+              _image,
+              width: 300,
+              height: 300,
             ),
             const MealDropdownMenu(),
             const SizedBox(height: 25.0),
