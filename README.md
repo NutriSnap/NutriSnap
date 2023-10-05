@@ -5,21 +5,22 @@ NutriSnap is a mobile application that allows users to take a picture of their f
 ## NOTE
 
 This project is under development.
-- [ ] Home (Dashboard)
-- [ ] Login Page
+
+- [x] Home (Dashboard)
+- [x] Login Page
 - [ ] Signup Page
 - [ ] Profile Page
-- [ ] Settings Page
-- [ ] Achievements Page
-- [ ] Trends Page
+- [x] Settings Page
+- [x] Achievements Page
+- [x] Trends Page
 - [ ] Feedback
 - [ ] Admin Page
 - [ ] Analytics
-- [ ] Authentication
+- [x] Authentication
 - [ ] Snaps Page
 - [ ] Support Page
 - [ ] About Page
-- [ ] Light/Dark Mode
+- [x] Light/Dark Mode
 - [ ] MyTeam Page
 - [ ] MyCoach Page
 - [ ] ML Model Finetuning
