@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
+// import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class SnapCard extends StatelessWidget {
+  const SnapCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -19,13 +21,13 @@ class SnapCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 8.0),
-                Text('Food 1'),
-                Text('Food 2'),
-                Text('Food 3'),
+                const Text('Food 1'),
+                const Text('Food 2'),
+                const Text('Food 3'),
               ],
             ),
           ),
-          AspectRatio(
+          const AspectRatio(
             aspectRatio: 1.0 / 1.0,
             child: Placeholder(),
           ),
