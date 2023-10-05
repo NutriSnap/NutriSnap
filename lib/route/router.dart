@@ -17,6 +17,7 @@ import 'package:nutrisnap/views/profile/profile_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
 import 'package:nutrisnap/views/snaps/edit_snap.dart';
 import 'package:nutrisnap/views/trends/trends_page.dart';
+import 'package:nutrisnap/views/camera/success_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -53,6 +54,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AdminPage());
       case AuthPage.routeName:
         return MaterialPageRoute(builder: (_) => const AuthPage());
+      case SuccessPage.routeName:
+        return MaterialPageRoute(builder: (_) => const SuccessPage());
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();

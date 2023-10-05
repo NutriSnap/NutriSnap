@@ -30,6 +30,12 @@ class CameraPage extends StatelessWidget {
                 // Navigator.pushNamed(context, '/snaps');
               },
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/success');
+              },
+              child: const Text('Upload'),
+            )
           ],
         ),
       ),
