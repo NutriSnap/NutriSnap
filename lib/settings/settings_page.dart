@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/settings/widgets/mindfulness.dart';
+import 'package:nutrisnap/settings/widgets/notifications.dart';
 import 'settings_controller.dart';
+import 'widgets/goals.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key, required this.controller});
@@ -28,17 +31,31 @@ class SettingsPageState extends State<SettingsPage> {
         title: const Text('Settings'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SwitchListTile(
-          title: const Text('Use dark theme'),
-          value: isDarkMode,
-          onChanged: (bool useDarkTheme) async {
-            await widget.controller.updateThemeMode(
-                useDarkTheme ? ThemeMode.dark : ThemeMode.light);
-            setState(() {
-              isDarkMode = useDarkTheme;
-            });
-          },
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SwitchListTile(
+                title: const Text('Use dark theme'),
+                value: isDarkMode,
+                onChanged: (bool useDarkTheme) async {
+                  await widget.controller.updateThemeMode(
+                      useDarkTheme ? ThemeMode.dark : ThemeMode.light);
+                  setState(() {
+                    isDarkMode = useDarkTheme;
+                  });
+                },
+              ),
+              const SizedBox(height: 8),
+              const Goals(),
+              const SizedBox(height: 8),
+              const Notifications(),
+              const SizedBox(height: 8),
+              const Mindfulness(),
+            ],
+          )
+
         ),
       ),
     );
