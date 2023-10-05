@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class ChallengesCard extends StatelessWidget {
   const ChallengesCard({super.key});
@@ -8,7 +7,7 @@ class ChallengesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -23,11 +22,11 @@ class ChallengesCard extends StatelessWidget {
               textAlign: TextAlign.center,
             )),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('0/7'),
+                  const Text('0/7'),
                   Checkbox(
                     value: false,
                     onChanged: (bool? value) {},

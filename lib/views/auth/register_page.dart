@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/views/login/login_screen.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   static const String routeName = '/register';
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =

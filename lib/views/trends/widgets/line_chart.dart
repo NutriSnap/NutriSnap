@@ -53,22 +53,24 @@ class _FoodCategoryTrendsChartState extends State<FoodCategoryTrendsChart> {
       height: 300,
       child: LineChart(
         LineChartData(
-        gridData: FlGridData(show: false),
-            titlesData: FlTitlesData(
+            gridData: const FlGridData(show: false),
+            titlesData: const FlTitlesData(
               leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: true)),
-              rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: true)),
+              rightTitles:
+                  AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              bottomTitles:
+                  AxisTitles(sideTitles: SideTitles(showTitles: true)),
               topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
             ),
-        borderData: FlBorderData(show: false),
-        lineBarsData: [
-          LineChartBarData(
-              spots: chartData, isCurved: true, color: Colors.yellow),
-          LineChartBarData(
-              spots: chartData2, isCurved: true, color: Colors.green),
-          LineChartBarData(
-              spots: chartData3, isCurved: true, color: Colors.red),
-        ]),
+            borderData: FlBorderData(show: false),
+            lineBarsData: [
+              LineChartBarData(
+                  spots: chartData, isCurved: true, color: Colors.yellow),
+              LineChartBarData(
+                  spots: chartData2, isCurved: true, color: Colors.green),
+              LineChartBarData(
+                  spots: chartData3, isCurved: true, color: Colors.red),
+            ]),
       ),
     );
   }

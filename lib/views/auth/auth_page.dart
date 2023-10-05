@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/views/auth/home_screen.dart';
-import 'package:nutrisnap/views/auth/login_or_register_screen.dart';
+import 'package:nutrisnap/views/auth/toggle_signon_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 
-class AuthScreen extends StatelessWidget {
-  const AuthScreen({Key? key}) : super(key: key);
+class AuthPage extends StatelessWidget {
+  const AuthPage({Key? key}) : super(key: key);
 
-  static const String routeName = '/auth';
+  static const String routeName = '/authenticate';
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,9 @@ class AuthScreen extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const HomeScreen();
+              return const DashboardPage();
             } else {
-              return const LoginOrRegisterScreen();
+              return const LoginOrRegisterPage();
             }
           }),
     );
