@@ -80,7 +80,7 @@ class _SnapsPageState extends State<SnapsPage> {
                   iconSize: 72,
                   onPressed: () {
                     // Navigation action
-                    // Navigator.of(context).pushNamed(SnapsEditPage.routeName);
+                    //Navigator.of(context).pushNamed(SnapsEditPage.routeName);
                   },
                 ),
               ),
