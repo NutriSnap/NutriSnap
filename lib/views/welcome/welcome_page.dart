@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 /// along with a welcome message, their current streak,
 /// and a button to take a picture of their meal.
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
+  static const String routeName = '/welcome';
 
   @override
   Widget build(BuildContext context) {

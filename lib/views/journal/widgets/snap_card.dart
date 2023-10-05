@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
+// import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class SnapCard extends StatelessWidget {
   const SnapCard({super.key});

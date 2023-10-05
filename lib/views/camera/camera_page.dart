@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
+import 'package:nutrisnap/views/snaps/snaps_page.dart';
 
-class CameraScreen extends StatelessWidget {
-  const CameraScreen({Key? key}) : super(key: key);
+class CameraPage extends StatelessWidget {
+  const CameraPage({Key? key}) : super(key: key);
 
   static const String routeName = '/camera';
 
@@ -17,16 +17,17 @@ class CameraScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Camera',
               style: TextStyle(fontSize: 24),
             ),
             IconButton(
-              icon: Icon(Icons.camera_alt),
+              icon: const Icon(Icons.camera_alt),
               onPressed: () {
                 // Logic for the camera_icon
-                Navigator.of(context).pop();
-                Navigator.pushNamed(context, '/snaps');
+                Navigator.of(context).pushNamed(SnapsPage.routeName);
+                // Navigator.of(context).pop();
+                // Navigator.pushNamed(context, '/snaps');
               },
             ),
           ],

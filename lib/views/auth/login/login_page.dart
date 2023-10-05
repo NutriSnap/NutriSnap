@@ -3,21 +3,23 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/core/constants/pallete.dart';
 import 'package:nutrisnap/common/widgets/custom_text_field.dart';
-import 'package:nutrisnap/views/login/widgets/square_button.dart';
+import 'package:nutrisnap/views/auth/login/widgets/square_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   final Function()? onTap;
-  const LoginScreen({
+  const LoginPage({
     super.key,
     required this.onTap,
   });
 
+  static const String routeName = '/login';
+
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginPageState extends State<LoginPage> {
   //
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/camera/camera_page.dart';
 import 'widgets/food_processing_indicator.dart';
 import 'widgets/challenges.dart';
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
+
+  static const String routeName = '/dashboard';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/camera');
+          Navigator.of(context).pushNamed(CameraPage.routeName);
         },
         child: const Icon(Icons.camera_alt),
       ),
@@ -18,17 +21,15 @@ class DashboardScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
-          gradient: const LinearGradient(
-            // Begin and end points can be adjusted to control the gradient's direction
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.yellow,
-              // Colors.green, // Start color (top)
-              // Colors.yellow, // Middle color
-              Colors.white // End color (bottom)
-            ],
-          ),
+          // gradient: const LinearGradient(
+          //   // Begin and end points can be adjusted to control the gradient's direction
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          //   colors: [
+          //     Colors.yellow,
+          //     Colors.white // End color (bottom)
+          //   ],
+          // ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
