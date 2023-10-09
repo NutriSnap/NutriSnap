@@ -1,0 +1,13 @@
+
+class SnapFoodItem {
+  Snap({
+    required this.id,
+    required this.name,
+    required this.processedLevel,
+    required this.servings,
+  });
+  String id;
+  String name;
+  String processedLevel; // could be mealId or itemId depending on your schema
+  String servings;
+}
