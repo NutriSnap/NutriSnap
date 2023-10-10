@@ -1,5 +1,5 @@
 import 'user.dart';
-import 'challenge_template.dart';
+import 'challenge.dart';
 
 class ChallengeProgress {
   ChallengeProgress({
@@ -55,6 +55,10 @@ class ChallengeProgressDB {
 
   List<ChallengeProgress> getChallengeProgressesByUser(String userId) {
     return _challengeProgresses.where((challengeProgress) => challengeProgress.ownerId == userId).toList();
+  }
+
+  List<String> getChallengeProgressIdsByUser(String userId) {
+    return _challengeProgresses.where((challengeProgress) => challengeProgress.ownerId == userId).map((challengeProgress) => challengeProgress.id).toList();
   }
 }
 
