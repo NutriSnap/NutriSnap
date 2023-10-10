@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
-import 'package:nutrisnap/settings/settings_controller.dart';
-import 'package:nutrisnap/settings/settings_page.dart';
+import 'package:nutrisnap/views/settings/settings_controller.dart';
+import 'package:nutrisnap/views/settings/settings_page.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/challenges/challenges_page.dart';
