@@ -1,3 +1,5 @@
+import 'package:nutrisnap/data_models/user_challenge.dart';
+
 import 'meal.dart';
 
 class User {
@@ -55,6 +57,10 @@ class UserDB {
 
   List<String> getAssociatedMealIds(String userId) {
     return mealDB.getMealIdsByOwnerId(userId);
+  }
+
+  List<String> getAssociatedChallengeIds(String userId) {
+    return challengeProgressDB.getChallengeProgressIdsByUser(userId);
   }
 
 }
