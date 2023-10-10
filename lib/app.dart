@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
 import 'views/settings/settings_controller.dart';
 import 'package:nutrisnap/route/router.dart';
-// import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:nutrisnap/views/auth/toggle_signon_page.dart';
+import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nutrisnap/views/auth/toggle_signon_page.dart';
 
 class MyApp extends StatelessWidget {
   final SettingsController settingsController;
@@ -27,10 +27,6 @@ class MyApp extends StatelessWidget {
                     theme: ThemeData(),
                     darkTheme: ThemeData.dark(),
                     themeMode: settingsController.themeMode,
-                    // Determine initialRoute based on authentication status
-                    // initialRoute: FirebaseAuth.instance.currentUser != null
-                    //     ? DashboardPage.routeName
-                    //     : LoginOrRegisterPage.routeName,
                     onGenerateRoute: RouteGenerator.generateRoute,
                   );
                 });

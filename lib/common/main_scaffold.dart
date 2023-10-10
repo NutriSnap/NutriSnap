@@ -93,7 +93,20 @@ class MainScaffoldState extends State<MainScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NutriSnap'),
+        // title is the name of the page
+        title: _currentIndex == 0
+            ? const Text('Dashboard')
+            : _currentIndex == 1
+                ? const Text('Journal')
+                : _currentIndex == 2
+                    ? const Text('Trends')
+                    : _currentIndex == 3
+                        ? const Text('Challenges')
+                        : _currentIndex == 4
+                            ? const Text('Profile')
+                            : const Text('NutriSnap'),
+        // title: const Text('NutriSnap'),
+        backgroundColor: Colors.green,
         // Provide a button to open the drawer.
         leading: Builder(
           builder: (BuildContext context) {

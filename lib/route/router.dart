@@ -18,6 +18,10 @@ import 'package:nutrisnap/views/snaps/snaps_page.dart';
 import 'package:nutrisnap/views/snaps/edit_snap.dart';
 import 'package:nutrisnap/views/trends/trends_page.dart';
 import 'package:nutrisnap/views/camera/success_page.dart';
+import 'package:nutrisnap/views/settings/settings_page.dart';
+import 'package:nutrisnap/views/settings/settings_controller.dart';
+import 'package:nutrisnap/views/settings/settings_service.dart';
+import 'package:nutrisnap/views/auth/forgot_password_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -44,8 +48,14 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ProfilePage());
       case RegisterPage.routeName:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
+      case ForgotPasswordPage.routeName:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordPage());
       case SnapsPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsPage());
+      case SettingsPage.routeName:
+        return MaterialPageRoute(
+            builder: (_) => SettingsPage(
+                controller: SettingsController(SettingsService())));
       case SnapsEditPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsEditPage());
       case TrendsPage.routeName:

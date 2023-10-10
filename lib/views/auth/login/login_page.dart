@@ -120,7 +120,6 @@ class _LoginPageState extends State<LoginPage> {
                   'assets/images/layout/logo1.png',
                   width: 200,
                 ),
-                // Icon(Icons.lock_outlined, size: 100),
                 const SizedBox(height: 15),
                 CustomTextField(
                   hintText: 'Email',
@@ -210,7 +209,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(width: 5),
                     GestureDetector(
-                      onTap: widget.onTap,
+                      onTap: () {
+                        Navigator.pushNamed(context, '/register');
+                      },
                       child: const Text(
                         'Register now',
                         style: TextStyle(
