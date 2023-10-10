@@ -18,6 +18,7 @@ class FoodProcessingIndicator extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       width: double.infinity,
       height: 300, // Or specify the desired size
+      color: Theme.of(context).colorScheme.surface,
       child: Stack(
         alignment: Alignment.center,
         children: [

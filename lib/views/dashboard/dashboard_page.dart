@@ -19,17 +19,17 @@ class DashboardPage extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(8),
-          // gradient: const LinearGradient(
-          //   // Begin and end points can be adjusted to control the gradient's direction
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          //   colors: [
-          //     Colors.yellow,
-          //     Colors.white // End color (bottom)
-          //   ],
-          // ),
+          gradient: const LinearGradient(
+            // Begin and end points can be adjusted to control the gradient's direction
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.yellow,
+              Colors.white // End color (bottom)
+            ],
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -41,7 +41,7 @@ class DashboardPage extends StatelessWidget {
                 // Food Processing Indicator
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[100],
+                    color: Theme.of(context).colorScheme.surface,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -85,7 +85,7 @@ class DashboardPage extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.grey[100],
+                    color: Theme.of(context).colorScheme.surface,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: [
@@ -117,6 +117,7 @@ class DashboardPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Card(
+                    color: Theme.of(context).colorScheme.surface,
                     shape: const RoundedRectangleBorder(
                       side: BorderSide(
                         color: Colors.black,
