@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
 import 'views/settings/settings_controller.dart';
 import 'package:nutrisnap/route/router.dart';
-import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:nutrisnap/views/auth/toggle_signon_page.dart';
 
 class MyApp extends StatelessWidget {
   final SettingsController settingsController;
