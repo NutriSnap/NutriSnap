@@ -1,16 +1,24 @@
-// import 'package:google_sign_in/google_sign_in.dart';
-
+// main.dart
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:nutrisnap/app.dart';
-import 'package:nutrisnap/settings/settings_controller.dart';
-import 'package:nutrisnap/settings/settings_service.dart';
+
+final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
+  throw UnimplementedError();
+});
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final sharedPreferences = await SharedPreferences.getInstance();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp(SettingsController(SettingsService())));
+
+  runApp(ProviderScope(overrides: [
+    sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+  ], child: const MyApp()));
 }

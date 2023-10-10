@@ -1,9 +1,10 @@
 // route_generator.dart
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/settings/settings_page.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/auth/auth_page.dart';
-import 'package:nutrisnap/views/auth/toggle_signon_page.dart';
+import 'package:nutrisnap/views/auth/forgot_password_page.dart';
 import 'package:nutrisnap/views/auth/register_page.dart';
 import 'package:nutrisnap/views/camera/camera_page.dart';
 import 'package:nutrisnap/views/challenges/challenges_page.dart';
@@ -26,8 +27,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AboutPage());
       case DashboardPage.routeName:
         return MaterialPageRoute(builder: (_) => const DashboardPage());
-      case LoginOrRegisterPage.routeName:
-        return MaterialPageRoute(builder: (_) => const LoginOrRegisterPage());
       case CameraPage.routeName:
         return MaterialPageRoute(builder: (_) => const CameraPage());
       case ChallengesPage.routeName:
@@ -36,10 +35,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const CoachPage());
       case FriendsPage.routeName:
         return MaterialPageRoute(builder: (_) => const FriendsPage());
+      case ForgotPasswordPage.routeName:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordPage());
       case JournalPage.routeName:
         return MaterialPageRoute(builder: (_) => const JournalPage());
       case LoginPage.routeName:
-        return MaterialPageRoute(builder: (_) => const LoginPage(onTap: null));
+        return MaterialPageRoute(builder: (_) => const LoginPage());
       case ProfilePage.routeName:
         return MaterialPageRoute(builder: (_) => const ProfilePage());
       case RegisterPage.routeName:
@@ -54,6 +55,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AdminPage());
       case AuthPage.routeName:
         return MaterialPageRoute(builder: (_) => const AuthPage());
+      case SettingsPage.routeName:
+        return MaterialPageRoute(builder: (_) => const SettingsPage());
       case SuccessPage.routeName:
         return MaterialPageRoute(builder: (_) => const SuccessPage());
       default:

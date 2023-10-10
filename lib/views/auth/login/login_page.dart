@@ -7,10 +7,10 @@ import 'package:nutrisnap/views/auth/login/widgets/square_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
-  final Function()? onTap;
+  // final Function()? onTap;
   const LoginPage({
     super.key,
-    required this.onTap,
+    // required this.onTap,
   });
 
   static const String routeName = '/login';
@@ -210,7 +210,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(width: 5),
                     GestureDetector(
-                      onTap: widget.onTap,
+                      onTap: () {
+                        Navigator.pushNamed(context, '/register');
+                      },
                       child: const Text(
                         'Register now',
                         style: TextStyle(

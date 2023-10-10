@@ -86,7 +86,9 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
               child: const Text('Register'),
             ),
             const SizedBox(height: 16.0),

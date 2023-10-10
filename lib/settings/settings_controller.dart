@@ -1,23 +1,32 @@
-import 'package:flutter/material.dart';
-import 'package:nutrisnap/settings/settings_service.dart';
+// // settings_controller.dart
+// import 'package:flutter/material.dart';
+// import 'package:hooks_riverpod/hooks_riverpod.dart';
+// import 'settings_service.dart';
 
-class SettingsController with ChangeNotifier {
-  SettingsController(this._settingsService);
-  final SettingsService _settingsService;
-  late ThemeMode _themeMode;
+// final settingsProvider = Provider<SettingsController>((ref) {
+//   return SettingsController(SettingsService())..loadSettings();
+// });
 
-  ThemeMode get themeMode => _themeMode;
+// class SettingsController extends ChangeNotifier {
+//   final SettingsService _settingsService;
+//   late ThemeMode _themeMode;
+//   bool _isSettingsLoaded = false;
 
-  Future<void> loadSettings() async {
-    _themeMode = await _settingsService.themeMode();
-    notifyListeners();
-  }
+//   SettingsController(this._settingsService);
 
-  Future<void> updateThemeMode(ThemeMode? newThemeMode) async {
-    if (newThemeMode == null) return;
-    if (newThemeMode == _themeMode) return;
-    _themeMode = newThemeMode;
-    notifyListeners();
-    await _settingsService.updateThemeMode(newThemeMode);
-  }
-}
+//   ThemeMode get themeMode => _themeMode;
+//   bool get isSettingsLoaded => _isSettingsLoaded;
+
+//   Future<void> loadSettings() async {
+//     _themeMode = await _settingsService.themeMode();
+//     _isSettingsLoaded = true;
+//     notifyListeners();
+//   }
+
+//   Future<void> updateThemeMode(ThemeMode newThemeMode) async {
+//     if (newThemeMode == _themeMode) return;
+//     _themeMode = newThemeMode;
+//     notifyListeners();
+//     await _settingsService.updateThemeMode(newThemeMode);
+//   }
+// }

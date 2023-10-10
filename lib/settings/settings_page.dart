@@ -1,61 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:nutrisnap/settings/widgets/dark_mode_switch.dart';
+import 'package:nutrisnap/settings/widgets/goals.dart';
 import 'package:nutrisnap/settings/widgets/mindfulness.dart';
 import 'package:nutrisnap/settings/widgets/notifications.dart';
-import 'settings_controller.dart';
-import 'widgets/goals.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key, required this.controller});
+class SettingsPage extends HookConsumerWidget {
+  const SettingsPage({Key? key}) : super(key: key);
 
   static const routeName = '/settings';
 
-  final SettingsController controller;
-
   @override
-  SettingsPageState createState() => SettingsPageState();
-}
-
-class SettingsPageState extends State<SettingsPage> {
-  bool isDarkMode = false;
-
-  @override
-  void initState() {
-    super.initState();
-    isDarkMode = widget.controller.themeMode == ThemeMode.dark;
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SwitchListTile(
-                title: const Text('Use dark theme'),
-                value: isDarkMode,
-                onChanged: (bool useDarkTheme) async {
-                  await widget.controller.updateThemeMode(
-                      useDarkTheme ? ThemeMode.dark : ThemeMode.light);
-                  setState(() {
-                    isDarkMode = useDarkTheme;
-                  });
-                },
-              ),
-              const SizedBox(height: 8),
-              const Goals(),
-              const SizedBox(height: 8),
-              const Notifications(),
-              const SizedBox(height: 8),
-              const Mindfulness(),
-            ],
-          )
+              DarkModeSwitch(),
 
+              // Consumer(builder: (context, ref, child) {
+              //   final settingsController = ref.watch(settingsProvider);
+              //   bool isDarkMode =
+              //       settingsController.themeMode == ThemeMode.dark;
+              //   return SwitchListTile(
+              //     title: const Text('Use dark theme'),
+              //     value: isDarkMode,
+              //     onChanged: (bool useDarkTheme) {
+              //       settingsController.updateThemeMode(
+              //         useDarkTheme ? ThemeMode.dark : ThemeMode.light,
+              //       );
+              //     },
+              //   );
+              // }),
+              SizedBox(height: 8),
+              Goals(),
+              SizedBox(height: 8),
+              Notifications(),
+              SizedBox(height: 8),
+              Mindfulness(),
+            ],
+          ),
         ),
       ),
     );

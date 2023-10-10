@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
+import 'package:nutrisnap/common/widgets/drawer_view.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -7,6 +7,11 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PlaceholderWidget(Color(0xFF3F51B5), 'About');
+    return Scaffold(
+      drawer: const DrawerView(),
+      appBar: AppBar(
+        title: const Text('About'),
+      ),
+    );
   }
 }

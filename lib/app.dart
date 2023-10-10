@@ -1,59 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
-import 'settings/settings_controller.dart';
+import 'package:nutrisnap/common/themes.dart';
 import 'package:nutrisnap/route/router.dart';
-// import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:nutrisnap/views/auth/toggle_signon_page.dart';
+import 'package:nutrisnap/settings/theme_provider.dart';
 
-class MyApp extends StatelessWidget {
-  final SettingsController settingsController;
+// class MyApp extends HookConsumerWidget {
+//   const MyApp({Key? key}) : super(key: key);
 
-  const MyApp(this.settingsController, {Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final settingsController = ref.watch(settingsProvider);
+
+//     return FutureBuilder<void>(
+//       future: settingsController.loadSettings(),
+//       builder: (context, snapshot) {
+//         if (snapshot.connectionState == ConnectionState.done) {
+//           return MaterialApp(
+//             key: ValueKey(settingsController.themeMode),
+//             debugShowCheckedModeBanner: false,
+//             title: 'NutriSnap',
+//             home: MainScaffold(controller: settingsController),
+//             theme: ThemeData(),
+//             darkTheme: ThemeData.dark(),
+//             themeMode: settingsController.themeMode,
+//             onGenerateRoute: RouteGenerator.generateRoute,
+//             initialRoute: '/', // goes to auth page
+//           );
+//         } else if (snapshot.hasError) {
+//           return const MaterialApp(
+//             home: Scaffold(
+//               body: Center(
+//                 child: Text('Error loading settings'),
+//               ),
+//             ),
+//           );
+//         } else {
+//           // This is displayed while `loadSettings` Future is in progress.
+//           return const MaterialApp(
+//             home: Scaffold(
+//               body: Center(child: CircularProgressIndicator()),
+//             ),
+//           );
+//         }
+//       },
+//     );
+//   }
+// }
+
+class MyApp extends HookConsumerWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<void>(
-        future: settingsController.loadSettings(),
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return ListenableBuilder(
-                listenable: settingsController,
-                builder: (BuildContext context, Widget? child) {
-                  return MaterialApp(
-                    debugShowCheckedModeBanner: false,
-                    title: 'NutriSnap',
-                    home: MainScaffold(controller: settingsController),
-                    theme: ThemeData(),
-                    darkTheme: ThemeData.dark(),
-                    themeMode: settingsController.themeMode,
-                    // Determine initialRoute based on authentication status
-                    // initialRoute: FirebaseAuth.instance.currentUser != null
-                    //     ? DashboardPage.routeName
-                    //     : LoginOrRegisterPage.routeName,
-                    onGenerateRoute: RouteGenerator.generateRoute,
-                  );
-                });
-          } else if (snapshot.hasError) {
-            return const MaterialApp(
-              home: Scaffold(
-                body: Center(
-                  child: Text(
-                    'Error loading settings',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ),
-            );
-          } else {
-            return const MaterialApp(
-              home: Scaffold(
-                body: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
-            );
-          }
-        });
+  Widget build(BuildContext context, WidgetRef ref) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+    final appThemeState = ref.watch(appThemeStateNotifier);
+    // final settingsController = ref.watch(settingsProvider);
+
+    // if (!settingsController.isSettingsLoaded) {
+    //   return const MaterialApp(
+    //     home: Scaffold(
+    //       body: Center(child: CircularProgressIndicator()),
+    //     ),
+    //   );
+    // }
+
+    return MaterialApp(
+      // key: ValueKey(settingsController.themeMode),
+      debugShowCheckedModeBanner: false,
+      title: 'NutriSnap',
+      home: const MainScaffold(),
+      // theme: ThemeData(),
+      // darkTheme: ThemeData.dark(),
+      // themeMode: settingsController.themeMode,
+      theme: AppTheme.lightTheme(),
+      darkTheme: AppTheme.darkTheme(),
+      themeMode:
+          appThemeState.isDarkModeEnabled ? ThemeMode.dark : ThemeMode.light,
+      onGenerateRoute: RouteGenerator.generateRoute,
+      // on load, if the user is logged in, go directly to the dashboard
+      // otherwise, go to the auth page
+      initialRoute: '/', // goes to auth page
+    );
   }
 }
