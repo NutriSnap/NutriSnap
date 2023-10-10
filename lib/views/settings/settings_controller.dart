@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/settings/settings_service.dart';
+import 'package:nutrisnap/views/settings/settings_service.dart';
 
 class SettingsController with ChangeNotifier {
   SettingsController(this._settingsService);

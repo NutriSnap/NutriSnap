@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Goals extends StatelessWidget {
-
   const Goals({super.key});
 
   @override
@@ -10,26 +9,24 @@ class Goals extends StatelessWidget {
       padding:
           const EdgeInsets.all(10), // Add some padding inside the container
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(8),
       ),
       child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.center, // Align content to the start
+        crossAxisAlignment:
+            CrossAxisAlignment.center, // Align content to the start
         children: [
           Text('Goals',
-              style: TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           SizedBox(height: 8),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('My Goal: ',
-                  style: TextStyle(fontSize: 16)),
+              Text('My Goal: ', style: TextStyle(fontSize: 16)),
               Expanded(
                 child: Text('Increase Unprocessed Food',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(fontSize: 16)),
+                    textAlign: TextAlign.right, style: TextStyle(fontSize: 16)),
               )
             ],
           ),
@@ -38,12 +35,10 @@ class Goals extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text('Target Percentage: ',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 16)),
+                  textAlign: TextAlign.left, style: TextStyle(fontSize: 16)),
               Expanded(
                 child: Text('Beginner (30)',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(fontSize: 16)),
+                    textAlign: TextAlign.right, style: TextStyle(fontSize: 16)),
               )
             ],
           ),
