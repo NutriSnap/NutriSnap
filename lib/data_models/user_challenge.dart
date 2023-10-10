@@ -1,6 +1,3 @@
-import 'user.dart';
-import 'challenge.dart';
-
 class ChallengeProgress {
   ChallengeProgress({
     required this.id,
@@ -50,15 +47,21 @@ class ChallengeProgressDB {
   }
 
   ChallengeProgress getChallengeProgress(String challengeProgressId) {
-    return _challengeProgresses.firstWhere((challengeProgress) => challengeProgress.id == challengeProgressId);
+    return _challengeProgresses.firstWhere(
+        (challengeProgress) => challengeProgress.id == challengeProgressId);
   }
 
   List<ChallengeProgress> getChallengeProgressesByUser(String userId) {
-    return _challengeProgresses.where((challengeProgress) => challengeProgress.ownerId == userId).toList();
+    return _challengeProgresses
+        .where((challengeProgress) => challengeProgress.ownerId == userId)
+        .toList();
   }
 
   List<String> getChallengeProgressIdsByUser(String userId) {
-    return _challengeProgresses.where((challengeProgress) => challengeProgress.ownerId == userId).map((challengeProgress) => challengeProgress.id).toList();
+    return _challengeProgresses
+        .where((challengeProgress) => challengeProgress.ownerId == userId)
+        .map((challengeProgress) => challengeProgress.id)
+        .toList();
   }
 }
 

@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
                   return MaterialApp(
                     debugShowCheckedModeBanner: false,
                     title: 'NutriSnap',
-                    home: MainScaffold(controller: settingsController),
+                    home: MainScaffold(
+                        controller:
+                            settingsController), // <== Replace with Login Stuff
                     theme: ThemeData(),
                     darkTheme: ThemeData.dark(),
                     themeMode: settingsController.themeMode,
