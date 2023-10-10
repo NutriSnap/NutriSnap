@@ -1,5 +1,3 @@
-import 'snap.dart';
-
 class Image {
   Image({
     required this.id,
@@ -54,7 +52,6 @@ class ImageDB {
   List<String> getImageIds() {
     return _images.map((image) => image.id).toList();
   }
-
 }
 
 ImageDB imageDB = ImageDB();
