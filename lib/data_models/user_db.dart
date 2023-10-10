@@ -3,8 +3,8 @@ import 'package:nutrisnap/data_models/user_badge.dart';
 
 import 'meal.dart';
 
-class User {
-  User({
+class UserData {
+  UserData({
     required this.id,
     required this.name,
     required this.username,
@@ -21,8 +21,8 @@ class User {
 }
 
 class UserDB {
-  final List<User> _users = [
-    User(
+  final List<UserData> _users = [
+    UserData(
       id: 'user-001',
       name: 'Jenna Deane',
       username: '@fluke',
@@ -30,7 +30,7 @@ class UserDB {
       imagePath: 'assets/images/user-001.jpg',
       initials: 'JD',
     ),
-    User(
+    UserData(
       id: 'user-002',
       name: 'Jenna Smith',
       username: '@fluke',
@@ -38,7 +38,7 @@ class UserDB {
       imagePath: 'assets/images/user-002.jpg',
       initials: 'JS',
     ),
-    User(
+    UserData(
       id: 'user-003',
       name: 'Katie Yamasaki',
       username: '@katie',
@@ -48,7 +48,7 @@ class UserDB {
     )
   ];
 
-  User getUser(String userID) {
+  UserData getUser(String userID) {
     return _users.firstWhere((user) => user.id == userID);
   }
 
@@ -67,7 +67,6 @@ class UserDB {
   List<String> getAssociatedUserBadgeIds(String userId) {
     return userBadgeDB.getUserBadgeIdsByUser(userId);
   }
-
 }
 
 /// The singleton instance providing access to all user data for clients.

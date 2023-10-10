@@ -100,7 +100,7 @@ class SnapDB {
     return imageDB.getImage(data.imageId);
   }
 
-  User getAssociatedUser(String snapId) {
+  UserData getAssociatedUser(String snapId) {
     Snap data = snapDB.getSnap(snapId);
     return userDB.getUser(data.ownerId);
   }
