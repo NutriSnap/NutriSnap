@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'image_model.dart';
 import 'user.dart';
+import 'snap_food_item.dart';
 
 class Snap {
   Snap({
@@ -110,15 +111,23 @@ class SnapDB {
     return userDB.getUser(data.ownerId);
   }
 
-  List<SnapFoodItem> getAssociatedSnapFoodItems(List<String> foodsList) {
-    List<SnapFoodItem> snapFoodItems = [];
+  List<String> getAssociatedSnapFoodItemIds(List<String> foodsList) {
+    List<String> snapFoodItemIds = [];
     for (String foodId in foodsList) {
-      snapFoodItems.add(snapFoodItemDB.getSnapFoodItem(foodId));
+      snapFoodItemIds.add(snapFoodItemDB.getSnapFoodItemId(foodId));
     }
-    return snapFoodItems;
+    return snapFoodItemIds;
   }
+
+  List<String> getSnapIdsByMealId(String mealId) {
+    return _snaps
+        .where((snap) => snap.mealId == mealId) // Filters the snaps based on mealId
+        .map((snap) => snap.id)
+        .toList();
+  }
+
 
 }
 
-/// The singleton instance of a snapDB used by clients to access garden data.
+/// The singleton instance of a snapDB used by clients to access snap data.
 SnapDB snapDB = SnapDB();

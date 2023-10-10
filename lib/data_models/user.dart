@@ -1,3 +1,5 @@
+import 'meal.dart';
+
 class User {
   User({
     required this.id,
@@ -49,6 +51,10 @@ class UserDB {
 
   List<String> getUserIDs() {
     return _users.map((user) => user.id).toList();
+  }
+
+  List<String> getAssociatedMealIds(String userId) {
+    return mealDB.getMealIdsByOwnerId(userId);
   }
 
 }
