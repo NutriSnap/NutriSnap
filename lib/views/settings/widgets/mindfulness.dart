@@ -9,7 +9,7 @@ class Mindfulness extends StatelessWidget {
       padding:
           const EdgeInsets.all(10), // Add some padding inside the container
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+        color: Theme.of(context).colorScheme.surface,
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(8),
       ),
