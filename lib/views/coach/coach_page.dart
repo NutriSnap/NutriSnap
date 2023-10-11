@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
+import 'package:nutrisnap/common/widgets/custom_drawer.dart';
 
 class CoachPage extends StatelessWidget {
   const CoachPage({Key? key}) : super(key: key);
@@ -7,6 +7,14 @@ class CoachPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PlaceholderWidget(Color(0xFF3F51B5), 'Coach');
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Coach'),
+      ),
+      // body: const PlaceholderWidget(Colors.green),
+      body: const Center(child: Text('Coach Page')),
+      drawer: const CustomDrawer(),
+      // bottomNavigationBar: const CustomNavigationBar(),
+    );
   }
 }

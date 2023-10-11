@@ -1,33 +1,31 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/data_models/user_db.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/coach/coach_page.dart';
 import 'package:nutrisnap/views/friends/friends_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
-import 'package:nutrisnap/data_models/user_db.dart';
 
 class CustomDrawer extends StatelessWidget {
-  CustomDrawer({Key? key}) : super(key: key);
+  const CustomDrawer({
+    Key? key,
+  }) : super(key: key);
 
-  // FirebaseAuth auth = FirebaseAuth.instance;
-  // User? user = FirebaseAuth.instance.currentUser;
+  // final FirebaseAuth auth = FirebaseAuth.instance;
+  // final User? firebaseUser = FirebaseAuth.instance.currentUser;
 
-  String currentUserId = 'user-003';
-
-  void _signOut(BuildContext context) async {
-    try {
-      // Your sign-out logic here. For example, if you're using Firebase:
-      await FirebaseAuth.instance.signOut();
-      // Navigate the user to the login page after logging out.
-      Navigator.of(context).pushReplacementNamed('/login');
-    } catch (error) {
-      // Handle logout error, like showing a snackbar with the error message.
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error signing out: $error')),
-      );
-    }
-  }
+  // void _signOut(BuildContext context) async {
+  //   final navigator = Navigator.of(context);
+  //   final scaffold = ScaffoldMessenger.of(context);
+  //   try {
+  //     await FirebaseAuth.instance.signOut();
+  //     navigator.pushReplacementNamed('/');
+  //   } catch (error) {
+  //     scaffold.showSnackBar(
+  //       SnackBar(content: Text('Error signing out: $error')),
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +49,18 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.info_outline),
             title: const Text('About'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, AboutPage.routeName);
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const AboutPage(),
+              ));
+              // Navigator.pop(context);
+              // Navigator.pushReplacementNamed(context, AboutPage.routeName);
             },
           ),
           ListTile(
             leading: const Icon(Icons.admin_panel_settings_outlined),
             title: const Text('Admin'),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushReplacementNamed(context, AdminPage.routeName);
             },
           ),
@@ -65,6 +68,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.group_outlined),
             title: const Text('Friends'),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushReplacementNamed(context, FriendsPage.routeName);
             },
           ),
@@ -79,14 +83,15 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.chat_outlined),
             title: const Text('Coach'),
             onTap: () {
+              Navigator.pop(context);
               Navigator.pushReplacementNamed(context, CoachPage.routeName);
             },
           ),
           const Divider(),
-          ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text('Sign Out'),
-            onTap: () => _signOut(context),
+          const ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Sign Out'),
+            // onTap: () => {_signOut(context)},
           )
         ],
       ),

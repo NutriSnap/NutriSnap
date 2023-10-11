@@ -1,5 +1,5 @@
 import 'image_model.dart';
-import 'user.dart';
+import 'user_db.dart';
 import 'snap_food_item.dart';
 
 class Snap {

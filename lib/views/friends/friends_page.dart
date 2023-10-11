@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
+import 'package:nutrisnap/common/widgets/custom_drawer.dart';
 
 class FriendsPage extends StatelessWidget {
   const FriendsPage({Key? key}) : super(key: key);
@@ -7,6 +7,11 @@ class FriendsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PlaceholderWidget(Color(0xFF3F51B5), 'Friends');
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Friends'),
+      ),
+      drawer: const CustomDrawer(),
+    );
   }
 }

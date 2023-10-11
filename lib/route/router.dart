@@ -1,5 +1,7 @@
 // route_generator.dart
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/Signin/signin_page.dart';
+import 'package:nutrisnap/views/Signup/signup_page.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/auth/auth_page.dart';
@@ -10,8 +12,8 @@ import 'package:nutrisnap/views/challenges/challenges_page.dart';
 import 'package:nutrisnap/views/coach/coach_page.dart';
 import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 import 'package:nutrisnap/views/friends/friends_page.dart';
+import 'package:nutrisnap/views/home/home_page.dart';
 import 'package:nutrisnap/views/journal/journal_page.dart';
-import 'package:nutrisnap/views/auth/login/login_page.dart';
 import 'package:nutrisnap/views/not_found_page.dart';
 import 'package:nutrisnap/views/profile/profile_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
@@ -26,6 +28,10 @@ import 'package:nutrisnap/views/auth/forgot_password_page.dart';
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case SigninPage.routeName:
+        return MaterialPageRoute(builder: (_) => const SigninPage());
+      case SignupPage.routeName:
+        return MaterialPageRoute(builder: (_) => const SignupPage());
       case AboutPage.routeName:
         return MaterialPageRoute(builder: (_) => const AboutPage());
       case DashboardPage.routeName:
@@ -42,8 +48,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const FriendsPage());
       case JournalPage.routeName:
         return MaterialPageRoute(builder: (_) => const JournalPage());
-      case LoginPage.routeName:
-        return MaterialPageRoute(builder: (_) => const LoginPage(onTap: null));
+      case HomePage.routeName:
+        return MaterialPageRoute(builder: (_) => const HomePage());
       case ProfilePage.routeName:
         return MaterialPageRoute(builder: (_) => const ProfilePage());
       case RegisterPage.routeName:
@@ -52,10 +58,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ForgotPasswordPage());
       case SnapsPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsPage());
-      case SettingsPage.routeName:
-        return MaterialPageRoute(
-            builder: (_) => SettingsPage(
-                controller: SettingsController(SettingsService())));
       case SnapsEditPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsEditPage());
       case TrendsPage.routeName:
@@ -66,6 +68,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AuthPage());
       case SuccessPage.routeName:
         return MaterialPageRoute(builder: (_) => const SuccessPage());
+      case SettingsPage.routeName:
+        return MaterialPageRoute(
+            builder: (_) => SettingsPage(
+                controller: SettingsController(SettingsService())));
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
