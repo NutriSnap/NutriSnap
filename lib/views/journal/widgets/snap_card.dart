@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';
+import 'package:nutrisnap/data_models/snap.dart';
+import 'package:nutrisnap/data_models/snap_food_item.dart';
+import 'package:nutrisnap/data_models/user.dart';
+import 'food_list.dart';
 
 class SnapCard extends StatelessWidget {
   const SnapCard({super.key});
@@ -17,19 +22,23 @@ class SnapCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Title',
+                  DateFormat.yMMMd().format(snapDB.getSnap('2').date).toString(),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 8.0),
-                const Text('Food 1'),
-                const Text('Food 2'),
-                const Text('Food 3'),
+                ConstrainedBox(
+                  constraints: const BoxConstraints.tightFor(width: 100.0),
+
+                  child:
+                    FoodList(),
+                )
               ],
             ),
           ),
-          const AspectRatio(
+          AspectRatio(
             aspectRatio: 1.0 / 1.0,
-            child: Placeholder(),
+            child: Image.asset((snapDB.getSnap('2').imageUrl),
+            ),
           ),
         ],
       ),
