@@ -5,10 +5,16 @@ import 'package:nutrisnap/data_models/snap.dart';
 import 'food_list.dart';
 
 class SnapCard extends StatelessWidget {
-  const SnapCard({Key? key}) : super(key: key);
+  const SnapCard({Key? key, required this.snapId}) : super(key: key);
+
+  final String snapId;
 
   @override
   Widget build(BuildContext context) {
+    Snap snap = snapDB.getSnap(snapId);
+    String imageUrl = snap.imageUrl;
+    Image image = Image.asset(imageUrl, fit:BoxFit.cover);
+    String date = DateFormat.yMMMd().format(snap.date).toString();
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(
@@ -23,15 +29,13 @@ class SnapCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  DateFormat.yMMMd()
-                      .format(snapDB.getSnap('2').date)
-                      .toString(),
+                  date
                 ),
                 SizedBox(
                   height: 125,
                   width: 125,
                   child:
-                      FoodList(), // This is a list that scrolls vertically and displays the food items
+                      FoodList(snapId: snapId,), // This is a list that scrolls vertically and displays the food items
                 )
               ],
             ),
@@ -39,8 +43,7 @@ class SnapCard extends StatelessWidget {
             SizedBox(
               width: 150,
               height: 150,
-              child: Image.asset(snapDB.getSnap('2').imageUrl,
-                  fit: BoxFit.cover), // This is the image, 150x150
+              child: image, // This is the image, 150x150
             ),
           ],
         ),
