@@ -21,7 +21,6 @@ class DashboardPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(8),
           gradient: const LinearGradient(
             // Begin and end points can be adjusted to control the gradient's direction
             begin: Alignment.topCenter,

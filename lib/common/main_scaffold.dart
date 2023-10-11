@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
+import 'package:nutrisnap/data_models/user_db.dart';
 import 'package:nutrisnap/views/settings/settings_controller.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
@@ -53,16 +54,18 @@ class MainScaffoldState extends State<MainScaffold> {
   Widget _getDrawerPage(int index) {
     switch (index) {
       case 0:
-        return const AboutPage();
+        return const DashboardPage();
       case 1:
-        return const AdminPage();
+        return const AboutPage();
       case 2:
-        return const CameraPage();
+        return const AdminPage();
       case 3:
-        return const FriendsPage();
+        return const CameraPage();
       case 4:
-        return const SnapsPage();
+        return const FriendsPage();
       case 5:
+        return const SnapsPage();
+      case 6:
         return const CoachPage();
       default:
         return const PlaceholderWidget(Color(0xFFF44336), 'Not Found');
@@ -91,11 +94,24 @@ class MainScaffoldState extends State<MainScaffold> {
 
   @override
   Widget build(BuildContext context) {
+    // User user = FirebaseAuth.instance.currentUser!;
+
+    UserData currentUser = userDB.getUser(currentUserId);
+
+    // UserData user = UserData(
+    //   id: 'user-001',
+    //   name: 'Jenna Deane',
+    //   username: '@fluke',
+    //   email: 'jennacorindeane@gmail.com',
+    //   imagePath: 'assets/images/user-001.jpg',
+    //   initials: 'JD',
+    // );
+
     return Scaffold(
       appBar: AppBar(
         // title is the name of the page
         title: _currentIndex == 0
-            ? const Text('Dashboard')
+            ? const Text('NutriSnap')
             : _currentIndex == 1
                 ? const Text('Journal')
                 : _currentIndex == 2
@@ -134,36 +150,67 @@ class MainScaffoldState extends State<MainScaffold> {
       drawer: Drawer(
         child: ListView(
           children: [
-            const DrawerHeader(child: Text('Navigation Drawer')),
+            UserAccountsDrawerHeader(
+              accountName: Text(currentUser.name),
+              accountEmail: Text(currentUser.email),
+              currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://robohash.org/${currentUser.initials}.png')),
+              // UserAvatar(userID: user.id),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home_outlined),
+              title: const Text('Home'),
+              onTap: () => _onDrawerItemTapped(0),
+              // {
+              //   Navigator.of(context).pop();
+              //   Navigator.of(context).pushReplacement(
+              //     MaterialPageRoute(
+              //         builder: (context) => const DashboardPage()),
+              //   );
+              // },
+            ),
             ListTile(
               title: const Text('About'),
-              onTap: () => _onDrawerItemTapped(0),
+              leading: const Icon(Icons.info_outline),
+              onTap: () => _onDrawerItemTapped(1),
             ),
             ListTile(
               title: const Text('Admin'),
               leading: const Icon(Icons.admin_panel_settings_outlined),
-              onTap: () => _onDrawerItemTapped(1),
+              onTap: () => _onDrawerItemTapped(2),
             ),
             ListTile(
-              title: const Text('Friends'),
+              title: const Text('Camera'),
               leading: const Icon(Icons.group_outlined),
               onTap: () => _onDrawerItemTapped(3),
             ),
             ListTile(
+              title: const Text('Friends'),
+              leading: const Icon(Icons.group_outlined),
+              onTap: () => _onDrawerItemTapped(4),
+            ),
+            ListTile(
               title: const Text('MySnaps'),
               leading: const Icon(Icons.camera_alt_outlined),
-              onTap: () => _onDrawerItemTapped(4),
+              onTap: () => _onDrawerItemTapped(5),
             ),
             ListTile(
               title: const Text('Coach'),
               leading: const Icon(Icons.chat_outlined),
-              onTap: () => _onDrawerItemTapped(5),
-            ),
-            ListTile(
-              title: const Text('Extra'),
               onTap: () => _onDrawerItemTapped(6),
             ),
-            const Divider(),
+            // ListTile(
+            //   title: const Text('Extra'),
+            //   onTap: () => _onDrawerItemTapped(7),
+            // ),
+            const Divider(
+              color: Colors.black,
+              height: 0.2,
+            ), // A thick divider to visually separate the above items from the sign-out button
             ListTile(
               title: const Text('Sign Out'),
               onTap: _signOut,

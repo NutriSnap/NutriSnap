@@ -18,9 +18,9 @@ class SuccessPage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/snaps');
+                Navigator.pushReplacementNamed(context, '/snaps');
               },
-              child: const Text('Return'),
+              child: const Text('Continue to Snaps'),
             )
           ],
         ),
