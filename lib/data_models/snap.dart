@@ -68,8 +68,8 @@ class SnapDB {
         ownerId: 'user-003',
         mealId: '4',
         title: 'Snap 4',
-        description: 'assets/images/food/carbonara.jpg',
-        imageUrl: '4',
+        description: 'Snap 4 description',
+        imageUrl: 'assets/images/food/carbonara.jpg',
         date: DateTime.parse('2023-07-21 17:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
@@ -93,6 +93,10 @@ class SnapDB {
 
   List<String> getSnapIds() {
     return _snaps.map((snap) => snap.id).toList();
+  }
+
+  List<Snap> getSnaps() {
+    return _snaps.toList();
   }
 
   Image getAssociatedImage(String snapId) {
