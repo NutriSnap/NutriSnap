@@ -5,10 +5,11 @@ import '../../../data_models/snap_food_item.dart';
 class FoodList extends StatelessWidget {
   final List<String> foodItems;
   final int foodsCount;
+  final String snapId;
 
-  FoodList({Key? key})
-      : foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId('2'),
-        foodsCount = snapDB.getAssociatedSnapFoodItems('2').length,
+  FoodList({Key? key, required this.snapId})
+      : foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId),
+        foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length,
         super(key: key);
 
   @override
