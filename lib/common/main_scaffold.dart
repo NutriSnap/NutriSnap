@@ -73,22 +73,18 @@ class MainScaffoldState extends State<MainScaffold> {
   }
 
   void _signOut() async {
+    final ctx = Navigator.of(context);
+    final scaffold = ScaffoldMessenger.of(context);
     try {
       // Your sign-out logic here. For example, if you're using Firebase:
       await FirebaseAuth.instance.signOut();
-
-      if (mounted)
-      // Optionally, navigate the user to the login page after logging out.
-      {
-        Navigator.of(context).pushReplacementNamed('/login');
-      }
+      ctx.pushReplacementNamed('/login');
     } catch (error) {
       // Handle logout error, like showing a snackbar with the error message.
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error signing out: $error')),
-        );
-      }
+
+      scaffold.showSnackBar(
+        SnackBar(content: Text('Error signing out: $error')),
+      );
     }
   }
 
@@ -97,15 +93,6 @@ class MainScaffoldState extends State<MainScaffold> {
     // User user = FirebaseAuth.instance.currentUser!;
 
     UserData currentUser = userDB.getUser(currentUserId);
-
-    // UserData user = UserData(
-    //   id: 'user-001',
-    //   name: 'Jenna Deane',
-    //   username: '@fluke',
-    //   email: 'jennacorindeane@gmail.com',
-    //   imagePath: 'assets/images/user-001.jpg',
-    //   initials: 'JD',
-    // );
 
     return Scaffold(
       appBar: AppBar(
@@ -165,13 +152,6 @@ class MainScaffoldState extends State<MainScaffold> {
               leading: const Icon(Icons.home_outlined),
               title: const Text('Home'),
               onTap: () => _onDrawerItemTapped(0),
-              // {
-              //   Navigator.of(context).pop();
-              //   Navigator.of(context).pushReplacement(
-              //     MaterialPageRoute(
-              //         builder: (context) => const DashboardPage()),
-              //   );
-              // },
             ),
             ListTile(
               title: const Text('About'),
