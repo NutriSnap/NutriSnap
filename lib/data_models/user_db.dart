@@ -1,5 +1,5 @@
 import 'package:nutrisnap/data_models/user_challenge.dart';
-
+import 'package:nutrisnap/data_models/user_badge.dart';
 import 'meal.dart';
 
 class UserData {
@@ -61,6 +61,10 @@ class UserDB {
 
   List<String> getAssociatedChallengeIds(String userId) {
     return challengeProgressDB.getChallengeProgressIdsByUser(userId);
+  }
+
+  List<String> getAssociatedUserBadgeIds(String userId) {
+    return userBadgeDB.getUserBadgeIdsByUser(userId);
   }
 }
 
