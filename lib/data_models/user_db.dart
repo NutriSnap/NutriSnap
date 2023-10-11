@@ -1,6 +1,5 @@
 import 'package:nutrisnap/data_models/user_challenge.dart';
 import 'package:nutrisnap/data_models/user_badge.dart';
-
 import 'meal.dart';
 
 class UserData {
@@ -48,8 +47,8 @@ class UserDB {
     )
   ];
 
-  UserData getUser(String userID) {
-    return _users.firstWhere((user) => user.id == userID);
+  UserData getUser(String userId) {
+    return _users.firstWhere((user) => user.id == userId);
   }
 
   List<String> getUserIDs() {
@@ -73,4 +72,4 @@ class UserDB {
 UserDB userDB = UserDB();
 
 /// The currently logged in user.
-String currentUserID = 'user-003';
+String currentUserId = 'user-003';

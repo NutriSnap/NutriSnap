@@ -9,10 +9,10 @@ class CameraPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Camera'),
-        backgroundColor: Colors.green,
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Camera'),
+      //   backgroundColor: Colors.green,
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

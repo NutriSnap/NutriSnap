@@ -1,5 +1,5 @@
 import 'image_model.dart';
-import 'user.dart';
+import 'user_db.dart';
 import 'snap_food_item.dart';
 
 class Snap {
@@ -9,7 +9,7 @@ class Snap {
       required this.mealId,
       required this.title,
       required this.description,
-      required this.imageId,
+      required this.imageUrl,
       required this.date,
       //required this.lat,
       //required this.long,
@@ -21,7 +21,7 @@ class Snap {
   String mealId;
   String title;
   String description;
-  String imageId;
+  String imageUrl;
   DateTime date;
   //Double lat;
   //Double long;
@@ -36,55 +36,55 @@ class SnapDB {
         mealId: '1',
         title: 'Snap 1',
         description: 'Snap 1 description',
-        imageId: '1',
-        date: DateTime.now(),
+        imageUrl: 'assets/images/food/coffee.jpg',
+        date: DateTime.parse('2023-07-23 20:22:04Z'),
         //lat: 0.0,
         //long: 0.0,
-        foodsList: ['1', '2', '3']),
+        foodsList: ['1']),
     Snap(
         id: '2',
-        ownerId: '2',
+        ownerId: 'user-003',
         mealId: '2',
         title: 'Snap 2',
         description: 'Snap 2 description',
-        imageId: '2',
-        date: DateTime.now(),
+        imageUrl: 'assets/images/food/rice-chicken.jpg',
+        date: DateTime.parse('2023-07-22 14:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
-        foodsList: ['4', '5', '6']),
+        foodsList: ['2', '3', '4', '5']),
     Snap(
         id: '3',
-        ownerId: '3',
+        ownerId: 'user-003',
         mealId: '3',
         title: 'Snap 3',
         description: 'Snap 3 description',
-        imageId: '3',
-        date: DateTime.now(),
+        imageUrl: 'assets/images/food/pizza.jpg',
+        date: DateTime.parse('2023-07-19 08:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
-        foodsList: ['1', '3', '5']),
+        foodsList: ['6']),
     Snap(
         id: '4',
-        ownerId: '4',
+        ownerId: 'user-003',
         mealId: '4',
         title: 'Snap 4',
-        description: 'Snap 4 description',
-        imageId: '4',
-        date: DateTime.now(),
+        description: 'assets/images/food/carbonara.jpg',
+        imageUrl: '4',
+        date: DateTime.parse('2023-07-21 17:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
-        foodsList: ['2', '3', '6']),
+        foodsList: ['8', '9']),
     Snap(
         id: '5',
-        ownerId: '5',
+        ownerId: 'user-003',
         mealId: '5',
         title: 'Snap 5',
         description: 'Snap 5 description',
-        imageId: '5',
-        date: DateTime.now(),
+        imageUrl: 'assets/images/food/spinach.jpg',
+        date: DateTime.parse('2023-07-20 20:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
-        foodsList: ['4', '1', '5']),
+        foodsList: ['7']),
   ];
 
   Snap getSnap(String snapId) {
@@ -97,7 +97,7 @@ class SnapDB {
 
   Image getAssociatedImage(String snapId) {
     Snap data = snapDB.getSnap(snapId);
-    return imageDB.getImage(data.imageId);
+    return imageDB.getImage(data.imageUrl);
   }
 
   UserData getAssociatedUser(String snapId) {
@@ -111,6 +111,10 @@ class SnapDB {
       snapFoodItemIds.add(snapFoodItemDB.getSnapFoodItemId(foodId));
     }
     return snapFoodItemIds;
+  }
+
+  List<SnapFoodItem> getAssociatedSnapFoodItems(String snapId) {
+    return snapFoodItemDB.getSnapFoodItemsBySnapId(snapId);
   }
 
   List<String> getSnapIdsByMealId(String mealId) {

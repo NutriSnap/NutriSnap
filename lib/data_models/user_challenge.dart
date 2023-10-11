@@ -1,3 +1,4 @@
+
 class ChallengeProgress {
   ChallengeProgress({
     required this.id,
