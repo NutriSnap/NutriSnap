@@ -5,41 +5,49 @@ import 'package:nutrisnap/data_models/snap.dart';
 import 'food_list.dart';
 
 class SnapCard extends StatelessWidget {
-  const SnapCard({super.key});
+  const SnapCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-            child: Column(
+      child: Padding(
+        padding: const EdgeInsets.all(
+            24.0), // Padding around the card to space it evenly
+        child: Row(
+          mainAxisAlignment:
+              MainAxisAlignment.spaceBetween, // Two columns 1. Text 2. Image
+          crossAxisAlignment:
+              CrossAxisAlignment.start, // Aligns the text to the top
+          children: <Widget>[
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  DateFormat.yMMMd().format(snapDB.getSnap('2').date).toString(),
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  DateFormat.yMMMd()
+                      .format(snapDB.getSnap('2').date)
+                      .toString(),
                 ),
-                const SizedBox(height: 8.0),
-                ConstrainedBox(
-                  constraints: const BoxConstraints.tightFor(width: 100.0),
-
+                SizedBox(
+                  height: 125,
+                  width: 125,
                   child:
-                    FoodList(),
+                      FoodList(), // This is a list that scrolls vertically and displays the food items
                 )
               ],
             ),
-          ),
-          AspectRatio(
-            aspectRatio: 1.0 / 1.0,
-            child: Image.asset((snapDB.getSnap('2').imageUrl),
+            // ),
+            SizedBox(
+              width: 150,
+              height: 150,
+              child: Image.asset(snapDB.getSnap('2').imageUrl,
+                  fit: BoxFit.cover), // This is the image, 150x150
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
+
+
+            // child: Image.asset(snapDB.getSnap('2').imageUrl, fit: BoxFit.cover),
