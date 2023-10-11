@@ -24,6 +24,8 @@ dependencies:
   http: ^1.1.0
   sign_in_with_apple: ^5.0.0
   intl: ^0.18.1
+  url_launcher: ^6.1.14
+  font_awesome_flutter: ^10.5.0
 
 dev_dependencies:
   flutter_test:
