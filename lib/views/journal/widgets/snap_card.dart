@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';
 import 'package:nutrisnap/data_models/snap.dart';
-import 'package:nutrisnap/data_models/snap_food_item.dart';
-import 'package:nutrisnap/data_models/user.dart';
 import 'food_list.dart';
 
 class SnapCard extends StatelessWidget {

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-import 'package:intl/intl.dart';
 
 import 'image_model.dart';
 import 'user.dart';

@@ -1,5 +1,3 @@
-import 'user.dart';
-import 'challenge.dart';
 
 class ChallengeProgress {
   ChallengeProgress({
