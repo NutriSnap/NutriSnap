@@ -8,22 +8,24 @@ import 'package:nutrisnap/views/snaps/snaps_page.dart';
 import 'package:nutrisnap/data_models/user_db.dart';
 
 class CustomDrawer extends StatelessWidget {
-  CustomDrawer({Key? key}) : super(key: key);
+  const CustomDrawer({Key? key}) : super(key: key);
 
   // FirebaseAuth auth = FirebaseAuth.instance;
   // User? user = FirebaseAuth.instance.currentUser;
 
-  String currentUserId = 'user-003';
+  final String currentUserId = 'user-003';
 
   void _signOut(BuildContext context) async {
+    final ctx = Navigator.of(context);
+    final scaffold = ScaffoldMessenger.of(context);
     try {
       // Your sign-out logic here. For example, if you're using Firebase:
       await FirebaseAuth.instance.signOut();
       // Navigate the user to the login page after logging out.
-      Navigator.of(context).pushReplacementNamed('/login');
+      ctx.pushReplacementNamed('/login');
     } catch (error) {
       // Handle logout error, like showing a snackbar with the error message.
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffold.showSnackBar(
         SnackBar(content: Text('Error signing out: $error')),
       );
     }
