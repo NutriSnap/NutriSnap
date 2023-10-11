@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FakeUser {
@@ -30,6 +29,11 @@ FakeUser fakeUser = FakeUser(
   password: passwordController.text,
   phone: phoneController.text,
 );
+
+/// ProfilePage is a StatelessWidge (soon to be StatefulWidget) that displays the user's profile.
+/// 1. The user's profile picture is displayed at the top of the page.
+/// 2. The user's username, email, password, and phone number are displayed in TextFields.
+/// 3. The user can update their profile by pressing the "Update Profile" button.
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
