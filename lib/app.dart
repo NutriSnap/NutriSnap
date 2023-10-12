@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
                   return MaterialApp(
                     debugShowCheckedModeBanner: false,
                     title: 'NutriSnap',
-                    home: MainScaffold(
-                        controller:
-                            settingsController), // <== Replace with Login Stuff
-                    theme: ThemeData(),
-                    darkTheme: ThemeData.dark(),
+                    home: MainScaffold(controller: settingsController),
+                    // theme: ThemeData(),
+                    // darkTheme: ThemeData.dark(),
+                    theme: lightTheme,
+                    darkTheme: darkTheme,
                     themeMode: settingsController.themeMode,
                     onGenerateRoute: RouteGenerator.generateRoute,
                   );
@@ -52,3 +52,28 @@ class MyApp extends StatelessWidget {
         });
   }
 }
+
+final Color lightPrimary = Color(0xFF76c893); // Avocado green
+final Color lightSecondary = Color(0xFFe9dd62); // Avocado yellow
+final Color darkPrimary = Color(0xFF4f3222); // Avocado seed brown
+final Color darkSecondary = Color(0xFF385a3d); // Darker green
+
+ThemeData lightTheme = ThemeData(
+  colorScheme: ColorScheme.light(
+    primary: lightPrimary,
+    secondary: lightSecondary,
+    onPrimary: Colors.white,
+    onSecondary: Colors.black,
+  ),
+  // Additional theming
+);
+
+ThemeData darkTheme = ThemeData(
+  colorScheme: ColorScheme.dark(
+    primary: darkPrimary,
+    secondary: darkSecondary,
+    onPrimary: Colors.white,
+    onSecondary: Colors.black,
+  ),
+  // Additional theming
+);

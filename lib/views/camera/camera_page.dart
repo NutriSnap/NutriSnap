@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/utils/image_upload_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
-
-import 'success_page.dart';
 
 class CameraPage extends StatelessWidget {
   const CameraPage({Key? key}) : super(key: key);
@@ -34,11 +33,14 @@ class CameraPage extends StatelessWidget {
             ),
             OutlinedButton(
               onPressed: () {
-                // Navigator.of(context).pop();
-                Navigator.of(context).pushNamed(SuccessPage.routeName);
+                // Navigate to the /utils/image_upload_page.dart
+                Navigator.of(context).pushNamed(ImageUploadPage.routeName);
+                // Then navigate to the /success page after the image is uploaded
+                // TODO: need to add a state that tells whether the picture is a success or not
+                // Navigator.pushNamed(context, '/success');
               },
               child: const Text('Upload Your Snap'),
-            ),
+            )
           ],
         ),
       ),
