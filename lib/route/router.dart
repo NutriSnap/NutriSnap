@@ -22,6 +22,7 @@ import 'package:nutrisnap/views/settings/settings_page.dart';
 import 'package:nutrisnap/views/settings/settings_controller.dart';
 import 'package:nutrisnap/views/settings/settings_service.dart';
 import 'package:nutrisnap/views/auth/forgot_password_page.dart';
+import 'package:nutrisnap/utils/image_upload_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -64,6 +65,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AdminPage());
       case AuthPage.routeName:
         return MaterialPageRoute(builder: (_) => const AuthPage());
+      case ImageUploadPage.routeName:
+        return MaterialPageRoute(builder: (_) => const ImageUploadPage());
       case SuccessPage.routeName:
         return MaterialPageRoute(builder: (_) => const SuccessPage());
       default:
