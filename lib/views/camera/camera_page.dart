@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
 
+import 'success_page.dart';
+
 class CameraPage extends StatelessWidget {
   const CameraPage({Key? key}) : super(key: key);
 
@@ -30,12 +32,13 @@ class CameraPage extends StatelessWidget {
                 // Navigator.pushNamed(context, '/snaps');
               },
             ),
-            TextButton(
+            OutlinedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/success');
+                // Navigator.of(context).pop();
+                Navigator.of(context).pushNamed(SuccessPage.routeName);
               },
-              child: const Text('Upload'),
-            )
+              child: const Text('Upload Your Snap'),
+            ),
           ],
         ),
       ),
