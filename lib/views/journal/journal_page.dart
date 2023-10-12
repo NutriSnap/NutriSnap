@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nutrisnap/views/journal/widgets/snap_card.dart';
 
 import 'package:nutrisnap/data_models/snap.dart';
-import 'package:nutrisnap/data_models/snap_food_item.dart';
 
 List<SnapCard> _buildGridCards(BuildContext context) {
   List<String> snapIds = snapDB.getSnapIds();
