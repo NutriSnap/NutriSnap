@@ -94,7 +94,7 @@ class _SnapsPageState extends State<SnapsPage> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pop();
+          // Navigator.of(context).pop();
           Navigator.of(context).pushNamed(CameraPage.routeName);
           // Navigator.of(context).pushNamed(SnapsEditPage.routeName);
           // Navigator.push(
