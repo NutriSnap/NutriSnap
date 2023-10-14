@@ -9,7 +9,7 @@ This project is under development.
 - [x] Home (Dashboard)
 - [x] Login Page
 - [ ] Signup Page
-- [ ] Profile Page
+- [X] Profile Page
 - [x] Settings Page
 - [x] Achievements Page
 - [x] Trends Page
@@ -17,12 +17,12 @@ This project is under development.
 - [ ] Admin Page
 - [ ] Analytics
 - [x] Authentication
-- [ ] Snaps Page
+- [X] Snaps Page
 - [ ] Support Page
-- [ ] About Page
+- [X] About Page
 - [x] Light/Dark Mode
-- [ ] MyTeam Page
-- [ ] MyCoach Page
+- [X] MyTeam Page
+- [X] MyCoach Page
 - [ ] ML Model Finetuning
 - [ ] AI Integration
 
