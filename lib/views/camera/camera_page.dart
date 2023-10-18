@@ -39,7 +39,7 @@ class CameraPage extends StatelessWidget {
                 // TODO: need to add a state that tells whether the picture is a success or not
                 // Navigator.pushNamed(context, '/success');
               },
-              child: const Text('Edit Your Snap'),
+              child: const Text('Crop Your Snap'),
             ),
           ],
         ),
