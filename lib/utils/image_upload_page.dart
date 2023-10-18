@@ -4,6 +4,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../views/camera/success_page.dart';
+import '../views/snaps/snaps_page.dart';
 
 class ImageUploadPage extends StatefulWidget {
   const ImageUploadPage({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ class _ImageUploadPageState extends State<ImageUploadPage> {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.black,
-            title: const Text("Crop Your Image")),
+            title: const Text("Crop Your Snap")),
         body: Column(
           children: [
             Expanded(
@@ -76,7 +77,7 @@ class _ImageUploadPageState extends State<ImageUploadPage> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Image.file(imageFile!))
                     : const Center(
-                        child: Text("Add a picture"),
+                        child: Text("Snap from camera or album"),
                       )),
             Expanded(
                 child: Center(
@@ -88,7 +89,8 @@ class _ImageUploadPageState extends State<ImageUploadPage> {
                   _buildIconButton(icon: Icons.clear, onPressed: _clearImage),
                   OutlinedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(SuccessPage.routeName);
+                      showSuccessDialog(context);
+                      // Navigator.of(context).pushNamed(SuccessPage.routeName);
                     },
                     child: const Text('Upload Your Snap'),
                   ),
@@ -114,4 +116,30 @@ class _ImageUploadPageState extends State<ImageUploadPage> {
           color: Colors.white,
         ));
   }
+}
+
+showSuccessDialog(BuildContext context) {
+
+  Widget continueButton = TextButton(
+    child: const Text("Continue"),
+    onPressed: () {
+      Navigator.of(context).pop();
+      Navigator.of(context).pushNamed(SnapsPage.routeName);
+    },
+  );
+
+  AlertDialog alert = AlertDialog(
+    title: const Text("Upload Successful!"),
+    content: const Text("Take a look at nutrients."),
+    actions: [
+      continueButton,
+    ],
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
