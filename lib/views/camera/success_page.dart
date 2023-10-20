@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../snaps/snaps_page.dart';
+
 class SuccessPage extends StatelessWidget {
   const SuccessPage({Key? key}) : super(key: key);
 
@@ -16,12 +18,13 @@ class SuccessPage extends StatelessWidget {
               'Upload Successful!',
               style: TextStyle(fontSize: 24),
             ),
-            TextButton(
+            OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/snaps');
+                // Navigator.of(context).pop();
+                Navigator.of(context).pushNamed(SnapsPage.routeName);
               },
-              child: const Text('Continue to Snaps'),
-            )
+              child: const Text('Continue to Snap'),
+            ),
           ],
         ),
       ),

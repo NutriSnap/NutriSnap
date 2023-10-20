@@ -53,13 +53,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final Color lightPrimary = Color(0xFF76c893); // Avocado green
-final Color lightSecondary = Color(0xFFe9dd62); // Avocado yellow
-final Color darkPrimary = Color(0xFF4f3222); // Avocado seed brown
-final Color darkSecondary = Color(0xFF385a3d); // Darker green
+const Color lightPrimary = Color(0xFF76c893); // Avocado green
+const Color lightSecondary = Color(0xFFe9dd62); // Avocado yellow
+const Color darkPrimary = Color(0xFF4f3222); // Avocado seed brown
+const Color darkSecondary = Color(0xFF385a3d); // Darker green
 
 ThemeData lightTheme = ThemeData(
-  colorScheme: ColorScheme.light(
+  colorScheme: const ColorScheme.light(
     primary: lightPrimary,
     secondary: lightSecondary,
     onPrimary: Colors.white,
@@ -69,7 +69,7 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
-  colorScheme: ColorScheme.dark(
+  colorScheme: const ColorScheme.dark(
     primary: darkPrimary,
     secondary: darkSecondary,
     onPrimary: Colors.white,

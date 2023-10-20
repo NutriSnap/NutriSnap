@@ -10,10 +10,10 @@ class CameraPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Camera'),
-      //   backgroundColor: Colors.green,
-      // ),
+      appBar: AppBar(
+        title: const Text('Take a Snap'),
+        backgroundColor: Colors.green,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +31,7 @@ class CameraPage extends StatelessWidget {
                 // Navigator.pushNamed(context, '/snaps');
               },
             ),
-            TextButton(
+            OutlinedButton(
               onPressed: () {
                 // Navigate to the /utils/image_upload_page.dart
                 Navigator.of(context).pushNamed(ImageUploadPage.routeName);
@@ -39,8 +39,8 @@ class CameraPage extends StatelessWidget {
                 // TODO: need to add a state that tells whether the picture is a success or not
                 // Navigator.pushNamed(context, '/success');
               },
-              child: const Text('Upload'),
-            )
+              child: const Text('Crop Your Snap'),
+            ),
           ],
         ),
       ),

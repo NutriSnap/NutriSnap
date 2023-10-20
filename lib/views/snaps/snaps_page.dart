@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 // import 'package:nutrisnap/views/snaps/edit_snap.dart';
+import '../camera/camera_page.dart';
+import '../journal/journal_page.dart';
 import 'widgets/meal_dropdown_menu.dart';
 import 'package:nutrisnap/core/constants/app_colors.dart';
 
@@ -79,6 +81,8 @@ class _SnapsPageState extends State<SnapsPage> {
                   color: Colors.black,
                   iconSize: 72,
                   onPressed: () {
+                    // Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(JournalPage.routeName);
                     // Navigation action
                     //Navigator.of(context).pushNamed(SnapsEditPage.routeName);
                   },
@@ -90,15 +94,21 @@ class _SnapsPageState extends State<SnapsPage> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          // Navigator.of(context).pop();
+          Navigator.of(context).pushNamed(CameraPage.routeName);
           // Navigator.of(context).pushNamed(SnapsEditPage.routeName);
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(builder: (context) => const SnapsEditPage()),
           // );
         },
+        backgroundColor: Colors.yellow[300],
         tooltip: 'Increment',
-        child: const Icon(Icons.camera_alt_rounded,
-            color: Colors.black87, size: 40),
+        child: const Icon(
+            Icons.camera_alt,
+            color: Colors.black,
+            size: 30,
+        ),
       ),
     );
   }

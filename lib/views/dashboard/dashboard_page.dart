@@ -16,7 +16,11 @@ class DashboardPage extends StatelessWidget {
           Navigator.of(context).pushNamed(CameraPage.routeName);
         },
         backgroundColor: Colors.yellow[300],
-        child: const Icon(Icons.camera_alt, color: Colors.black, size: 30),
+        child: const Icon(
+            Icons.camera_alt,
+            color: Colors.black,
+            size: 30,
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
