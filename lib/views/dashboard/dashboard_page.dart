@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nutrisnap/views/camera/camera_page.dart';
 import 'widgets/food_processing_indicator.dart';
 import 'widgets/challenges.dart';
+import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -15,7 +16,7 @@ class DashboardPage extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).pushNamed(CameraPage.routeName);
         },
-        backgroundColor: Colors.yellow[300],
+        backgroundColor: material3FlexScheme.light.primaryContainer,
         child: const Icon(
             Icons.camera_alt,
             color: Colors.black,
@@ -25,7 +26,7 @@ class DashboardPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          gradient: const LinearGradient(
+          /*gradient: const LinearGradient(
             // Begin and end points can be adjusted to control the gradient's direction
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -33,7 +34,7 @@ class DashboardPage extends StatelessWidget {
               Colors.yellow,
               Colors.white // End color (bottom)
             ],
-          ),
+          ),*/
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -43,12 +44,13 @@ class DashboardPage extends StatelessWidget {
               children: [
                 const SizedBox(height: 2),
                 // Food Processing Indicator
-                Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surface,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(8),
+                Card(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: const RoundedRectangleBorder(
+                    //side: BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
+                  borderOnForeground: false,
                   child: const Column(
                     children: [
                       // Your text above the FoodProcessingIndicator
@@ -72,60 +74,61 @@ class DashboardPage extends StatelessWidget {
 
                 // Placeholder for Weekly Progress
 
-                const Challenges(
-                  completedDays: [
-                    true,
-                    false,
-                    true,
-                    false,
-                    true,
-                    true,
-                    false
-                  ], // Example data
+                Card(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: const RoundedRectangleBorder(
+                    //side: BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  borderOnForeground: false,
+                  child: const Challenges(
+                    completedDays: [
+                      true,
+                      false,
+                      true,
+                      false,
+                      true,
+                      true,
+                      false
+                    ], // Example data
+                  ),
                 ),
 
                 const SizedBox(height: 8),
                 // Box with 3 text items
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surface,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 0,
-                        blurRadius: 10,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
+                Card(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: const RoundedRectangleBorder(
+                    //side: BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text('Mindfulness Stats',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Text('Avg hunger before meal: 7 / 10',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16)),
-                      SizedBox(height: 4),
-                      Text('Avg fullness after meal: 80% full',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16)),
-                    ],
+                  borderOnForeground: false,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text('Mindfulness Stats',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        SizedBox(height: 8),
+                        Text('Avg hunger before meal: 7 / 10',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 16)),
+                        SizedBox(height: 4),
+                        Text('Avg fullness after meal: 80% full',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 16)),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 8),
                 Card(
                     color: Theme.of(context).colorScheme.surface,
                     shape: const RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Colors.black,
-                      ),
+                      //side: BorderSide(color: Colors.black),
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
                     borderOnForeground: false,
@@ -134,18 +137,18 @@ class DashboardPage extends StatelessWidget {
                       children: const [
                         ListTile(
                           leading: Icon(Icons.star),
-                          title: Text('Acheivement 1'),
-                          subtitle: Text('Description of acheivement 1'),
+                          title: Text('Achievement 1'),
+                          subtitle: Text('Description of achievement 1'),
                         ),
                         ListTile(
                           leading: Icon(Icons.star),
-                          title: Text('Acheivement 2'),
-                          subtitle: Text('Description of acheivement 2'),
+                          title: Text('Achievement 2'),
+                          subtitle: Text('Description of achievement 2'),
                         ),
                         ListTile(
                           leading: Icon(Icons.star),
-                          title: Text('Acheivement 3'),
-                          subtitle: Text('Description of acheivement 3'),
+                          title: Text('Achievement 3'),
+                          subtitle: Text('Description of achievement 3'),
                         ),
                       ],
                     )),

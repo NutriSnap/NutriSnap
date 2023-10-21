@@ -20,7 +20,7 @@ class FoodList extends StatelessWidget {
         if (index == foodsCount) {
           // This is the last item, return a divider
           return const Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 0.2,
           );
         }
@@ -29,10 +29,10 @@ class FoodList extends StatelessWidget {
           padding: const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0),
           child: Row(
             children: [
-              Text('${index + 1}. ',
+              /*Text('${index + 1}. ',
                   style: Theme.of(context)
                       .textTheme
-                      .bodyMedium), // Adjusted text style
+                      .bodyMedium), // Adjusted text style*/
               Expanded(
                 child: Text(
                   foodItems[index],
@@ -46,7 +46,7 @@ class FoodList extends StatelessWidget {
         );
       },
       separatorBuilder: (context, index) => const Divider(
-        color: Colors.black,
+        color: Colors.transparent,
         height: 0.2,
       ),
     );

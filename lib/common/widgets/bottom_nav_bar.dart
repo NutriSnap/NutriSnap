@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -15,16 +14,22 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        /*backgroundColor: NavigationBarTheme.of(context).backgroundColor,
+        elevation: NavigationBarTheme.of(context).elevation,
+        indicatorColor: NavigationBarTheme.of(context).indicatorColor,
+        indicatorShape: NavigationBarTheme.of(context).indicatorShape,*/
+
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        indicatorColor: AppColors.gold,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            icon: Icon(Icons.dashboard_outlined),
+            icon: Icon(
+              Icons.dashboard_outlined,
+            ),
             selectedIcon: Icon(Icons.dashboard),
             label: 'Dashboard',
           ),

@@ -1,7 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
 import 'views/settings/settings_controller.dart';
 import 'package:nutrisnap/route/router.dart';
+import 'package:nutrisnap/core/constants/app_colors.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class MyApp extends StatelessWidget {
   final SettingsController settingsController;
@@ -23,8 +28,31 @@ class MyApp extends StatelessWidget {
                     home: MainScaffold(controller: settingsController),
                     // theme: ThemeData(),
                     // darkTheme: ThemeData.dark(),
-                    theme: lightTheme,
-                    darkTheme: darkTheme,
+                    theme: FlexThemeData.light(
+                      useMaterial3: true,
+                      scheme: FlexScheme.limeM3,
+                      surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
+                      blendLevel: 7,
+                      //colors: material3FlexScheme.light,
+                      subThemesData: const FlexSubThemesData(),
+                      appBarElevation: 1,
+                      visualDensity: VisualDensity.standard,
+                      fontFamily: GoogleFonts.notoSans().fontFamily,
+                      // We use the nicer Material-3 Typography in both M2 and M3 mode.
+                      typography: Typography.material2021(platform: defaultTargetPlatform),
+                    ),
+                    darkTheme: FlexThemeData.dark(
+                      useMaterial3: true,
+                      scheme: FlexScheme.limeM3,
+                      surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
+                      blendLevel: 7,
+                      //colors: material3FlexScheme.dark,
+                      subThemesData: const FlexSubThemesData(),
+                      appBarElevation: 2,
+                      visualDensity: VisualDensity.standard,
+                      fontFamily: GoogleFonts.notoSans().fontFamily,
+                      typography: Typography.material2021(platform: defaultTargetPlatform),
+                    ),
                     themeMode: settingsController.themeMode,
                     onGenerateRoute: RouteGenerator.generateRoute,
                   );
@@ -52,28 +80,3 @@ class MyApp extends StatelessWidget {
         });
   }
 }
-
-const Color lightPrimary = Color(0xFF76c893); // Avocado green
-const Color lightSecondary = Color(0xFFe9dd62); // Avocado yellow
-const Color darkPrimary = Color(0xFF4f3222); // Avocado seed brown
-const Color darkSecondary = Color(0xFF385a3d); // Darker green
-
-ThemeData lightTheme = ThemeData(
-  colorScheme: const ColorScheme.light(
-    primary: lightPrimary,
-    secondary: lightSecondary,
-    onPrimary: Colors.white,
-    onSecondary: Colors.black,
-  ),
-  // Additional theming
-);
-
-ThemeData darkTheme = ThemeData(
-  colorScheme: const ColorScheme.dark(
-    primary: darkPrimary,
-    secondary: darkSecondary,
-    onPrimary: Colors.white,
-    onSecondary: Colors.black,
-  ),
-  // Additional theming
-);

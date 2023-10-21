@@ -46,7 +46,7 @@ class CustomDrawer extends StatelessWidget {
                     NetworkImage('https://robohash.org/${user.initials}.png')),
             // UserAvatar(userID: user.id),
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              //color: Theme.of(context).primaryColor,
             ),
           ),
           ListTile(

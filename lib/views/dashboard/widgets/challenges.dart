@@ -11,8 +11,8 @@ class Challenges extends StatelessWidget {
       padding:
           const EdgeInsets.all(10), // Add some padding inside the container
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        border: Border.all(color: Colors.black),
+        color: Colors.transparent,
+        //border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -35,7 +35,7 @@ class Challenges extends StatelessWidget {
                 completedDays[index]
                     ? Icons.check_box
                     : Icons.check_box_outline_blank,
-                color: completedDays[index] ? Colors.green : Colors.grey[500],
+                //color: completedDays[index] ? Colors.green : Colors.grey[500],
                 size: 20, // Adjust for your desired size
               );
             }),

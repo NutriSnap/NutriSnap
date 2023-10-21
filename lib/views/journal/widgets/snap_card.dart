@@ -29,7 +29,8 @@ class SnapCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  date
+                  date,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(
                   height: 125,

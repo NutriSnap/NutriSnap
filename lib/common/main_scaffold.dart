@@ -96,6 +96,7 @@ class MainScaffoldState extends State<MainScaffold> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // title is the name of the page
         title: _currentIndex == 0
             ? const Text('NutriSnap')
@@ -109,7 +110,6 @@ class MainScaffoldState extends State<MainScaffold> {
                             ? const Text('Profile')
                             : const Text('NutriSnap'),
         // title: const Text('NutriSnap'),
-        backgroundColor: Colors.green,
         // Provide a button to open the drawer.
         leading: Builder(
           builder: (BuildContext context) {
@@ -144,9 +144,6 @@ class MainScaffoldState extends State<MainScaffold> {
                   backgroundImage: NetworkImage(
                       'https://robohash.org/${currentUser.initials}.png')),
               // UserAvatar(userID: user.id),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
             ),
             ListTile(
               leading: const Icon(Icons.home_outlined),
@@ -188,7 +185,6 @@ class MainScaffoldState extends State<MainScaffold> {
             //   onTap: () => _onDrawerItemTapped(7),
             // ),
             const Divider(
-              color: Colors.black,
               height: 0.2,
             ), // A thick divider to visually separate the above items from the sign-out button
             ListTile(
@@ -200,10 +196,6 @@ class MainScaffoldState extends State<MainScaffold> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black, // Changing background color to black
-        unselectedItemColor:
-            Colors.grey[500], // Making unselected items a bit lighter
-        selectedItemColor: Colors.black, // Making selected item white
         onTap: _onBottomTabTapped,
         currentIndex: _currentIndex,
         items: const [

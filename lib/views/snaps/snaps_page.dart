@@ -73,7 +73,7 @@ class _SnapsPageState extends State<SnapsPage> {
               ),
               Ink(
                 decoration: const ShapeDecoration(
-                  color: AppColors.green,
+                  //color: AppColors.green,
                   shape: CircleBorder(),
                 ),
                 child: IconButton(
