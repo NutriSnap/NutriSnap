@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -8,25 +7,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.green,
-              Colors.yellow,
-            ],
-          ),
-        ),
       ),
       title: const Text('NutriSnap',
           style: TextStyle(
-              color: AppColors.charcoal,
               fontWeight: FontWeight.bold,
               fontSize: 16,
               fontFamily: 'Montserrat')),
       leading: IconButton(
-        icon: const Icon(Icons.menu, color: AppColors.charcoal),
+        icon: const Icon(Icons.menu),
         onPressed: () {
           // Logic to open a drawer or navigation menu
           Navigator.pushNamed(context, '/about');
@@ -34,14 +22,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.book_outlined, color: AppColors.charcoal),
+          icon: const Icon(Icons.book_outlined),
           onPressed: () {
             // Logic for the book_icon
             Navigator.pushNamed(context, '/journal');
           },
         ),
         IconButton(
-          icon: const Icon(Icons.home_outlined, color: AppColors.charcoal),
+          icon: const Icon(Icons.home_outlined),
           onPressed: () {
             // Logic for the home_icon
             Navigator.pushNamed(context, '/home');
@@ -50,15 +38,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         CircleAvatar(
           backgroundColor: Colors.transparent,
           child: IconButton(
-            icon: const Icon(Icons.account_circle_outlined,
-                color: AppColors.charcoal),
+            icon: const Icon(Icons.account_circle_outlined),
             onPressed: () {
               // Logic to navigate to profile or other user-related actions
             },
           ),
         ),
       ],
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       elevation: 2.0,
     );
   }

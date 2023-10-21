@@ -18,11 +18,14 @@ class ChallengesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 1,
-      padding: const EdgeInsets.all(2.0),
-      childAspectRatio: 16.0 / 9.0,
-      children: _buildGridCards(4),
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: GridView.count(
+        crossAxisCount: 1,
+        padding: const EdgeInsets.all(2.0),
+        childAspectRatio: 16.0 / 9.0,
+        children: _buildGridCards(4),
+      ),
     );
   }
 }

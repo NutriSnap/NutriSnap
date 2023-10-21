@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/core/constants/app_colors.dart';
+import 'package:nutrisnap/core/constants/app_colors.dart';
 
+/*
 class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       useMaterial3: true,
-      brightness: lightColorScheme.brightness,
-      primaryColor: lightColorScheme.primary,
+      brightness: lightTheme.brightness,
+      primaryColor: lightTheme.primary,
       hintColor: lightColorScheme
           .secondary, // Accent color is not directly in ColorScheme.
       canvasColor: lightColorScheme.background,
@@ -62,3 +64,5 @@ class AppTheme {
     );
   }
 }
+*/
+

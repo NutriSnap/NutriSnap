@@ -8,33 +8,36 @@ class TrendsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Text(
-              'Food Category Trends',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                'Food Category Trends',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          FoodCategoryTrendsChart(),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Text(
-              'Logging Trends',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+            FoodCategoryTrendsChart(),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                'Logging Trends',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          Text('Make a calendar-based logging chart here'),
-        ],
+            Text('Make a calendar-based logging chart here'),
+          ],
+        ),
       ),
     );
   }

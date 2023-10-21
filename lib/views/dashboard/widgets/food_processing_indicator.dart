@@ -18,7 +18,7 @@ class FoodProcessingIndicator extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       width: double.infinity,
       height: 300, // Or specify the desired size
-      color: Theme.of(context).colorScheme.surface,
+      color: Colors.transparent,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -33,17 +33,17 @@ class FoodProcessingIndicator extends StatelessWidget {
             children: [
               Text('${(unprocessed * 100).toInt()}% Unprocessed',
                   style: const TextStyle(
-                      color: Colors.green,
+                      color: Colors.lightGreen,
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
               Text('${(processed * 100).toInt()}% Processed',
                   style: const TextStyle(
-                      color: Colors.blue,
+                      color: Colors.orangeAccent,
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
               Text('${(ultraprocessed * 100).toInt()}% Ultraprocessed',
                   style: const TextStyle(
-                      color: Colors.purple,
+                      color: Colors.deepOrangeAccent,
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
             ],
@@ -67,17 +67,17 @@ class _DonutChartPainter extends CustomPainter {
     final rect = const Offset(0, 0) & size;
 
     final unprocessedPaint = Paint()
-      ..color = Colors.green
+      ..color = Colors.lightGreen
       ..style = PaintingStyle.stroke
       ..strokeWidth = 40.0; // Adjust for the desired "thickness" of the donut
 
     final processedPaint = Paint()
-      ..color = Colors.blue
+      ..color = Colors.orangeAccent
       ..style = PaintingStyle.stroke
       ..strokeWidth = 40.0; // Adjust for the desired "thickness" of the donut
 
     final ultraprocessedPaint = Paint()
-      ..color = Colors.purple
+      ..color = Colors.deepOrangeAccent
       ..style = PaintingStyle.stroke
       ..strokeWidth = 40.0; // Adjust for the desired "thickness" of the donut
 

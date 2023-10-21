@@ -23,11 +23,14 @@ class JournalPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 1, // how many columns
-      padding: const EdgeInsets.all(8.0), // padding around the grid
-      childAspectRatio: 16.0 / 9.0, // width to height ratio
-      children: _buildGridCards(context), // List of SnapCard widgets
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: GridView.count(
+        crossAxisCount: 1, // how many columns
+        padding: const EdgeInsets.all(8.0), // padding around the grid
+        childAspectRatio: 16.0 / 9.0, // width to height ratio
+        children: _buildGridCards(context), // List of SnapCard widgets
+      ),
     );
   }
 }

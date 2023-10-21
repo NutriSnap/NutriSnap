@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/pallete.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
@@ -23,26 +22,23 @@ class CustomTextField extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(horizontal: (25.0)),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.brown.shade200,
               width: 1,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
-              color: Pallete.avocadoLightGreen,
               width: 3,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           hintText: hintText,
           hintStyle: const TextStyle(
-            color: Colors.black54,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
           filled: true,
-          fillColor: ThemeData().colorScheme.surface,
+          //fillColor: ThemeData().colorScheme.surface,
         ),
         autofocus: true,
         obscureText: hintText == 'Password' ? true : false,

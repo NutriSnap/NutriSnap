@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/core/constants/pallete.dart';
 import 'package:nutrisnap/common/widgets/custom_text_field.dart';
 import 'package:nutrisnap/views/auth/login/widgets/square_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -113,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 50,
-                    color: Pallete.avacodoSeedLightBrown,
+                    //color: Pallete.avacodoSeedLightBrown,
                   ),
                 ),
                 Image.asset(
@@ -166,21 +165,21 @@ class _LoginPageState extends State<LoginPage> {
                       width: 325,
                       height: 50,
                       decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [
+                        /*gradient: const LinearGradient(
+                            colors: [
                             Pallete.avocadoLightGreen,
                             Pallete.avocadoYellow,
                           ],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                        ),
+                        ),*/
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: const Center(
                         child: Text(
                           'Sign in',
                           style: TextStyle(
-                            color: Pallete.avacodoSeedBrown,
+                            //color: Pallete.avacodoSeedBrown,
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
