@@ -107,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const SizedBox(height: 15),
                 const Text(
                   'NutriSnap',
                   style: TextStyle(
@@ -115,6 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                     //color: Pallete.avacodoSeedLightBrown,
                   ),
                 ),
+                const SizedBox(height: 15),
                 Image.asset(
                   'assets/images/layout/logo1.png',
                   width: 200,
@@ -129,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'Password',
                   textEditingController: _passwordController,
                 ),
-                const SizedBox(height: 10),
+                // const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 36),
                   child: Row(
