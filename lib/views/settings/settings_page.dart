@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:nutrisnap/views/settings/widgets/mindfulness.dart';
 import 'package:nutrisnap/views/settings/widgets/notifications.dart';
-import 'widgets/goals.dart';
+import 'package:nutrisnap/views/settings/widgets/goals.dart';
 import 'package:nutrisnap/views/settings/dark_mode_provider.dart';
 
-
 class SettingsPage extends ConsumerWidget {
-  const SettingsPage({super.key,
-  });
+  const SettingsPage({super.key});
 
   static const routeName = '/settings';
 
