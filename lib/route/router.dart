@@ -56,7 +56,8 @@ class RouteGenerator {
       case SettingsPage.routeName:
         return MaterialPageRoute(
             builder: (_) => SettingsPage(
-                controller: SettingsController(SettingsService())));
+                //controller: SettingsController(SettingsService())
+                ));
       case SnapsEditPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsEditPage());
       case TrendsPage.routeName:

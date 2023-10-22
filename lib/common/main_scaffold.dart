@@ -17,9 +17,8 @@ import 'package:nutrisnap/views/trends/trends_page.dart';
 import 'package:nutrisnap/views/camera/camera_page.dart';
 
 class MainScaffold extends StatefulWidget {
-  const MainScaffold({super.key, required this.controller});
+  const MainScaffold({super.key});
 
-  final SettingsController controller;
 
   @override
   MainScaffoldState createState() => MainScaffoldState();
@@ -126,7 +125,9 @@ class MainScaffoldState extends State<MainScaffold> {
           IconButton(
             onPressed: () {
               setState(() {
-                _currentBody = SettingsPage(controller: widget.controller);
+                _currentBody = SettingsPage(
+                //controller: widget.controller
+                );
               });
             },
             icon: const Icon(Icons.settings),
