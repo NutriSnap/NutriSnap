@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
 import 'package:nutrisnap/data_models/user_db.dart';
-import 'package:nutrisnap/views/settings/settings_controller.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
@@ -125,9 +124,7 @@ class MainScaffoldState extends State<MainScaffold> {
           IconButton(
             onPressed: () {
               setState(() {
-                _currentBody = SettingsPage(
-                //controller: widget.controller
-                );
+                _currentBody = const SettingsPage();
               });
             },
             icon: const Icon(Icons.settings),

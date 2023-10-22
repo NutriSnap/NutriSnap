@@ -2,17 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'views/settings/settings_controller.dart';
 import 'package:nutrisnap/route/router.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nutrisnap/views/settings/dark_mode_provider.dart';
 
 class MyApp extends ConsumerWidget {
-  //final SettingsController settingsController;
-  //const MyApp(this.settingsController, {Key? key}) : super(key: key);
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -21,9 +16,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'NutriSnap',
-      home: const MainScaffold(
-        //controller: settingsController
-      ),
+      home: const MainScaffold(),
       theme: FlexThemeData.light(
         useMaterial3: true,
         scheme: FlexScheme.limeM3,

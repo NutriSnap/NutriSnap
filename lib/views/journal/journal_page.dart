@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/views/journal/widgets/snap_card.dart';
-
 import 'package:nutrisnap/data_models/snap.dart';
 
 List<SnapCard> _buildGridCards(BuildContext context) {

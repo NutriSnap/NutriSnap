@@ -19,8 +19,6 @@ import 'package:nutrisnap/views/snaps/edit_snap.dart';
 import 'package:nutrisnap/views/trends/trends_page.dart';
 import 'package:nutrisnap/views/camera/success_page.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
-import 'package:nutrisnap/views/settings/settings_controller.dart';
-import 'package:nutrisnap/views/settings/settings_service.dart';
 import 'package:nutrisnap/views/auth/forgot_password_page.dart';
 import 'package:nutrisnap/utils/image_upload_page.dart';
 
@@ -54,10 +52,7 @@ class RouteGenerator {
       case SnapsPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsPage());
       case SettingsPage.routeName:
-        return MaterialPageRoute(
-            builder: (_) => SettingsPage(
-                //controller: SettingsController(SettingsService())
-                ));
+        return MaterialPageRoute(builder: (_) => const SettingsPage());
       case SnapsEditPage.routeName:
         return MaterialPageRoute(builder: (_) => const SnapsEditPage());
       case TrendsPage.routeName:

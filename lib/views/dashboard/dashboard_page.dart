@@ -26,15 +26,7 @@ class DashboardPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          /*gradient: const LinearGradient(
-            // Begin and end points can be adjusted to control the gradient's direction
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.yellow,
-              Colors.white // End color (bottom)
-            ],
-          ),*/
+
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -47,7 +39,6 @@ class DashboardPage extends StatelessWidget {
                 Card(
                   color: Theme.of(context).colorScheme.surface,
                   shape: const RoundedRectangleBorder(
-                    //side: BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   borderOnForeground: false,
@@ -77,7 +68,6 @@ class DashboardPage extends StatelessWidget {
                 Card(
                   color: Theme.of(context).colorScheme.surface,
                   shape: const RoundedRectangleBorder(
-                    //side: BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   borderOnForeground: false,
@@ -99,7 +89,6 @@ class DashboardPage extends StatelessWidget {
                 Card(
                   color: Theme.of(context).colorScheme.surface,
                   shape: const RoundedRectangleBorder(
-                    //side: BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   borderOnForeground: false,
@@ -128,7 +117,6 @@ class DashboardPage extends StatelessWidget {
                 Card(
                     color: Theme.of(context).colorScheme.surface,
                     shape: const RoundedRectangleBorder(
-                      //side: BorderSide(color: Colors.black),
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
                     borderOnForeground: false,

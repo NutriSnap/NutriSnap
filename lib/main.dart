@@ -5,8 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:nutrisnap/app.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrisnap/views/settings/settings_controller.dart';
-import 'package:nutrisnap/views/settings/settings_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

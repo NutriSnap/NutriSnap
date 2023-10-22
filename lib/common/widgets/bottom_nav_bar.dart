@@ -14,11 +14,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        /*backgroundColor: NavigationBarTheme.of(context).backgroundColor,
-        elevation: NavigationBarTheme.of(context).elevation,
-        indicatorColor: NavigationBarTheme.of(context).indicatorColor,
-        indicatorShape: NavigationBarTheme.of(context).indicatorShape,*/
-
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
