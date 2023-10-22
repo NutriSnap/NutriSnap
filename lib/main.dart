@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:nutrisnap/app.dart';
-import 'package:nutrisnap/views/settings/settings_controller.dart';
-import 'package:nutrisnap/views/settings/settings_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp(SettingsController(SettingsService())));
+  runApp(const ProviderScope(
+  child: MyApp(),
+  ));
+  //runApp(MyApp(SettingsController(SettingsService())));
 }

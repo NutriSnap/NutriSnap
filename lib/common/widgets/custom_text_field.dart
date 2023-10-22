@@ -38,7 +38,6 @@ class CustomTextField extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           filled: true,
-          //fillColor: ThemeData().colorScheme.surface,
         ),
         autofocus: true,
         obscureText: hintText == 'Password' ? true : false,

@@ -31,7 +31,6 @@ class TeamMember extends StatelessWidget {
               return IconButton(
                 onPressed: openLink,
                 icon: const FaIcon(FontAwesomeIcons.github),
-                //color: Colors.black,
               );
             },
           ),
