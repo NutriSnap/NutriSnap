@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../camera/camera_page.dart';
 import '../journal/journal_page.dart';
 import 'widgets/meal_dropdown_menu.dart';
-import 'package:nutrisnap/core/constants/app_colors.dart';
+// import 'package:nutrisnap/core/constants/app_colors.dart';
 
 class SnapsPage extends StatefulWidget {
   const SnapsPage({super.key});
