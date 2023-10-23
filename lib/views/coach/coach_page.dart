@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/coach/widgets/bot_message.dart';
+import 'package:nutrisnap/views/coach/widgets/message_textfield.dart';
+import 'package:nutrisnap/views/coach/widgets/user_message.dart';
 
 /// This is for working in dartpad.dev
 // void main() => runApp(MyApp());
@@ -111,6 +114,7 @@ class _CoachPageState extends State<CoachPage> {
         fakeData["conversations"]["conversationId1"]["messages"];
 
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       // appBar: AppBar(title: const Text('Chat')),
       body: ListView.builder(
         itemCount: messages.length,
@@ -130,181 +134,13 @@ class _CoachPageState extends State<CoachPage> {
           }
 
           if (isAI) {
-            return Dismissible(
-              key: Key(message["messageId"]),
-              onDismissed: (_) => dismissMessage(message["messageId"]),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Column(
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage:
-                          NetworkImage('https://robohash.org/ai-agent.png'),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                        top: 8.0,
-                        left: 50.0,
-                        right: 50.0,
-                      ),
-                      padding: const EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        color: Colors.purple[100],
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.purple[900]!,
-                          width: 1,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3), // Vertical offset
-                          )
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            message["message"],
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color: Colors.purple[900],
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  // Logic for seen
-                                  print("Seen");
-                                },
-                                icon: const Icon(Icons.check,
-                                    color: Colors.green),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  // Logic for follow up
-                                  print("Follow Up");
-                                },
-                                icon: const Icon(Icons.question_answer,
-                                    color: Colors.blue),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  // Logic for dismiss
-                                  dismissMessage(message["messageId"]);
-                                },
-                                icon:
-                                    const Icon(Icons.close, color: Colors.red),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return BotMessage(messageId: message["messageId"], messageText: message["message"]);
           }
 
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: isCurrentUser
-                  ? MainAxisAlignment.end
-                  : MainAxisAlignment.start,
-              children: [
-                if (!isCurrentUser)
-                  CircleAvatar(
-                    backgroundColor: Theme.of(context)
-                        .colorScheme
-                        .secondary, // for non-current user
-
-                    child: Text(message["senderId"].toString().substring(0, 2)),
-                  ),
-                Container(
-                  constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width *
-                        0.6, // max 60% of screen width
-                  ),
-                  margin: const EdgeInsets.all(8.0),
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: isCurrentUser
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.secondary,
-                    borderRadius: BorderRadius.circular(10),
-                    //box shadow
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(2, 3), // Vertical offset
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        message["message"],
-                        style: TextStyle(
-                          color: Theme.of(context)
-                              .textTheme
-                              .bodySmall
-                              ?.color, // Adapts to theme
-                        ),
-                      ),
-                      Text(
-                        'Sent on $formattedTime',
-                        // ' - 12:34 PM
-                        style: TextStyle(
-                          fontSize: 10.0,
-                          color: Theme.of(context)
-                              .textTheme
-                              .displaySmall
-                              ?.color, // Adapts to theme
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                if (isCurrentUser)
-                  CircleAvatar(
-                    backgroundColor: Theme.of(context)
-                        .colorScheme
-                        .primary, // for current user
-                    child: Text(currentUser.substring(0, 2)),
-                  ),
-              ],
-            ),
-          );
+          return UserMessage(isCurrentUser: isCurrentUser, messageSenderId: message["senderId"], messageText: message["message"], formattedTime: formattedTime,);
         },
       ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextField(
-            decoration: InputDecoration(
-              labelText: "Type a message",
-              border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.send),
-                onPressed: () {
-                  // Later, this will send a message
-                },
-              ),
-            ),
-            onSubmitted: (message) {
-              handleMessageCommand(message);
-              // Other message handling logic
-            }),
-      ),
+      bottomSheet: const MessageTextfield(),
     );
   }
 }
