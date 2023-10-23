@@ -3,7 +3,6 @@ import 'package:nutrisnap/views/about/widgets/app_feature.dart';
 import 'package:nutrisnap/views/about/widgets/section_header.dart';
 import 'package:nutrisnap/views/about/widgets/team_member_grid.dart';
 import 'package:url_launcher/link.dart';
-import 'widgets/team_member_list_item.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);

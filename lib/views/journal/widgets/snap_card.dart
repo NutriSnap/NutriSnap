@@ -13,7 +13,7 @@ class SnapCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Snap snap = snapDB.getSnap(snapId);
     String imageUrl = snap.imageUrl;
-    Image image = Image.asset(imageUrl, fit:BoxFit.cover);
+    Image image = Image.asset(imageUrl, fit: BoxFit.cover);
     String date = DateFormat.yMMMd().format(snap.date).toString();
     return Card(
       child: Padding(
@@ -32,12 +32,15 @@ class SnapCard extends StatelessWidget {
                   date,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                SizedBox(
-                  height: 125,
-                  width: 125,
-                  child:
-                      FoodList(snapId: snapId,), // This is a list that scrolls vertically and displays the food items
-                )
+                ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxWidth: 100,
+                    maxHeight: 100,
+                  ),
+                  child: FoodList(
+                    snapId: snapId,
+                  ), // This is a list that scrolls vertically and displays the food items
+                ),
               ],
             ),
             // ),
