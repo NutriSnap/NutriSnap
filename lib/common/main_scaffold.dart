@@ -18,7 +18,6 @@ import 'package:nutrisnap/views/camera/camera_page.dart';
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
 
-
   @override
   MainScaffoldState createState() => MainScaffoldState();
 }
@@ -45,6 +44,7 @@ class MainScaffoldState extends State<MainScaffold> {
   void _onDrawerItemTapped(int index) {
     Navigator.of(context).pop(); // Close the drawer
     setState(() {
+      _currentIndex = index;
       _currentBody = _getDrawerPage(index);
     });
   }
@@ -53,17 +53,17 @@ class MainScaffoldState extends State<MainScaffold> {
     switch (index) {
       case 0:
         return const DashboardPage();
-      case 1:
-        return const AboutPage();
-      case 2:
-        return const AdminPage();
-      case 3:
-        return const CameraPage();
-      case 4:
-        return const FriendsPage();
       case 5:
-        return const SnapsPage();
+        return const AboutPage();
       case 6:
+        return const AdminPage();
+      case 7:
+        return const CameraPage();
+      case 8:
+        return const FriendsPage();
+      case 9:
+        return const SnapsPage();
+      case 10:
         return const CoachPage();
       default:
         return const PlaceholderWidget(Color(0xFFF44336), 'Not Found');
@@ -86,6 +86,13 @@ class MainScaffoldState extends State<MainScaffold> {
     }
   }
 
+  int _onlyBottomNavTitle(int index) {
+    if(index > 4) {
+      return 0;
+    }
+    return index;
+  }
+
   @override
   Widget build(BuildContext context) {
     // User user = FirebaseAuth.instance.currentUser!;
@@ -99,14 +106,26 @@ class MainScaffoldState extends State<MainScaffold> {
         title: _currentIndex == 0
             ? const Text('NutriSnap')
             : _currentIndex == 1
-                ? const Text('Journal')
-                : _currentIndex == 2
-                    ? const Text('Trends')
-                    : _currentIndex == 3
-                        ? const Text('Challenges')
-                        : _currentIndex == 4
-                            ? const Text('Profile')
-                            : const Text('NutriSnap'),
+            ? const Text('Journal')
+            : _currentIndex == 2
+            ? const Text('Trends')
+            : _currentIndex == 3
+            ? const Text('Challenges')
+            : _currentIndex == 4
+            ? const Text('Profile')
+            : _currentIndex == 5
+            ? const Text('About')
+            : _currentIndex == 6
+            ? const Text('Admin')
+            : _currentIndex == 7
+            ? const Text('Camera')
+            : _currentIndex == 8
+            ? const Text('Friends')
+            : _currentIndex == 9
+            ? const Text('MySnaps')
+            : _currentIndex == 10
+            ? const Text('Coach')
+            : const Text('NutriSnap'),
         // title: const Text('NutriSnap'),
         // Provide a button to open the drawer.
         leading: Builder(
@@ -151,32 +170,32 @@ class MainScaffoldState extends State<MainScaffold> {
             ListTile(
               title: const Text('About'),
               leading: const Icon(Icons.info_outline),
-              onTap: () => _onDrawerItemTapped(1),
+              onTap: () => _onDrawerItemTapped(5),
             ),
             ListTile(
               title: const Text('Admin'),
               leading: const Icon(Icons.admin_panel_settings_outlined),
-              onTap: () => _onDrawerItemTapped(2),
+              onTap: () => _onDrawerItemTapped(6),
             ),
             ListTile(
               title: const Text('Camera'),
               leading: const Icon(Icons.group_outlined),
-              onTap: () => _onDrawerItemTapped(3),
+              onTap: () => _onDrawerItemTapped(7),
             ),
             ListTile(
               title: const Text('Friends'),
               leading: const Icon(Icons.group_outlined),
-              onTap: () => _onDrawerItemTapped(4),
+              onTap: () => _onDrawerItemTapped(8),
             ),
             ListTile(
               title: const Text('MySnaps'),
               leading: const Icon(Icons.camera_alt_outlined),
-              onTap: () => _onDrawerItemTapped(5),
+              onTap: () => _onDrawerItemTapped(9),
             ),
             ListTile(
               title: const Text('Coach'),
               leading: const Icon(Icons.chat_outlined),
-              onTap: () => _onDrawerItemTapped(6),
+              onTap: () => _onDrawerItemTapped(10),
             ),
             // ListTile(
             //   title: const Text('Extra'),
@@ -195,7 +214,7 @@ class MainScaffoldState extends State<MainScaffold> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onBottomTabTapped,
-        currentIndex: _currentIndex,
+        currentIndex: _onlyBottomNavTitle(_currentIndex),
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard_outlined), label: 'Dashboard'),
