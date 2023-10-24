@@ -22,13 +22,13 @@ class UserMessage extends StatelessWidget {
             : MainAxisAlignment.start,
         children: [
           if (!isCurrentUser)
-            OtherUserAvatar(otherUserName: messageSenderId.toString()),
+            OtherUserAvatar(otherUserName: messageSenderId),
           MessageBox(
               isCurrentUser: isCurrentUser,
               messageText: messageText,
               formattedTime: formattedTime),
           if (isCurrentUser)
-            CurrentUserAvatar(currentUserName: messageSenderId.toString())
+            CurrentUserAvatar(currentUserName: messageSenderId),
         ],
       ),
     );

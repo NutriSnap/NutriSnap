@@ -35,6 +35,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const CameraPage());
       case ChallengesPage.routeName:
         return MaterialPageRoute(builder: (_) => const ChallengesPage());
+      // testing new route
       case CoachPage.routeName:
         return MaterialPageRoute(builder: (_) => const CoachPage());
       case FriendsPage.routeName:
