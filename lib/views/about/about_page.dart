@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/views/about/widgets/app_feature.dart';
+import 'package:nutrisnap/views/about/widgets/section_header.dart';
+import 'package:nutrisnap/views/about/widgets/team_member_grid.dart';
 import 'package:url_launcher/link.dart';
-import 'widgets/team_member.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -14,10 +16,7 @@ class AboutPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         children: [
           // App Logo or Banner image here (if you have one)
-          const Text(
-            "About NutriSnap",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
+          const SectionHeader(title: "About NutriSnap"),
           const SizedBox(height: 12),
           const Text(
               "Transform your meals into nutritional insights through intelligent, camera-powered food logging."),
@@ -35,10 +34,10 @@ class AboutPage extends StatelessWidget {
           const SizedBox(height: 12),
 
           // Other Sections
-          _buildSectionHeader("Features"),
-          _buildFeature("Smart food recognition"),
-          _buildFeature("Comprehensive nutrition tracking"),
-          _buildFeature("Customizable nutrition goals"),
+          const SectionHeader(title: "Features"),
+          const AppFeature(featureText: "Smart food recognition"),
+          const AppFeature(featureText: "Comprehensive nutrition tracking"),
+          const AppFeature(featureText: "Customizable nutrition goals"),
           // ... Additional features can go here
           const Divider(
             // Add a line to separate sections
@@ -56,44 +55,9 @@ class AboutPage extends StatelessWidget {
             },
           ),
           // Team members
-          _buildSectionHeader("Meet the Team"),
-          const TeamMember(
-              name: 'Lydia Sollis',
-              role:
-                  'Team Lead\nStudent, MSc Computer Science\nFull Stack Developer',
-              githubUrl: 'https://github.com/lsollis/',
-              linkedinUrl: 'https://www.linkedin.com/in/lydia-sollis/'),
-          const TeamMember(
-              name: 'Michael Rogers',
-              role: 'Student, MSc Computer Science\nFrontend Developer',
-              githubUrl: 'https://github.com/mlr77',
-              linkedinUrl:
-                  'https://www.linkedin.com/in/michael-rogers-a2a1152a/'),
-          const TeamMember(
-            name: 'Jingyi He',
-            role: 'Student, BS Computer Science\nQ/A Engineer',
-            githubUrl: "https://github.com/jing2003",
-            linkedinUrl: "https://www.linkedin.com/in/jingyi-he-b16b0222b/",
-          ),
-          // ... More team members
+          const SectionHeader(title: "Meet the Team"),
+          const TeamMemberGrid(),
         ],
-      ),
-    );
-  }
-
-  Widget _buildSectionHeader(String title) {
-    return Text(
-      title,
-      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    );
-  }
-
-  Widget _buildFeature(String featureText) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Text(
-        "• $featureText",
-        style: const TextStyle(fontSize: 16),
       ),
     );
   }

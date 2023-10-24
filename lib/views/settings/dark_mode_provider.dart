@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+// import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-@riverpod
+// @riverpod
 class DarkModeNotifier extends StateNotifier<bool> {
   DarkModeNotifier() : super(false);
 
@@ -11,5 +11,5 @@ class DarkModeNotifier extends StateNotifier<bool> {
 }
 
 final darkModeProvider = StateNotifierProvider<DarkModeNotifier, bool>(
-      (ref) => DarkModeNotifier(),
+  (ref) => DarkModeNotifier(),
 );
