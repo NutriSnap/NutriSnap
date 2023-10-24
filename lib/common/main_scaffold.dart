@@ -18,7 +18,7 @@ import 'package:nutrisnap/views/camera/camera_page.dart';
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
 
-  static const routeName = '/';
+  static const routeName = '/home';
 
   @override
   MainScaffoldState createState() => MainScaffoldState();
@@ -89,7 +89,7 @@ class MainScaffoldState extends State<MainScaffold> {
   }
 
   int _onlyBottomNavTitle(int index) {
-    if(index > 4) {
+    if (index > 4) {
       return 0;
     }
     return index;
@@ -108,26 +108,26 @@ class MainScaffoldState extends State<MainScaffold> {
         title: _currentIndex == 0
             ? const Text('NutriSnap')
             : _currentIndex == 1
-            ? const Text('Journal')
-            : _currentIndex == 2
-            ? const Text('Trends')
-            : _currentIndex == 3
-            ? const Text('Challenges')
-            : _currentIndex == 4
-            ? const Text('Profile')
-            : _currentIndex == 5
-            ? const Text('About')
-            : _currentIndex == 6
-            ? const Text('Admin')
-            : _currentIndex == 7
-            ? const Text('Camera')
-            : _currentIndex == 8
-            ? const Text('Friends')
-            : _currentIndex == 9
-            ? const Text('MySnaps')
-            : _currentIndex == 10
-            ? const Text('Coach')
-            : const Text('NutriSnap'),
+                ? const Text('Journal')
+                : _currentIndex == 2
+                    ? const Text('Trends')
+                    : _currentIndex == 3
+                        ? const Text('Challenges')
+                        : _currentIndex == 4
+                            ? const Text('Profile')
+                            : _currentIndex == 5
+                                ? const Text('About')
+                                : _currentIndex == 6
+                                    ? const Text('Admin')
+                                    : _currentIndex == 7
+                                        ? const Text('Camera')
+                                        : _currentIndex == 8
+                                            ? const Text('Friends')
+                                            : _currentIndex == 9
+                                                ? const Text('MySnaps')
+                                                : _currentIndex == 10
+                                                    ? const Text('Coach')
+                                                    : const Text('NutriSnap'),
         // title: const Text('NutriSnap'),
         // Provide a button to open the drawer.
         leading: Builder(
