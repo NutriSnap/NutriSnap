@@ -24,10 +24,10 @@ class MessageBox extends StatelessWidget {
         //box shadow
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.2),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: const Offset(2, 3), // Vertical offset
+            offset: const Offset(0, 3), // Vertical offset
           )
         ],
       ),

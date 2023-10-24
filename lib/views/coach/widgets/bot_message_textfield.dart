@@ -35,7 +35,7 @@ class BotMessageTextField extends StatelessWidget {
           Text(
             messageText,
             textAlign: TextAlign.left,
-            style: TextStyle(
+            style: const TextStyle(
               //color: Colors.purple[900],
               //fontWeight: FontWeight.bold,
             ),
