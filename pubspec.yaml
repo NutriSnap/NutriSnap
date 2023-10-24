@@ -10,45 +10,127 @@ environment:
   sdk: '>=3.1.0 <4.0.0'
 
 dependencies:
+  # Core Flutter SDK.
   flutter:
     sdk: flutter
-  cloud_firestore: ^4.9.2
-  firebase_auth: ^4.10.0
-  firebase_core: ^2.16.0
-  firebase_storage: ^11.2.7
-  firebase_ui_auth: ^1.8.0
-  fl_chart: ^0.63.0
-  flutter_svg: ^2.0.7
-  foundation: ^0.0.5
-  google_sign_in: ^6.1.5
-  http: ^1.1.0
-  sign_in_with_apple: ^5.0.0
-  intl: ^0.18.1
-  url_launcher: ^6.1.14
-  font_awesome_flutter: ^10.5.0
-  image_picker: ^1.0.4
-  image_cropper: ^5.0.0
-  flutter_riverpod: ^2.4.4
-  riverpod_annotation: ^2.2.1
+
+  # Firebase Cloud Firestore plugin.
+  cloud_firestore: ^4.11.0
+
+  # Default icon set for Flutter.
+  cupertino_icons: ^1.0.2
+
+  # Provides visualization of data in various chart forms.
+  fl_chart: ^0.64.0
+
+  # FlexColorScheme allows themed apps to use brand colors with ease.
   flex_color_scheme: ^7.3.1
+
+  # Firebase authentication plugin.
+  firebase_auth: ^4.11.1
+
+  # Core Firebase library required for all Firebase plugins.
+  firebase_core: ^2.19.0
+
+  # Firebase UI for authentication.
+  firebase_ui_auth: ^1.9.1
+
+  # Firebase storage to store files like images, videos, etc.
+  firebase_storage: ^11.2.7
+
+  # Provides icons for your Flutter app.
+  font_awesome_flutter: ^10.6.0
+
+  # FormBuilder is a package for easier form creation in Flutter.
+  flutter_form_builder: ^9.1.1
+
+  # Provides markdown rendering capabilities.
+  flutter_markdown: ^0.6.18
+
+  # Generates a native splash screen for your Flutter app.
+  flutter_native_splash: ^2.3.4
+
+  # Allows usage of Google Fonts in your Flutter app.
   google_fonts: ^6.1.0
+
+  # Google sign-in authentication.
+  google_sign_in: ^6.1.5
+
+  # For making HTTP requests.
+  http: ^1.1.0
+
+  # Image cropping functionality.
+  image_cropper: ^5.0.0
+
+  # Image picking from gallery and camera.
+  image_picker: ^1.0.4
+
+  # Provides localization and internationalization functionalities.
+  intl: ^0.18.1
+
+  # A logging package to help with development.
+  logger: ^2.0.2+1
+
+  # For rendering SVG images.
+  flutter_svg: ^2.0.7
+
+  # State management solution using Riverpod.
+  flutter_riverpod: ^2.4.4
+
+  # Annotations for the Freezed package.
+  freezed_annotation: ^2.4.1
+
+  # Annotations for the Riverpod package.
+  riverpod_annotation: ^2.2.1
+
+  # Plugin for accessing and modifying app preferences.
   shared_preferences: ^2.2.2
 
+  # Apple sign-in authentication.
+  sign_in_with_apple: ^5.0.0
+
+  # Foundation for Flutter plugins.
+  foundation: ^0.0.5
+
+  # Launches a URL in a mobile application.
+  url_launcher: ^6.1.14
+
+  # Validators for use with Flutter Form Builder.
+  form_builder_validators: ^9.1.0
+
 dev_dependencies:
+  # Provides testing capabilities to your Flutter app.
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
-  riverpod_generator: ^2.3.3
+  # A build package used in combination with packages like Freezed and json_serializable.
   build_runner: ^2.4.6
+
+  # Tool to generate code for your models.
+  json_serializable: ^6.7.1
+
+  # Recommended lint rules for Flutter apps.
+  flutter_lints: ^2.0.0
+
+  # Code generator for the Freezed package.
+  freezed: ^2.4.5
+
+  # Lint rules for Riverpod.
+  riverpod_lint: ^2.3.1
+
+  # Code generator for Riverpod.
+  riverpod_generator: '3.0.0-dev.3'
+
+  # Import custom_lint as riverpod_lint depends on it.
   custom_lint: ^0.5.4
-  riverpod_lint: ^2.1.1
 
 flutter:
+  # Uses Google's Material Design.
   uses-material-design: true
 
-  # Enable generation of localized Strings from arb files.
-  generate: true
+  # NOTE: Change to true to enable code generation
+  # Enables code generation.
+  generate: false
 
   assets:
     # Add assets from the images directory to the application.

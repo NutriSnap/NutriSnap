@@ -18,6 +18,7 @@ import 'package:nutrisnap/views/camera/camera_page.dart';
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
 
+  static const String routeName = '/home';
 
   @override
   MainScaffoldState createState() => MainScaffoldState();
@@ -76,7 +77,7 @@ class MainScaffoldState extends State<MainScaffold> {
     try {
       // Your sign-out logic here. For example, if you're using Firebase:
       await FirebaseAuth.instance.signOut();
-      ctx.pushReplacementNamed('/login');
+      ctx.pushReplacementNamed('/');
     } catch (error) {
       // Handle logout error, like showing a snackbar with the error message.
 
