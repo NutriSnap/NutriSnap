@@ -9,7 +9,8 @@ class OtherUserAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: Theme.of(context).colorScheme.tertiaryContainer, // for non-current user
-      child: Text(otherUserName.substring(0, 2)),
+      child: Text(otherUserName//.substring(0, 2)
+      ),
     );
   }
 }
