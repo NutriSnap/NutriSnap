@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
+// import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
 

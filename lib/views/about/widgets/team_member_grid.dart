@@ -19,17 +19,14 @@ class TeamMemberGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //color: Theme.of(context).colorScheme.surface,
-      child: ListView(
-        //crossAxisCount: 1, // how many columns
-        //itemCount: teamMemberDB.getTeamMemberIds().length,
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(8.0), // padding around the grid
-        //itemBuilder: TeamMemberListItem(),
-        //childAspectRatio: 16.0 / 9.0, // width to height ratio
-        children: _buildListItems(context), // List of SnapCard widgets
-      ),
+    return ListView(
+      //crossAxisCount: 1, // how many columns
+      //itemCount: teamMemberDB.getTeamMemberIds().length,
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(8.0), // padding around the grid
+      //itemBuilder: TeamMemberListItem(),
+      //childAspectRatio: 16.0 / 9.0, // width to height ratio
+      children: _buildListItems(context), // List of SnapCard widgets
     );
   }
 }
