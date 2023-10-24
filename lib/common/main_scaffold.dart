@@ -18,7 +18,7 @@ import 'package:nutrisnap/views/camera/camera_page.dart';
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
 
-  static const routeName = '/';
+  static const routeName = '/main';
 
   @override
   MainScaffoldState createState() => MainScaffoldState();
