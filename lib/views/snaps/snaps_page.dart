@@ -24,7 +24,11 @@ class _SnapsPageState extends State<SnapsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      //key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Take Snap'),
+      ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +77,7 @@ class _SnapsPageState extends State<SnapsPage> {
               ),
               Ink(
                 decoration: const ShapeDecoration(
-                  //color: AppColors.green,
+                  color: Colors.green,
                   shape: CircleBorder(),
                 ),
                 child: IconButton(
@@ -82,7 +86,8 @@ class _SnapsPageState extends State<SnapsPage> {
                   iconSize: 72,
                   onPressed: () {
                     // Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed(JournalPage.routeName);
+                    Navigator.of(context).popUntil(ModalRoute.withName('/home'));
+                    //Navigator.of(context).pushNamed(JournalPage.routeName);
                     // Navigation action
                     //Navigator.of(context).pushNamed(SnapsEditPage.routeName);
                   },

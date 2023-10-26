@@ -13,7 +13,6 @@ import 'package:nutrisnap/views/journal/journal_page.dart';
 import 'package:nutrisnap/views/profile/profile_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
 import 'package:nutrisnap/views/trends/trends_page.dart';
-import 'package:nutrisnap/views/camera/camera_page.dart';
 
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
@@ -60,12 +59,10 @@ class MainScaffoldState extends State<MainScaffold> {
       case 6:
         return const AdminPage();
       case 7:
-        return const CameraPage();
-      case 8:
         return const FriendsPage();
-      case 9:
+      case 8:
         return const SnapsPage();
-      case 10:
+      case 9:
         return const CoachPage();
       default:
         return const PlaceholderWidget(Color(0xFFF44336), 'Not Found');
@@ -119,13 +116,11 @@ class MainScaffoldState extends State<MainScaffold> {
                                 ? const Text('About')
                                 : _currentIndex == 6
                                     ? const Text('Admin')
-                                    : _currentIndex == 7
-                                        ? const Text('Camera')
-                                        : _currentIndex == 8
+                                        : _currentIndex == 7
                                             ? const Text('Friends')
-                                            : _currentIndex == 9
+                                            : _currentIndex == 8
                                                 ? const Text('MySnaps')
-                                                : _currentIndex == 10
+                                                : _currentIndex == 9
                                                     ? const Text('Coach')
                                                     : const Text('NutriSnap'),
         // title: const Text('NutriSnap'),
@@ -180,24 +175,19 @@ class MainScaffoldState extends State<MainScaffold> {
               onTap: () => _onDrawerItemTapped(6),
             ),
             ListTile(
-              title: const Text('Camera'),
+              title: const Text('Friends'),
               leading: const Icon(Icons.group_outlined),
               onTap: () => _onDrawerItemTapped(7),
             ),
             ListTile(
-              title: const Text('Friends'),
-              leading: const Icon(Icons.group_outlined),
-              onTap: () => _onDrawerItemTapped(8),
-            ),
-            ListTile(
               title: const Text('MySnaps'),
               leading: const Icon(Icons.camera_alt_outlined),
-              onTap: () => _onDrawerItemTapped(9),
+              onTap: () => _onDrawerItemTapped(8),
             ),
             ListTile(
               title: const Text('Coach'),
               leading: const Icon(Icons.chat_outlined),
-              onTap: () => _onDrawerItemTapped(10),
+              onTap: () => _onDrawerItemTapped(9),
             ),
             // ListTile(
             //   title: const Text('Extra'),
