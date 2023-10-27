@@ -15,6 +15,18 @@ class SettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final darkMode = ref.watch(darkModeProvider);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+        // add a button to the AppBar that navigates to the settings page.
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.pushNamed(context, SettingsPage.routeName);
+            },
+          )
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -22,12 +34,12 @@ class SettingsPage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SwitchListTile(
-              title: darkMode
-                  ? const Text('Switch to light mode')
-                  : const Text('Switch to dark mode'),
-              value: darkMode,
-              onChanged: (val) {
-                ref.read(darkModeProvider.notifier).toggle();
+                title: darkMode
+                    ? const Text('Switch to light mode')
+                    : const Text('Switch to dark mode'),
+                value: darkMode,
+                onChanged: (val) {
+                  ref.read(darkModeProvider.notifier).toggle();
                 }),
             const SizedBox(height: 8),
             const Goals(),
