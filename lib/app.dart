@@ -6,6 +6,7 @@ import 'package:nutrisnap/common/main_scaffold.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nutrisnap/views/auth/signin_page.dart';
+import 'package:nutrisnap/views/auth/signup_page.dart';
 import 'package:nutrisnap/views/not_found_page.dart';
 import 'package:nutrisnap/views/settings/dark_mode_provider.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
@@ -70,22 +71,16 @@ class MyApp extends ConsumerWidget {
             switch (routeSettings.name) {
               case SigninPage.routeName:
                 return SigninPage();
+              case SignupPage.routeName:
+                return const SignupPage();
               case SettingsPage.routeName:
                 return const SettingsPage();
               case AboutPage.routeName:
                 return const AboutPage();
               case AdminPage.routeName:
                 return const AdminPage();
-              // case AuthPage.routeName:
-              //   return const AuthPage();
-              // case RegisterPage.routeName:
-              //   return const RegisterPage();
-              // case LoginPage.routeName:
-              //   return const LoginPage();
               case ForgotPasswordPage.routeName:
                 return const ForgotPasswordPage();
-              // case ToggleSignonPage.routeName:
-              //   return const ToggleSignonPage();
               case CameraPage.routeName:
                 return const CameraPage();
               case ChallengesPage.routeName:
@@ -99,7 +94,7 @@ class MyApp extends ConsumerWidget {
               case JournalPage.routeName:
                 return const JournalPage();
               case ProfilePage.routeName:
-                return const ProfilePage();
+                return ProfilePage();
               case SnapsPage.routeName:
                 return const SnapsPage();
               case SnapsEditPage.routeName:
@@ -111,7 +106,7 @@ class MyApp extends ConsumerWidget {
               case SuccessPage.routeName:
                 return const SuccessPage();
               case MainScaffold.routeName:
-                return const MainScaffold();
+                return MainScaffold();
               default:
                 return const NotFoundPage();
             }
