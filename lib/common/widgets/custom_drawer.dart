@@ -34,7 +34,16 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// The currently logged in user.
-    UserData user = userDB.getUser(currentUserId);
+    // UserData user = userDB.getUser(currentUserId);
+    UserData user = UserData(
+      id: 'user-003',
+      name: 'Katie Yamasaki',
+      username: '@katie',
+      email: 'katie.y@gmail.com',
+      imagePath: 'assets/images/user-003.jpg',
+      initials: 'KY',
+    );
+
     return Drawer(
       child: ListView(
         children: [

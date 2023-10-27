@@ -99,7 +99,15 @@ class MainScaffoldState extends State<MainScaffold> {
   Widget build(BuildContext context) {
     // User user = FirebaseAuth.instance.currentUser!;
 
-    UserData currentUser = userDB.getUser(currentUserId);
+    // UserData currentUser = userDB.getUser(currentUserId);
+    UserData currentUser = UserData(
+      id: 'user-003',
+      name: 'Katie Yamasaki',
+      username: '@katie',
+      email: 'katie.y@gmail.com',
+      imagePath: 'assets/images/user-003.jpg',
+      initials: 'KY',
+    );
 
     return Scaffold(
       appBar: AppBar(
