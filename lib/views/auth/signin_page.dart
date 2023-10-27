@@ -78,31 +78,6 @@ class SigninPage extends ConsumerWidget {
                 height: 40,
                 child: ElevatedButton(
                     onPressed: () {
-                      // bool validEmailAndPassword =
-                      //     _formKey.currentState?.saveAndValidate() ?? false;
-                      // UserDB userDB = ref.read(userDBProvider);
-
-                      // if (validEmailAndPassword) {
-                      //   String email = _formKey.currentState?.value['email'];
-                      //   if (userDB.isUserEmail(email)) {
-                      //     String userID = userDB.getUserID(email);
-                      //     ref.read(currentUserIDProvider.notifier).state =
-                      //         userID;
-                      //     Navigator.pushReplacementNamed(context, '/home');
-                      //   } else {
-                      //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      //       content: Text(
-                      //           "Unknown User, try one of: ${userDB.getAllEmails().join(', ')}"),
-                      //       duration: const Duration(seconds: 10),
-                      //     ));
-                      //   }
-                      // } else {
-                      //   ScaffoldMessenger.of(context)
-                      //       .showSnackBar(const SnackBar(
-                      //     content: Text('Invalid Email or Password.'),
-                      //     duration: Duration(seconds: 2),
-                      //   ));
-                      // }
                       Navigator.pushReplacementNamed(context, '/home');
                     },
                     child: const Center(
