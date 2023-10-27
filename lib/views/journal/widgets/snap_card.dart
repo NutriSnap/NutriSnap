@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';
 import 'package:nutrisnap/data_models/snap.dart';
+import 'package:nutrisnap/views/snaps/snap_providers.dart';
 import 'food_list.dart';
 
-class SnapCard extends StatelessWidget {
+class SnapCard extends ConsumerWidget {
   const SnapCard({Key? key, required this.snapId}) : super(key: key);
 
   final String snapId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final SnapDB snapDB = ref.watch(snapDBProvider);
     Snap snap = snapDB.getSnap(snapId);
     String imageUrl = snap.imageUrl;
     Image image = Image.asset(imageUrl, fit: BoxFit.cover);

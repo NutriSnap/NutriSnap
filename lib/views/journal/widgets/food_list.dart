@@ -1,19 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nutrisnap/views/snaps/snap_food_item_providers.dart';
+
+import 'package:nutrisnap/views/snaps/snap_providers.dart';
 import '../../../data_models/snap.dart';
 import '../../../data_models/snap_food_item.dart';
 
-class FoodList extends StatelessWidget {
+class FoodList extends ConsumerWidget {
+  final String snapId;
+  /*
   final List<String> foodItems;
   final int foodsCount;
-  final String snapId;
+
 
   FoodList({Key? key, required this.snapId})
       : foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId),
         foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length,
         super(key: key);
 
+   */
+  const FoodList({Key? key, required this.snapId}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final SnapDB snapDB = ref.watch(snapDBProvider);
+    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
+
+    final List<String> foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId);
+    final int foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length;
+
     return ListView.separated(
       itemCount: foodsCount + 1, // Added 1 for the final divider
       itemBuilder: (context, index) {

@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nutrisnap/data_models/meal.dart';
+import 'package:nutrisnap/data_models/snap.dart';
+import 'package:nutrisnap/data_models/snap_food_item.dart';
+import 'package:nutrisnap/views/snaps/meal_providers.dart';
+import 'package:nutrisnap/views/snaps/snap_food_item_providers.dart';
+import 'package:nutrisnap/views/snaps/snap_providers.dart';
+
+// import 'package:nutrisnap/data_models/snap.dart';
 // import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 // import 'package:nutrisnap/views/snaps/edit_snap.dart';
 import '../camera/camera_page.dart';
@@ -6,25 +15,26 @@ import '../journal/journal_page.dart';
 import 'widgets/meal_dropdown_menu.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';
 
-class SnapsPage extends StatefulWidget {
-  const SnapsPage({super.key});
+// Add a snap to journal
+class SnapsPage extends ConsumerWidget {
+  const SnapsPage({Key? key}) : super(key: key);
 
   static const String routeName = '/snaps';
-
-  @override
-  State<SnapsPage> createState() => _SnapsPageState();
-}
-
-class _SnapsPageState extends State<SnapsPage> {
   // image
   static const String _image = 'assets/images/layout/foodplaceholder.png';
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final navigatorKey = GlobalKey<NavigatorState>();
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  // final navigatorKey = GlobalKey<NavigatorState>();
+  // final SnapDB snapDB = ref.watch(snapDBProvider);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    final SnapDB snapDB = ref.watch(snapDBProvider);
+    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
+    final MealDB mealDB = ref.watch(mealDBProvider);
+
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -82,6 +92,22 @@ class _SnapsPageState extends State<SnapsPage> {
                   iconSize: 72,
                   onPressed: () {
                     // Navigator.of(context).pop();
+                    // snapFoodItemDB.add;
+                    mealDB.addMeal(
+                        ownerId: '1',
+                        name: 'Breakfast',
+                        unprocessedPercentage: 50,
+                        moderatelyProcessedPercentage: 30,
+                        highlyProcessedPercentage: 20,
+                      snapsList: ['1', '2', '4'],
+                    );
+                    snapDB.addSnap(
+                      ownerId: '1',
+                      mealId: 'meal-test',
+                      title: 'title',
+                      description: 'testing',
+                      imageUrl: 'assets/images/food/coffee.jpg',
+                    );
                     Navigator.of(context).pushNamed(JournalPage.routeName);
                     // Navigation action
                     //Navigator.of(context).pushNamed(SnapsEditPage.routeName);

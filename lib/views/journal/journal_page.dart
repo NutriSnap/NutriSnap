@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:nutrisnap/views/journal/widgets/snap_card.dart';
 import 'package:nutrisnap/data_models/snap.dart';
+import 'package:nutrisnap/views/snaps/snap_providers.dart';
 
-List<SnapCard> _buildGridCards(BuildContext context) {
+List<SnapCard> _buildGridCards(BuildContext context, WidgetRef ref) {
+  final SnapDB snapDB = ref.watch(snapDBProvider);
   List<String> snapIds = snapDB.getSnapIds();
 
   if (snapIds.isEmpty) {
@@ -10,25 +14,24 @@ List<SnapCard> _buildGridCards(BuildContext context) {
   }
 
   return snapIds.map((snapId) {
-  return SnapCard(snapId: snapId);
+    return SnapCard(snapId: snapId);
   }).toList();
-
 }
 
-class JournalPage extends StatelessWidget {
+class JournalPage extends ConsumerWidget {
   const JournalPage({Key? key}) : super(key: key);
 
   static const String routeName = '/journal';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       color: Theme.of(context).colorScheme.surface,
       child: GridView.count(
         crossAxisCount: 1, // how many columns
         padding: const EdgeInsets.all(8.0), // padding around the grid
         childAspectRatio: 16.0 / 9.0, // width to height ratio
-        children: _buildGridCards(context), // List of SnapCard widgets
+        children: _buildGridCards(context, ref), // List of SnapCard widgets
       ),
     );
   }
