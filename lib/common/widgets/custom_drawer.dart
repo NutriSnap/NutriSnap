@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/coach/coach_page.dart';
@@ -7,7 +8,7 @@ import 'package:nutrisnap/views/friends/friends_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
 import 'package:nutrisnap/data_models/user_db.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends ConsumerWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
   // FirebaseAuth auth = FirebaseAuth.instance;
@@ -15,26 +16,29 @@ class CustomDrawer extends StatelessWidget {
 
   final String currentUserId = 'user-003';
 
-  void _signOut(BuildContext context) async {
-    final ctx = Navigator.of(context);
-    final scaffold = ScaffoldMessenger.of(context);
-    try {
-      // Your sign-out logic here. For example, if you're using Firebase:
-      await FirebaseAuth.instance.signOut();
-      // Navigate the user to the login page after logging out.
-      ctx.pushReplacementNamed('/login');
-    } catch (error) {
-      // Handle logout error, like showing a snackbar with the error message.
-      scaffold.showSnackBar(
-        SnackBar(content: Text('Error signing out: $error')),
-      );
-    }
-  }
+  // void _signOut(BuildContext context) async {
+  //   final ctx = Navigator.of(context);
+  //   final scaffold = ScaffoldMessenger.of(context);
+  //   try {
+  //     // Your sign-out logic here. For example, if you're using Firebase:
+  //     await FirebaseAuth.instance.signOut();
+  //     // Navigate the user to the login page after logging out.
+  //     ctx.pushReplacementNamed('/signin');
+  //   } catch (error) {
+  //     // Handle logout error, like showing a snackbar with the error message.
+  //     scaffold.showSnackBar(
+  //       SnackBar(content: Text('Error signing out: $error')),
+  //     );
+  //   }
+  // }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final UserDB userDB = ref.watch(userDBProvider);
+    final String currentUserID = ref.watch(currentUserIDProvider);
+
     /// The currently logged in user.
-    UserData user = userDB.getUser(currentUserId);
+    UserData user = userDB.getUser(currentUserID)!;
     return Drawer(
       child: ListView(
         children: [
@@ -82,10 +86,10 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           const Divider(),
-          ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text('Sign Out'),
-            onTap: () => _signOut(context),
+          const ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Sign Out'),
+            // onTap: () => _signOut(context),
           )
         ],
       ),
