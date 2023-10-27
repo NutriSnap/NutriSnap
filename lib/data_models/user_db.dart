@@ -1,6 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:nutrisnap/data_models/user_challenge.dart';
 import 'package:nutrisnap/data_models/user_badge.dart';
 import 'meal.dart';
+import 'package:nutrisnap/views/snaps/meal_providers.dart';
 
 class UserData {
   UserData({
@@ -20,6 +23,8 @@ class UserData {
 }
 
 class UserDB {
+  UserDB(this.ref);
+  final ProviderRef<UserDB> ref;
   final List<UserData> _users = [
     UserData(
       id: 'user-001',
@@ -56,6 +61,7 @@ class UserDB {
   }
 
   List<String> getAssociatedMealIds(String userId) {
+    final MealDB mealDB = ref.read(mealDBProvider);
     return mealDB.getMealIdsByOwnerId(userId);
   }
 
@@ -69,7 +75,7 @@ class UserDB {
 }
 
 /// The singleton instance providing access to all user data for clients.
-UserDB userDB = UserDB();
+// UserDB userDB = UserDB();
 
 /// The currently logged in user.
 String currentUserId = 'user-003';

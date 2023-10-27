@@ -1,3 +1,6 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nutrisnap/views/snaps/snap_providers.dart';
+
 import 'snap.dart';
 
 class Meal {
@@ -11,6 +14,7 @@ class Meal {
     required this.highlyProcessedPercentage,
     required this.snapsList,
   });
+
   String id;
   String ownerId;
   String name; // Breakfast, Lunch, etc.
@@ -22,6 +26,8 @@ class Meal {
 }
 
 class MealDB {
+  MealDB(this.ref);
+  final ProviderRef<MealDB> ref;
   final List<Meal> _meals = [
     Meal(
       id: '1',
@@ -55,6 +61,30 @@ class MealDB {
     ),
   ];
 
+  void addMeal({
+    required String ownerId,
+    required String name,
+    required double unprocessedPercentage,
+    required double moderatelyProcessedPercentage,
+    required double highlyProcessedPercentage,
+    required List<String> snapsList,
+  }) {
+    // String id = 'meal-${(_meals.length + 1).toString().padLeft(3, '0')}';
+    String id = 'meal-test';
+    DateTime date = DateTime.now();
+    Meal data = Meal(
+      id: id,
+      ownerId: ownerId,
+      name: name,
+      dateTime: date,
+      unprocessedPercentage: unprocessedPercentage,
+      moderatelyProcessedPercentage: moderatelyProcessedPercentage,
+      highlyProcessedPercentage: highlyProcessedPercentage,
+      snapsList: snapsList,
+    );
+    _meals.add(data);
+  }
+
   Meal getMeal(String mealId) {
     return _meals.firstWhere((meal) => meal.id == mealId);
   }
@@ -64,6 +94,7 @@ class MealDB {
   }
 
   List<String> getAssociatedSnapIds(String mealId) {
+    final SnapDB snapDB = ref.watch(snapDBProvider);
     return snapDB.getSnapIdsByMealId(mealId);
   }
 
@@ -76,4 +107,4 @@ class MealDB {
 
 }
 
-MealDB mealDB = MealDB();
+// MealDB mealDB = MealDB();

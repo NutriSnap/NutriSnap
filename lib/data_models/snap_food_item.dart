@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SnapFoodItem {
   SnapFoodItem({
@@ -15,6 +16,8 @@ class SnapFoodItem {
 }
 
 class SnapFoodItemDB {
+  SnapFoodItemDB(this.ref);
+  final ProviderRef<SnapFoodItemDB> ref;
   final List<SnapFoodItem> _snapFoodItems = [
     SnapFoodItem(
       id: '1',
@@ -81,6 +84,23 @@ class SnapFoodItemDB {
     ),
   ];
 
+  void addSnapFoodItem({
+    required String snapId,
+    required String name,
+    required String processedLevel,
+    required String servings,
+  }) {
+    String id = 'food-${(_snapFoodItems.length + 1).toString().padLeft(3, '0')}';
+    SnapFoodItem data = SnapFoodItem(
+      id: id,
+      snapId: snapId,
+      name: name,
+      processedLevel: processedLevel,
+      servings: servings
+    );
+    _snapFoodItems.add(data);
+  }
+
   SnapFoodItem getSnapFoodItem(String snapFoodItemId) {
     return _snapFoodItems.firstWhere((snapFoodItem) => snapFoodItem.id == snapFoodItemId);
   }
@@ -113,4 +133,4 @@ class SnapFoodItemDB {
 
 }
 
-SnapFoodItemDB snapFoodItemDB = SnapFoodItemDB();
+// SnapFoodItemDB snapFoodItemDB = SnapFoodItemDB();

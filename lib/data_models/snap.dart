@@ -1,20 +1,24 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nutrisnap/views/profile/user_providers.dart';
+import 'package:nutrisnap/views/snaps/snap_food_item_providers.dart';
+
 import 'image_model.dart';
 import 'user_db.dart';
 import 'snap_food_item.dart';
 
 class Snap {
-  Snap(
-      {required this.id,
-      required this.ownerId,
-      required this.mealId,
-      required this.title,
-      required this.description,
-      required this.imageUrl,
-      required this.date,
-      //required this.lat,
-      //required this.long,
-      List<String>? foodsList})
-      : foodsList = foodsList ?? []; // list of SnapFoodItem ids
+  Snap({
+    required this.id,
+    required this.ownerId,
+    required this.mealId,
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+    required this.date,
+    //required this.lat,
+    //required this.long,
+    List<String>? foodsList
+  }) : foodsList = foodsList ?? []; // list of SnapFoodItem ids
 
   String id;
   String ownerId;
@@ -29,6 +33,8 @@ class Snap {
 }
 
 class SnapDB {
+  SnapDB(this.ref);
+  final ProviderRef<SnapDB> ref;
   final List<Snap> _snaps = [
     Snap(
         id: '1',
@@ -87,6 +93,27 @@ class SnapDB {
         foodsList: ['7']),
   ];
 
+  void addSnap({
+    required String ownerId,
+    required String mealId,
+    required String title,
+    required String description,
+    required String imageUrl,
+  }) {
+    String id = 'snap-${(_snaps.length + 1).toString().padLeft(3, '0')}';
+    DateTime date = DateTime.now();
+    Snap data = Snap(
+      id: id,
+      ownerId: ownerId,
+      mealId: mealId,
+      title: title,
+      description: description,
+      imageUrl: imageUrl,
+      date: date,
+    );
+    _snaps.add(data);
+  }
+
   Snap getSnap(String snapId) {
     return _snaps.firstWhere((snap) => snap.id == snapId);
   }
@@ -100,17 +127,19 @@ class SnapDB {
   }
 
   Image getAssociatedImage(String snapId) {
-    Snap data = snapDB.getSnap(snapId);
+    Snap data = getSnap(snapId);
     return imageDB.getImage(data.imageUrl);
   }
 
   UserData getAssociatedUser(String snapId) {
-    Snap data = snapDB.getSnap(snapId);
+    Snap data = getSnap(snapId);
+    final UserDB userDB = ref.watch(userDBProvider);
     return userDB.getUser(data.ownerId);
   }
 
   List<String> getAssociatedSnapFoodItemIds(List<String> foodsList) {
     List<String> snapFoodItemIds = [];
+    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
     for (String foodId in foodsList) {
       snapFoodItemIds.add(snapFoodItemDB.getSnapFoodItemId(foodId));
     }
@@ -118,6 +147,7 @@ class SnapDB {
   }
 
   List<SnapFoodItem> getAssociatedSnapFoodItems(String snapId) {
+    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
     return snapFoodItemDB.getSnapFoodItemsBySnapId(snapId);
   }
 
@@ -131,4 +161,4 @@ class SnapDB {
 }
 
 /// The singleton instance of a snapDB used by clients to access snap data.
-SnapDB snapDB = SnapDB();
+// SnapDB snapDB = SnapDB();
