@@ -1,5 +1,5 @@
 import 'image_model.dart';
-import 'user_db.dart';
+// import 'user_db.dart';
 import 'snap_food_item.dart';
 
 class Snap {
@@ -11,8 +11,6 @@ class Snap {
       required this.description,
       required this.imageUrl,
       required this.date,
-      //required this.lat,
-      //required this.long,
       List<String>? foodsList})
       : foodsList = foodsList ?? []; // list of SnapFoodItem ids
 
@@ -23,8 +21,6 @@ class Snap {
   String description;
   String imageUrl;
   DateTime date;
-  //Double lat;
-  //Double long;
   List<String> foodsList;
 }
 
@@ -38,8 +34,6 @@ class SnapDB {
         description: 'Snap 1 description',
         imageUrl: 'assets/images/food/coffee.jpg',
         date: DateTime.parse('2023-07-23 20:22:04Z'),
-        //lat: 0.0,
-        //long: 0.0,
         foodsList: ['1']),
     Snap(
         id: '2',
@@ -60,8 +54,6 @@ class SnapDB {
         description: 'Snap 3 description',
         imageUrl: 'assets/images/food/pizza.jpg',
         date: DateTime.parse('2023-07-19 08:18:04Z'),
-        //lat: 0.0,
-        //long: 0.0,
         foodsList: ['6']),
     Snap(
         id: '4',
@@ -71,8 +63,6 @@ class SnapDB {
         description: 'Snap 4 description',
         imageUrl: 'assets/images/food/carbonara.jpg',
         date: DateTime.parse('2023-07-21 17:18:04Z'),
-        //lat: 0.0,
-        //long: 0.0,
         foodsList: ['8', '9']),
     Snap(
         id: '5',
@@ -82,8 +72,6 @@ class SnapDB {
         description: 'Snap 5 description',
         imageUrl: 'assets/images/food/spinach.jpg',
         date: DateTime.parse('2023-07-20 20:18:04Z'),
-        //lat: 0.0,
-        //long: 0.0,
         foodsList: ['7']),
   ];
 
@@ -104,10 +92,10 @@ class SnapDB {
     return imageDB.getImage(data.imageUrl);
   }
 
-  UserData getAssociatedUser(String snapId) {
-    Snap data = snapDB.getSnap(snapId);
-    return userDB.getUser(data.ownerId);
-  }
+  // UserData getAssociatedUser(String snapId) {
+  //   Snap data = snapDB.getSnap(snapId);
+  //   return userDB.getUser(data.ownerId);
+  // }
 
   List<String> getAssociatedSnapFoodItemIds(List<String> foodsList) {
     List<String> snapFoodItemIds = [];
