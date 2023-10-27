@@ -20,64 +20,64 @@ class SnapFoodItemDB {
   final ProviderRef<SnapFoodItemDB> ref;
   final List<SnapFoodItem> _snapFoodItems = [
     SnapFoodItem(
-      id: '1',
-      snapId: '1',
+      id: 'food-001',
+      snapId: 'snap-001',
       name: 'coffee',
       processedLevel: 'Unprocessed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '2',
-      snapId: '2',
+      id: 'food-002',
+      snapId: 'snap-002',
       name: 'chicken',
       processedLevel: 'Unprocessed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '3',
-      snapId: '2',
+      id: 'food-003',
+      snapId: 'snap-002',
       name: 'rice',
       processedLevel: 'Moderately Processed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '4',
-      snapId: '2',
+      id: 'food-004',
+      snapId: 'snap-002',
       name: 'broccoli',
       processedLevel: 'Unprocessed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '5',
-      snapId: '2',
+      id: 'food-005',
+      snapId: 'snap-002',
       name: 'tomato',
       processedLevel: 'Unprocessed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '6',
-      snapId: '3',
+      id: 'food-006',
+      snapId: 'snap-003',
       name: 'pizza',
       processedLevel: 'Highly Processed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '7',
-      snapId: '5',
+      id: 'food-007',
+      snapId: 'snap-005',
       name: 'spinach',
       processedLevel: 'Unprocessed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '8',
-      snapId: '4',
+      id: 'food-008',
+      snapId: 'snap-004',
       name: 'pasta',
       processedLevel: 'Moderately Processed',
       servings: '1',
     ),
     SnapFoodItem(
-      id: '9',
-      snapId: '4',
+      id: 'food-009',
+      snapId: 'snap-004',
       name: 'creamy sauce',
       processedLevel: 'Highly Processed',
       servings: '1',
@@ -129,7 +129,6 @@ class SnapFoodItemDB {
         .where((snapFoodItem) => snapFoodItem.snapId == snapId) // Filters the meals based on snapId
         .toList();
   }
-
 
 }
 

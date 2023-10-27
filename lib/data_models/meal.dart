@@ -30,34 +30,34 @@ class MealDB {
   final ProviderRef<MealDB> ref;
   final List<Meal> _meals = [
     Meal(
-      id: '1',
+      id: 'meal-001',
       ownerId: '1',
       name: 'Breakfast',
       dateTime: DateTime.now(),
       unprocessedPercentage: 50.0,
       moderatelyProcessedPercentage: 25.0,
       highlyProcessedPercentage: 25.0,
-      snapsList: ['1', '2', '3'],
+      snapsList: ['snap-001', 'snap-002', 'snap-003'],
     ),
     Meal(
-      id: '2',
+      id: 'meal-002',
       ownerId: '2',
       name: 'Lunch',
       dateTime: DateTime.now(),
       unprocessedPercentage: 25.0,
       moderatelyProcessedPercentage: 25.0,
       highlyProcessedPercentage: 50.0,
-      snapsList: ['4', '5', '6'],
+      snapsList: ['snap-004', 'snap-005', 'snap-006'],
     ),
     Meal(
-      id: '3',
+      id: 'meal-003',
       ownerId: '3',
       name: 'Dinner',
       dateTime: DateTime.now(),
       unprocessedPercentage: 75.0,
       moderatelyProcessedPercentage: 25.0,
       highlyProcessedPercentage: 0.0,
-      snapsList: ['7', '8', '9'],
+      snapsList: ['snap-007', 'snap-008', 'snap-009'],
     ),
   ];
 
@@ -69,8 +69,7 @@ class MealDB {
     required double highlyProcessedPercentage,
     required List<String> snapsList,
   }) {
-    // String id = 'meal-${(_meals.length + 1).toString().padLeft(3, '0')}';
-    String id = 'meal-test';
+    String id = 'meal-${(_meals.length + 1).toString().padLeft(3, '0')}';
     DateTime date = DateTime.now();
     Meal data = Meal(
       id: id,
