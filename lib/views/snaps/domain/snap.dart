@@ -1,9 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrisnap/views/profile/user_providers.dart';
 import 'package:nutrisnap/views/snaps/data/snap_food_item_providers.dart';
-
-import '../../../data_models/image_model.dart';
 import '../../profile/domain/user_db.dart';
+import 'image_model.dart';
 import 'snap_food_item.dart';
 
 class Snap {
