@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:nutrisnap/views/settings/presentation/settings_page.dart';
+
+import 'settings/presentation/settings_page.dart';
 
 const pageSpecification = '''
 # Page Not Found

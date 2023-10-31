@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
-// import '../views/camera/success_page.dart';
-import '../views/snaps/presentation/snaps_page.dart';
+import '../features/snaps/presentation/snaps_page.dart';
 
 class ImageUploadPage extends StatefulWidget {
   const ImageUploadPage({Key? key}) : super(key: key);
