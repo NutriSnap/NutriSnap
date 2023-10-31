@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
-import 'widgets/line_chart.dart';
+
+import 'package:nutrisnap/views/trends/presentation/widgets/line_chart.dart';
 
 class TrendsPage extends StatelessWidget {
   const TrendsPage({Key? key}) : super(key: key);

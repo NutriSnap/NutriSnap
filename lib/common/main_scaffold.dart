@@ -9,10 +9,10 @@ import 'package:nutrisnap/views/challenges/challenges_page.dart';
 import 'package:nutrisnap/views/coach/coach_page.dart';
 import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 import 'package:nutrisnap/views/friends/friends_page.dart';
-import 'package:nutrisnap/views/journal/journal_page.dart';
+import 'package:nutrisnap/views/journal/presentation/journal_page.dart';
 import 'package:nutrisnap/views/profile/profile_page.dart';
 import 'package:nutrisnap/views/snaps/presentation/snaps_page.dart';
-import 'package:nutrisnap/views/trends/trends_page.dart';
+import 'package:nutrisnap/views/trends/presentation/trends_page.dart';
 
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
