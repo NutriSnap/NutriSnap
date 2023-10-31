@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../data_models/team_member.dart';
+import '../../domain/team_member.dart';
 
 class TeamMemberListItem extends StatelessWidget {
   const TeamMemberListItem({

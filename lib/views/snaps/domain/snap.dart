@@ -3,7 +3,7 @@ import 'package:nutrisnap/views/profile/user_providers.dart';
 import 'package:nutrisnap/views/snaps/data/snap_food_item_providers.dart';
 
 import '../../../data_models/image_model.dart';
-import '../../../data_models/user_db.dart';
+import '../../profile/domain/user_db.dart';
 import 'snap_food_item.dart';
 
 class Snap {

@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/data_models/user_db.dart';
+import 'package:nutrisnap/views/profile/domain/user_db.dart';
 
 final userDBProvider = Provider<UserDB>((ref) {
   return UserDB(ref);

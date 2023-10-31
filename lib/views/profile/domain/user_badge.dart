@@ -1,4 +1,4 @@
-import 'badge.dart';
+import '../../challenges/domain/badge.dart';
 
 class UserBadge {
   UserBadge({

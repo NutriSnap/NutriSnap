@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nutrisnap/views/coach/presentation/widgets/bot_message.dart';
 import 'package:nutrisnap/views/coach/presentation/widgets/message_textfield.dart';
 import 'package:nutrisnap/views/coach/presentation/widgets/user_message.dart';
-import '../../../../data_models/message.dart';
+import '../domain/message.dart';
 
 class CoachPage extends StatelessWidget {
   const CoachPage({Key? key}) : super(key: key);
