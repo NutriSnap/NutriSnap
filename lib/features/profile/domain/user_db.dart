@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/views/challenges/domain/user_challenge.dart';
-import 'package:nutrisnap/views/profile/domain/user_badge.dart';
+import 'package:nutrisnap/features/challenges/domain/user_challenge.dart';
+import 'package:nutrisnap/features/profile/domain/user_badge.dart';
 import '../../snaps/domain/meal.dart';
-import 'package:nutrisnap/views/snaps/data/meal_providers.dart';
+import 'package:nutrisnap/features/snaps/data/meal_providers.dart';
 
 class UserData {
   UserData({

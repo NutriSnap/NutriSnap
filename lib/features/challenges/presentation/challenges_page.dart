@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/views/challenges/widgets/challenges_card.dart';
+import 'package:nutrisnap/features/challenges/widgets/challenges_card.dart';
 
 List<ChallengesCard> _buildGridCards(int count) {
   List<ChallengesCard> cards = List.generate(

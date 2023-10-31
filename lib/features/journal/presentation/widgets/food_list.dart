@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/views/snaps/data/snap_food_item_providers.dart';
-import 'package:nutrisnap/views/snaps/data/snap_providers.dart';
-import 'package:nutrisnap/views/snaps/domain/snap.dart';
-import 'package:nutrisnap/views/snaps/domain/snap_food_item.dart';
+import 'package:nutrisnap/features/snaps/data/snap_food_item_providers.dart';
+import 'package:nutrisnap/features/snaps/data/snap_providers.dart';
+import 'package:nutrisnap/features/snaps/domain/snap.dart';
+import 'package:nutrisnap/features/snaps/domain/snap_food_item.dart';
 
 class FoodList extends ConsumerWidget {
   final String snapId;
