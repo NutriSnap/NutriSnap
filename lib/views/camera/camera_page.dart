@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/utils/image_upload_page.dart';
-import 'package:nutrisnap/views/snaps/snaps_page.dart';
+import 'package:nutrisnap/views/snaps/presentation/snaps_page.dart';
 
 class CameraPage extends StatelessWidget {
   const CameraPage({Key? key}) : super(key: key);

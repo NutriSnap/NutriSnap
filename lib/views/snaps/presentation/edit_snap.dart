@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/views/snaps/snaps_page.dart';
-import 'package:nutrisnap/views/snaps/widgets/meal_dropdown_menu.dart';
+
+import 'package:nutrisnap/views/snaps/presentation/snaps_page.dart';
+import 'package:nutrisnap/views/snaps/presentation/widgets/meal_dropdown_menu.dart';
 
 class SnapsEditPage extends StatefulWidget {
   const SnapsEditPage({super.key});

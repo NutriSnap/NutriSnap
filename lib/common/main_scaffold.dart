@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
 import 'package:nutrisnap/data_models/user_db.dart';
-import 'package:nutrisnap/views/settings/settings_page.dart';
+import 'package:nutrisnap/views/settings/presentation/settings_page.dart';
 import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/challenges/challenges_page.dart';
@@ -11,7 +11,7 @@ import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 import 'package:nutrisnap/views/friends/friends_page.dart';
 import 'package:nutrisnap/views/journal/journal_page.dart';
 import 'package:nutrisnap/views/profile/profile_page.dart';
-import 'package:nutrisnap/views/snaps/snaps_page.dart';
+import 'package:nutrisnap/views/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/views/trends/trends_page.dart';
 
 class MainScaffold extends StatefulWidget {

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrisnap/data_models/meal.dart';
-import 'package:nutrisnap/data_models/snap.dart';
-import 'package:nutrisnap/data_models/snap_food_item.dart';
-import 'package:nutrisnap/views/snaps/meal_providers.dart';
-import 'package:nutrisnap/views/snaps/snap_food_item_providers.dart';
-import 'package:nutrisnap/views/snaps/snap_providers.dart';
+import 'package:nutrisnap/views/camera/camera_page.dart';
 
-// import 'package:nutrisnap/data_models/snap.dart';
-// import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
-// import 'package:nutrisnap/views/snaps/edit_snap.dart';
-import '../camera/camera_page.dart';
-import '../journal/journal_page.dart';
-import 'widgets/meal_dropdown_menu.dart';
-// import 'package:nutrisnap/core/constants/app_colors.dart';
+import 'package:nutrisnap/views/snaps/domain/meal.dart';
+import 'package:nutrisnap/views/snaps/domain/snap.dart';
+import 'package:nutrisnap/views/snaps/domain/snap_food_item.dart';
+import 'package:nutrisnap/views/snaps/data/meal_providers.dart';
+import 'package:nutrisnap/views/snaps/data/snap_food_item_providers.dart';
+import 'package:nutrisnap/views/snaps/data/snap_providers.dart';
+import 'package:nutrisnap/views/snaps/presentation/widgets/meal_dropdown_menu.dart';
 
 // Add a snap to journal
 class SnapsPage extends ConsumerWidget {

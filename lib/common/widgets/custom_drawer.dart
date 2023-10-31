@@ -4,7 +4,7 @@ import 'package:nutrisnap/views/about/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/coach/coach_page.dart';
 import 'package:nutrisnap/views/friends/friends_page.dart';
-import 'package:nutrisnap/views/snaps/snaps_page.dart';
+import 'package:nutrisnap/views/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/data_models/user_db.dart';
 
 class CustomDrawer extends StatelessWidget {
