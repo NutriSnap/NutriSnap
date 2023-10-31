@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/views/journal/widgets/snap_card.dart';
+import 'package:nutrisnap/views/journal/presentation/widgets/snap_card.dart';
 import 'package:nutrisnap/views/snaps/domain/snap.dart';
 import 'package:nutrisnap/views/snaps/data/snap_providers.dart';
 
