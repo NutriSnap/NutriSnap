@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/views/about/widgets/app_feature.dart';
-import 'package:nutrisnap/views/about/widgets/section_header.dart';
-import 'package:nutrisnap/views/about/widgets/team_member_grid.dart';
+import 'package:nutrisnap/views/about/presentation/widgets/app_feature.dart';
+import 'package:nutrisnap/views/about/presentation/widgets/section_header.dart';
+import 'package:nutrisnap/views/about/presentation/widgets/team_member_grid.dart';
 import 'package:url_launcher/link.dart';
 
 class AboutPage extends StatelessWidget {

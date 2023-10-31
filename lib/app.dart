@@ -10,7 +10,7 @@ import 'package:nutrisnap/views/not_found_page.dart';
 import 'package:nutrisnap/views/settings/dark_mode_provider.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
 
-import 'package:nutrisnap/views/about/about_page.dart';
+import 'package:nutrisnap/views/about/presentation/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 // import 'package:nutrisnap/views/auth/auth_page.dart';
 // import 'package:nutrisnap/views/auth/register_page.dart';

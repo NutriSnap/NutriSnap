@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:nutrisnap/views/about/about_page.dart';
+import 'package:nutrisnap/views/about/presentation/about_page.dart';
 import 'package:nutrisnap/views/admin/admin_page.dart';
 import 'package:nutrisnap/views/coach/coach_page.dart';
 import 'package:nutrisnap/views/friends/friends_page.dart';

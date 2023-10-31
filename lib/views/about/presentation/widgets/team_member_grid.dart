@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/data_models/team_member.dart';
-import 'package:nutrisnap/views/about/widgets/team_member_list_item.dart';
+import 'package:nutrisnap/views/about/presentation/widgets/team_member_list_item.dart';
 
 List<TeamMemberListItem> _buildListItems(BuildContext context) {
   List<String> teamMemberIds = teamMemberDB.getTeamMemberIds();
