@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';
-import 'package:nutrisnap/data_models/snap.dart';
-import 'package:nutrisnap/views/snaps/snap_providers.dart';
+import 'package:nutrisnap/views/snaps/domain/snap.dart';
+import 'package:nutrisnap/views/snaps/data/snap_providers.dart';
 import 'food_list.dart';
 
 class SnapCard extends ConsumerWidget {

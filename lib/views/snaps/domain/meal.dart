@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrisnap/views/snaps/snap_providers.dart';
+import 'package:nutrisnap/views/snaps/data/snap_providers.dart';
 
 import 'snap.dart';
 

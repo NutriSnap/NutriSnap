@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../snaps/snaps_page.dart';
+import '../../snaps/presentation/snaps_page.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({Key? key}) : super(key: key);

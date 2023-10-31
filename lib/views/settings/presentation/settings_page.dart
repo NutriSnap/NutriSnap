@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/views/settings/widgets/mindfulness.dart';
-import 'package:nutrisnap/views/settings/widgets/notifications.dart';
-import 'package:nutrisnap/views/settings/widgets/goals.dart';
-import 'package:nutrisnap/views/settings/dark_mode_provider.dart';
+import 'package:nutrisnap/views/settings/data/dark_mode_provider.dart';
+import 'package:nutrisnap/views/settings/presentation/widgets/goals.dart';
+import 'package:nutrisnap/views/settings/presentation/widgets/mindfulness.dart';
+import 'package:nutrisnap/views/settings/presentation/widgets/notifications.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
