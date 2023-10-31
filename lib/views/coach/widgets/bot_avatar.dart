@@ -7,8 +7,7 @@ class BotAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-      backgroundImage:
-      const NetworkImage('https://robohash.org/ai-agent.png'),
+      backgroundImage: const NetworkImage('https://robohash.org/ai-agent.png'),
     );
   }
 }

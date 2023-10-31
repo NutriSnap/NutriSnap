@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/views/camera/camera_page.dart';
+import '../../common/widgets/fab.dart';
 import 'widgets/food_processing_indicator.dart';
 import 'widgets/challenges.dart';
 import 'package:nutrisnap/core/constants/app_colors.dart';
@@ -12,17 +13,7 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(CameraPage.routeName);
-        },
-        backgroundColor: material3FlexScheme.light.primaryContainer,
-        child: const Icon(
-            Icons.camera_alt,
-            color: Colors.black,
-            size: 30,
-        ),
-      ),
+      floatingActionButton: const FAB(),
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,

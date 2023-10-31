@@ -34,7 +34,11 @@ class SnapsPage extends ConsumerWidget {
     final MealDB mealDB = ref.watch(mealDBProvider);
 
     return Scaffold(
-      // key: _scaffoldKey,
+      //key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Take Snap'),
+      ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +87,7 @@ class SnapsPage extends ConsumerWidget {
               ),
               Ink(
                 decoration: const ShapeDecoration(
-                  //color: AppColors.green,
+                  color: Colors.green,
                   shape: CircleBorder(),
                 ),
                 child: IconButton(
@@ -108,7 +112,9 @@ class SnapsPage extends ConsumerWidget {
                       description: 'testing',
                       imageUrl: 'assets/images/food/coffee.jpg',
                     );
-                    Navigator.of(context).pushNamed(JournalPage.routeName);
+                    //Navigator.of(context).pushNamed(JournalPage.routeName);
+                    Navigator.of(context).popUntil(ModalRoute.withName('/home'));
+                    //Navigator.of(context).pushNamed(JournalPage.routeName);
                     // Navigation action
                     //Navigator.of(context).pushNamed(SnapsEditPage.routeName);
                   },
