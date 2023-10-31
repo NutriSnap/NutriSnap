@@ -10,7 +10,7 @@ import 'package:nutrisnap/views/snaps/snap_providers.dart';
 // import 'package:nutrisnap/data_models/snap.dart';
 // import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
 // import 'package:nutrisnap/views/snaps/edit_snap.dart';
-import '../camera/camera_page.dart';
+import '../camera/presentation/camera_page.dart';
 import '../journal/journal_page.dart';
 import 'widgets/meal_dropdown_menu.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';

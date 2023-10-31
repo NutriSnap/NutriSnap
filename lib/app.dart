@@ -5,27 +5,27 @@ import 'package:nutrisnap/common/main_scaffold.dart';
 // import 'package:nutrisnap/route/router.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nutrisnap/views/auth/signin_page.dart';
+import 'package:nutrisnap/views/auth/presentation/signin_page.dart';
 import 'package:nutrisnap/views/not_found_page.dart';
 import 'package:nutrisnap/views/settings/dark_mode_provider.dart';
 import 'package:nutrisnap/views/settings/settings_page.dart';
 
 import 'package:nutrisnap/views/about/presentation/about_page.dart';
-import 'package:nutrisnap/views/admin/admin_page.dart';
+import 'package:nutrisnap/views/admin/presentation/admin_page.dart';
 // import 'package:nutrisnap/views/auth/auth_page.dart';
 // import 'package:nutrisnap/views/auth/register_page.dart';
-import 'package:nutrisnap/views/camera/camera_page.dart';
-import 'package:nutrisnap/views/challenges/challenges_page.dart';
-import 'package:nutrisnap/views/coach/coach_page.dart';
-import 'package:nutrisnap/views/dashboard/dashboard_page.dart';
-import 'package:nutrisnap/views/friends/friends_page.dart';
+import 'package:nutrisnap/views/camera/presentation/camera_page.dart';
+import 'package:nutrisnap/views/challenges/presentation/challenges_page.dart';
+import 'package:nutrisnap/views/coach/presentation/coach_page.dart';
+import 'package:nutrisnap/views/dashboard/presentation/dashboard_page.dart';
+import 'package:nutrisnap/views/friends/presentation/friends_page.dart';
 import 'package:nutrisnap/views/journal/journal_page.dart';
 import 'package:nutrisnap/views/profile/profile_page.dart';
 import 'package:nutrisnap/views/snaps/snaps_page.dart';
 import 'package:nutrisnap/views/snaps/edit_snap.dart';
 import 'package:nutrisnap/views/trends/trends_page.dart';
-import 'package:nutrisnap/views/camera/success_page.dart';
-import 'package:nutrisnap/views/auth/forgot_password_page.dart';
+import 'package:nutrisnap/views/camera/presentation/success_page.dart';
+import 'package:nutrisnap/views/auth/presentation/forgot_password_page.dart';
 import 'package:nutrisnap/utils/image_upload_page.dart';
 
 class MyApp extends ConsumerWidget {
