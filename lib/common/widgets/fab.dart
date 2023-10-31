@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../core/constants/app_colors.dart';
-import '../../views/camera/presentation/camera_page.dart';
+import '../../features/camera/presentation/camera_page.dart';
 
 class FAB extends StatelessWidget {
   const FAB({Key? key}) : super(key: key);
