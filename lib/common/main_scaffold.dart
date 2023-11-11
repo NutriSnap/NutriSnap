@@ -14,6 +14,7 @@ import 'package:nutrisnap/features/profile/profile_page.dart';
 import 'package:nutrisnap/features/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/features/trends/presentation/trends_page.dart';
 import '../features/journal/presentation/journal_page.dart';
+import 'package:nutrisnap/features/profile/domain/user_db.dart';
 
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
@@ -96,8 +97,9 @@ class MainScaffoldState extends State<MainScaffold> {
   @override
   Widget build(BuildContext context) {
     // User user = FirebaseAuth.instance.currentUser!;
+    String currentUserId = 'user-003';
 
-    // UserData currentUser = userDB.getUser(currentUserId);
+    //UserData currentUser = userDB.getUser(currentUserId);
     UserData currentUser = UserData(
       id: 'user-003',
       name: 'Katie Yamasaki',
