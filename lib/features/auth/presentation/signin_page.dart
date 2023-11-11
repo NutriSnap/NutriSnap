@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_temp/database/user_db.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nutrisnap/core/constants/app_colors.dart';
 
 /// Presents the page containing fields to enter a username and password, plus buttons.
 class SigninPage extends ConsumerWidget {
@@ -77,6 +78,9 @@ class SigninPage extends ConsumerWidget {
               child: SizedBox(
                 height: 40,
                 child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: material3FlexScheme.light.primaryContainer,
+                    ),
                     onPressed: () {
                       // bool validEmailAndPassword =
                       //     _formKey.currentState?.saveAndValidate() ?? false;
@@ -111,6 +115,7 @@ class SigninPage extends ConsumerWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black87,
                       ),
                     ))),
               ),
