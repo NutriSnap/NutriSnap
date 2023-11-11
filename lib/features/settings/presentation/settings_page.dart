@@ -15,28 +15,29 @@ class SettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final darkMode = ref.watch(darkModeProvider);
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Container(
+        color: Theme.of(context).colorScheme.surface,
         child: SingleChildScrollView(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SwitchListTile(
-              title: darkMode
-                  ? const Text('Switch to light mode')
-                  : const Text('Switch to dark mode'),
-              value: darkMode,
-              onChanged: (val) {
-                ref.read(darkModeProvider.notifier).toggle();
-                }),
-            const SizedBox(height: 8),
-            const Goals(),
-            const SizedBox(height: 8),
-            const Notifications(),
-            const SizedBox(height: 8),
-            const Mindfulness(),
-          ],
-        )),
+          //crossAxisCount: 1, // how many columns
+          padding: const EdgeInsets.all(8.0), // padding around the grid
+          //childAspectRatio: 16.0 / 9.0, // width to height ratio
+          child: Column(
+            children: [
+              SwitchListTile(
+                  title: darkMode
+                      ? const Text('Switch to light mode')
+                      : const Text('Switch to dark mode'),
+                  value: darkMode,
+                  onChanged: (val) {
+                    ref.read(darkModeProvider.notifier).toggle();
+                  }),
+              const Goals(),
+              const Notifications(),
+              const Mindfulness(),
+            ],
+          ),
+        ),
       ),
     );
   }
