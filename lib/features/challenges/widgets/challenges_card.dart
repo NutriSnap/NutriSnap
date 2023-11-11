@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/features/challenges/widgets/checkbox.dart';
 
 class ChallengesCard extends StatelessWidget {
   const ChallengesCard({super.key});
@@ -21,40 +22,19 @@ class ChallengesCard extends StatelessWidget {
               'Log your meals for seven days in a row to get a baseine measure of your food trends',
               textAlign: TextAlign.center,
             )),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text('0/7'),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
+                  Text('0/7'),
+                  CustomCheckbox(),
+                  CustomCheckbox(),
+                  CustomCheckbox(),
+                  CustomCheckbox(),
+                  CustomCheckbox(),
+                  CustomCheckbox(),
+                  CustomCheckbox(),
                 ],
               ),
             ),
