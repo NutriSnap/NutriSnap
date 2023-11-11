@@ -75,7 +75,7 @@ class UserDB {
 }
 
 /// The singleton instance providing access to all user data for clients.
-// UserDB userDB = UserDB();
+//UserDB userDB = UserDB();
 
 /// The currently logged in user.
 String currentUserId = 'user-003';
