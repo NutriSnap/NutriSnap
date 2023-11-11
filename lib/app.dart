@@ -24,6 +24,8 @@ import 'package:nutrisnap/features/camera/presentation/success_page.dart';
 import 'package:nutrisnap/features/auth/presentation/forgot_password_page.dart';
 import 'package:nutrisnap/utils/image_upload_page.dart';
 
+import 'features/auth/presentation/register_page.dart';
+
 class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -74,8 +76,8 @@ class MyApp extends ConsumerWidget {
                 return const AdminPage();
               // case AuthPage.routeName:
               //   return const AuthPage();
-              // case RegisterPage.routeName:
-              //   return const RegisterPage();
+              case RegisterPage.routeName:
+                return const RegisterPage();
               // case LoginPage.routeName:
               //   return const LoginPage();
               case ForgotPasswordPage.routeName:
