@@ -125,13 +125,11 @@ class MainScaffoldState extends State<MainScaffold> {
                                 ? const Text('About')
                                 : _currentIndex == 6
                                     ? const Text('Admin')
-                                        : _currentIndex == 7
-                                            ? const Text('Friends')
-                                            : _currentIndex == 8
-                                                ? const Text('MySnaps')
-                                                : _currentIndex == 9
-                                                    ? const Text('Coach')
-                                                    : const Text('NutriSnap'),
+                                    : _currentIndex == 7
+                                        ? const Text('Friends')
+                                        : _currentIndex == 8
+                                            ? const Text('Coach')
+                                            : const Text('NutriSnap'),
         // title: const Text('NutriSnap'),
         // Provide a button to open the drawer.
         leading: Builder(
@@ -169,8 +167,8 @@ class MainScaffoldState extends State<MainScaffold> {
               // UserAvatar(userID: user.id),
             ),
             ListTile(
-              leading: const Icon(Icons.home_outlined),
-              title: const Text('Home'),
+              leading: const Icon(Icons.dashboard_outlined),
+              title: const Text('Dashboard'),
               onTap: () => _onDrawerItemTapped(0),
             ),
             ListTile(
@@ -189,14 +187,9 @@ class MainScaffoldState extends State<MainScaffold> {
               onTap: () => _onDrawerItemTapped(7),
             ),
             ListTile(
-              title: const Text('MySnaps'),
-              leading: const Icon(Icons.camera_alt_outlined),
-              onTap: () => _onDrawerItemTapped(8),
-            ),
-            ListTile(
               title: const Text('Coach'),
               leading: const Icon(Icons.chat_outlined),
-              onTap: () => _onDrawerItemTapped(9),
+              onTap: () => _onDrawerItemTapped(8),
             ),
             // ListTile(
             //   title: const Text('Extra'),
@@ -213,7 +206,9 @@ class MainScaffoldState extends State<MainScaffold> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+
+      BottomNavigationBar(
         onTap: _onBottomTabTapped,
         currentIndex: _onlyBottomNavTitle(_currentIndex),
         items: const [
@@ -229,6 +224,7 @@ class MainScaffoldState extends State<MainScaffold> {
               icon: Icon(Icons.account_circle_outlined), label: 'Profile'),
         ],
       ),
+
     );
   }
 }
