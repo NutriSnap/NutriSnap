@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/features/profile/presentation/profile_photo_edit.dart';
 
 class FakeUser {
   final String username;
@@ -51,22 +52,24 @@ class ProfilePage extends StatelessWidget {
           children: <Widget>[
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 120),
-              child: CircleAvatar(
-                radius: 100.0,
-                backgroundImage:
-                    NetworkImage('https://robohash.org/sample.png'),
-              ),
+              child: ProfilePhotoEdit(),
             ),
             buildProfileTextField(usernameController, 'Username'),
             buildProfileTextField(emailController, 'Email'),
             buildProfileTextField(passwordController, 'Password',
                 isPassword: true),
             buildProfileTextField(phoneController, 'Phone Number'),
-            OutlinedButton(
+            TextButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor,
+              ),
               onPressed: () {
                 // Navigation action
               },
-              child: const Text('Update Profile'),
+              child: Text(
+                'Update Profile',
+                style: TextStyle(color: Theme.of(context).colorScheme.surface),
+              ),
             ),
           ],
         ),
