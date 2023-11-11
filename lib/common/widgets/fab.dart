@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/app_colors.dart';
-import '../../features/camera/presentation/camera_page.dart';
+import 'package:nutrisnap/core/constants/app_colors.dart';
+import 'package:nutrisnap/features/camera/presentation/camera_page.dart';
 
 class FAB extends StatelessWidget {
   const FAB({Key? key}) : super(key: key);
