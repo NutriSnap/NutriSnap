@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/features/profile/user_providers.dart';
+import 'package:nutrisnap/features/profile/data/user_providers.dart';
 import 'package:nutrisnap/features/snaps/data/snap_food_item_providers.dart';
 import '../../profile/domain/user_db.dart';
 import 'image_model.dart';
@@ -15,6 +15,10 @@ class Snap {
     required this.description,
     required this.imageUrl,
     required this.date,
+    required this.calories,
+    required this.unprocessedPercentage,
+    required this.moderatelyProcessedPercentage,
+    required this.highlyProcessedPercentage,
     //required this.lat,
     //required this.long,
     List<String>? foodsList
@@ -27,12 +31,17 @@ class Snap {
   String description;
   String imageUrl;
   DateTime date;
+  int calories;
+  double unprocessedPercentage;
+  double moderatelyProcessedPercentage;
+  double highlyProcessedPercentage;
   //Double lat;
   //Double long;
   List<String> foodsList;
 }
 
 class SnapDB {
+  final now = DateTime.now();
   SnapDB(this.ref);
   final ProviderRef<SnapDB> ref;
   final List<Snap> _snaps = [
@@ -43,7 +52,12 @@ class SnapDB {
         title: 'Snap 1',
         description: 'Snap 1 description',
         imageUrl: 'assets/images/food/coffee.jpg',
-        date: DateTime.parse('2023-07-23 20:22:04Z'),
+        date: DateTime.now(),
+        calories: 10,
+        unprocessedPercentage: 100,
+        moderatelyProcessedPercentage: 0,
+        highlyProcessedPercentage: 0,
+        //date: DateTime.parse('2023-07-23 20:22:04Z'),
         //lat: 0.0,
         //long: 0.0,
         foodsList: ['food-001']),
@@ -54,7 +68,12 @@ class SnapDB {
         title: 'Snap 2',
         description: 'Snap 2 description',
         imageUrl: 'assets/images/food/rice-chicken.jpg',
-        date: DateTime.parse('2023-07-22 14:18:04Z'),
+        date: DateTime.now(),
+        calories: 367,
+        unprocessedPercentage: 50,
+        moderatelyProcessedPercentage: 50,
+        highlyProcessedPercentage: 0,
+        //date: DateTime.parse('2023-07-22 14:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
         foodsList: ['food-002', 'food-003', 'food-004', 'food-005']),
@@ -65,29 +84,44 @@ class SnapDB {
         title: 'Snap 3',
         description: 'Snap 3 description',
         imageUrl: 'assets/images/food/pizza.jpg',
-        date: DateTime.parse('2023-07-19 08:18:04Z'),
+        date: DateTime.now(),
+        calories: 312,
+        unprocessedPercentage: 10,
+        moderatelyProcessedPercentage: 80,
+        highlyProcessedPercentage: 10,
+        //date: DateTime.parse('2023-07-19 08:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
         foodsList: ['food-006']),
     Snap(
         id: 'snap-004',
         ownerId: 'user-003',
-        mealId: 'meal-004',
+        mealId: 'meal-003',
         title: 'Snap 4',
         description: 'Snap 4 description',
         imageUrl: 'assets/images/food/carbonara.jpg',
-        date: DateTime.parse('2023-07-21 17:18:04Z'),
+        date: DateTime.now().subtract(const Duration(days: 1)),
+        calories: 980,
+        unprocessedPercentage: 10,
+        moderatelyProcessedPercentage: 80,
+        highlyProcessedPercentage: 10,
+        //date: DateTime.parse('2023-07-21 17:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
         foodsList: ['food-008', 'food-009']),
     Snap(
         id: 'snap-005',
         ownerId: 'user-003',
-        mealId: 'meal-005',
+        mealId: 'meal-002',
         title: 'Snap 5',
         description: 'Snap 5 description',
         imageUrl: 'assets/images/food/spinach.jpg',
-        date: DateTime.parse('2023-07-20 20:18:04Z'),
+        date: DateTime.now().add(const Duration(days: 1)),
+        calories: 30,
+        unprocessedPercentage: 100,
+        moderatelyProcessedPercentage: 0,
+        highlyProcessedPercentage: 0,
+        //date: DateTime.parse('2023-07-20 20:18:04Z'),
         //lat: 0.0,
         //long: 0.0,
         foodsList: ['food-007']),
@@ -99,6 +133,10 @@ class SnapDB {
     required String title,
     required String description,
     required String imageUrl,
+    required int calories,
+    required double unprocessedPercentage,
+    required double moderatelyProcessedPercentage,
+    required double highlyProcessedPercentage,
   }) {
     String id = 'snap-${(_snaps.length + 1).toString().padLeft(3, '0')}';
     DateTime date = DateTime.now();
@@ -110,6 +148,10 @@ class SnapDB {
       description: description,
       imageUrl: imageUrl,
       date: date,
+      calories: calories,
+      unprocessedPercentage: unprocessedPercentage,
+      moderatelyProcessedPercentage: moderatelyProcessedPercentage,
+      highlyProcessedPercentage: highlyProcessedPercentage,
     );
     _snaps.add(data);
   }

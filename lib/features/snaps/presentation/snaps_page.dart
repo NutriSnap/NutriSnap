@@ -99,6 +99,7 @@ class SnapsPage extends ConsumerWidget {
                         moderatelyProcessedPercentage: 30,
                         highlyProcessedPercentage: 20,
                       snapsList: ['1', '2', '4'],
+                      calories: 500,
                     );
                     snapDB.addSnap(
                       ownerId: '1',
@@ -106,6 +107,10 @@ class SnapsPage extends ConsumerWidget {
                       title: 'title',
                       description: 'testing',
                       imageUrl: 'assets/images/food/coffee.jpg',
+                      calories: 10,
+                      unprocessedPercentage: 50,
+                      moderatelyProcessedPercentage: 30,
+                      highlyProcessedPercentage: 20,
                     );
                     //Navigator.of(context).pushNamed(JournalPage.routeName);
                     Navigator.of(context).popUntil(ModalRoute.withName('/home'));

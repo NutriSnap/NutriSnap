@@ -13,6 +13,7 @@ class Meal {
     required this.moderatelyProcessedPercentage,
     required this.highlyProcessedPercentage,
     required this.snapsList,
+    required this.calories,
   });
 
   String id;
@@ -23,6 +24,7 @@ class Meal {
   double moderatelyProcessedPercentage;
   double highlyProcessedPercentage;
   List<String> snapsList; // list of snap IDs
+  int calories;
 }
 
 class MealDB {
@@ -38,6 +40,7 @@ class MealDB {
       moderatelyProcessedPercentage: 25.0,
       highlyProcessedPercentage: 25.0,
       snapsList: ['snap-001', 'snap-002', 'snap-003'],
+      calories: 500,
     ),
     Meal(
       id: 'meal-002',
@@ -48,6 +51,7 @@ class MealDB {
       moderatelyProcessedPercentage: 25.0,
       highlyProcessedPercentage: 50.0,
       snapsList: ['snap-004', 'snap-005', 'snap-006'],
+      calories: 682,
     ),
     Meal(
       id: 'meal-003',
@@ -58,6 +62,7 @@ class MealDB {
       moderatelyProcessedPercentage: 25.0,
       highlyProcessedPercentage: 0.0,
       snapsList: ['snap-007', 'snap-008', 'snap-009'],
+      calories: 443,
     ),
   ];
 
@@ -68,6 +73,7 @@ class MealDB {
     required double moderatelyProcessedPercentage,
     required double highlyProcessedPercentage,
     required List<String> snapsList,
+    required int calories,
   }) {
     String id = 'meal-${(_meals.length + 1).toString().padLeft(3, '0')}';
     DateTime date = DateTime.now();
@@ -80,6 +86,7 @@ class MealDB {
       moderatelyProcessedPercentage: moderatelyProcessedPercentage,
       highlyProcessedPercentage: highlyProcessedPercentage,
       snapsList: snapsList,
+      calories: calories,
     );
     _meals.add(data);
   }
@@ -102,6 +109,11 @@ class MealDB {
         .where((meal) => meal.ownerId == ownerId) // Filters the meals based on ownerId
         .map((meal) => meal.id)
         .toList();
+  }
+
+  String getMealIdBySnapId(String snapId) {
+    final SnapDB snapDB = ref.watch(snapDBProvider);
+    return snapDB.getSnap(snapId).mealId;
   }
 
 }
