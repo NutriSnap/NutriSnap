@@ -4,7 +4,7 @@ import 'package:nutrisnap/features/journal/presentation/widgets/date_picker.dart
 
 import 'package:nutrisnap/features/journal/presentation/widgets/snap_card.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
-import 'package:nutrisnap/features/snaps/data/snap_providers.dart';
+import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:intl/intl.dart';
 import '../data/date_provider.dart';
 

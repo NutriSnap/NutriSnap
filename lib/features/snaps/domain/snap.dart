@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:nutrisnap/features/profile/data/user_providers.dart';
-import 'package:nutrisnap/features/snaps/data/snap_food_item_providers.dart';
+import 'package:nutrisnap/features/snaps/data/snap_food_item_provider.dart';
 import '../../profile/domain/user_db.dart';
 import 'image_model.dart';
 import 'snap_food_item.dart';
@@ -11,8 +11,8 @@ class Snap {
     required this.id,
     required this.ownerId,
     required this.mealId,
-    required this.title,
-    required this.description,
+    this.title,
+    this.description,
     required this.imageUrl,
     required this.date,
     required this.calories,
@@ -27,8 +27,8 @@ class Snap {
   String id;
   String ownerId;
   String mealId;
-  String title;
-  String description;
+  String? title;
+  String? description;
   String imageUrl;
   DateTime date;
   int calories;
