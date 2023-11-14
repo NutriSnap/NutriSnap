@@ -131,7 +131,9 @@ class MainScaffoldState extends State<MainScaffold> {
                                         ? const Text('Friends')
                                         : _currentIndex == 8
                                             ? const Text('Coach')
-                                            : const Text('NutriSnap'),
+                                            : _currentIndex == 9
+                                                ? const Text('Settings')
+                                                : const Text('NutriSnap'),
         // title: const Text('NutriSnap'),
         // Provide a button to open the drawer.
         leading: Builder(
@@ -150,6 +152,7 @@ class MainScaffoldState extends State<MainScaffold> {
             onPressed: () {
               setState(() {
                 _currentBody = const SettingsPage();
+                _currentIndex = 9;
               });
             },
             icon: const Icon(Icons.settings),
