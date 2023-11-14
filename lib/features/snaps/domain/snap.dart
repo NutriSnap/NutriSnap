@@ -1,11 +1,36 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:nutrisnap/features/profile/data/user_providers.dart';
 import 'package:nutrisnap/features/snaps/data/snap_food_item_provider.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../profile/domain/user_db.dart';
 import 'image_model.dart';
 import 'snap_food_item.dart';
+part 'snap.freezed.dart';
+part 'snap.g.dart';
 
+@freezed
+class Snap with _$Snap {
+  const factory Snap({
+    required String id,
+    required String ownerId,
+    required String mealId,
+    required String title,
+    required String description,
+    required String imageUrl,
+    required DateTime date,
+    required int calories,
+    required double unprocessedPercentage,
+    required double moderatelyProcessedPercentage,
+    required double highlyProcessedPercentage,
+    //required Double lat,
+    //required Double long,
+    required List<String> foodsList,
+  }) = _Snap;
+
+  factory Snap.fromJson(Map<String, dynamic> json) => _$SnapFromJson(json);
+}
+
+/*
 class Snap {
   Snap({
     required this.id,
@@ -204,3 +229,4 @@ class SnapDB {
 
 /// The singleton instance of a snapDB used by clients to access snap data.
 // SnapDB snapDB = SnapDB();
+ */

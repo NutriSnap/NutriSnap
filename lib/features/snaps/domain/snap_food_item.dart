@@ -1,5 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'snap_food_item.freezed.dart';
+part 'snap_food_item.g.dart';
 
+@freezed
+class SnapFoodItem with _$SnapFoodItem {
+  const factory SnapFoodItem({
+    required String id,
+    required String snapId,
+    required String name,
+    required String processedLevel,
+    required String servings,
+    required int calories,
+  }) = _SnapFoodItem;
+
+  factory SnapFoodItem.fromJson(Map<String, dynamic> json) => _$SnapFoodItemFromJson(json);
+}
+
+/*
 class SnapFoodItem {
   SnapFoodItem({
     required this.id,
@@ -146,3 +164,5 @@ class SnapFoodItemDB {
 }
 
 // SnapFoodItemDB snapFoodItemDB = SnapFoodItemDB();
+
+ */
