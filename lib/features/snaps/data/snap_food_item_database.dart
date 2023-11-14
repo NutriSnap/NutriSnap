@@ -13,32 +13,32 @@ class SnapFoodItemDatabase {
   final _service = FirestoreService.instance;
 
   Stream<List<SnapFoodItem>> watchSnapFoodItems() => _service.watchCollection(
-      path: FirestorePath.SnapFoodItems(),
+      path: FirestorePath.snapFoodItems(),
       builder: (data, documentId) => SnapFoodItem.fromJson(data!));
 
-  Stream<SnapFoodItem> watchSnapFoodItem(String SnapFoodItemId) => _service.watchDocument(
-      path: FirestorePath.SnapFoodItem(SnapFoodItemId),
+  Stream<SnapFoodItem> watchSnapFoodItem(String snapFoodItemId) => _service.watchDocument(
+      path: FirestorePath.snapFoodItem(snapFoodItemId),
       builder: (data, documentId) => SnapFoodItem.fromJson(data!));
 
   Future<List<SnapFoodItem>> fetchSnapFoodItems() => _service.fetchCollection(
-      path: FirestorePath.SnapFoodItems(),
+      path: FirestorePath.snapFoodItems(),
       builder: (data, documentId) => SnapFoodItem.fromJson(data!));
 
-  Future<SnapFoodItem> fetchSnapFoodItem(String SnapFoodItemId) => _service.fetchDocument(
-      path: FirestorePath.SnapFoodItem(SnapFoodItemId),
+  Future<SnapFoodItem> fetchSnapFoodItem(String snapFoodItemId) => _service.fetchDocument(
+      path: FirestorePath.snapFoodItem(snapFoodItemId),
       builder: (data, documentId) => SnapFoodItem.fromJson(data!));
 
-  Future<void> setSnapFoodItem(SnapFoodItem SnapFoodItem) => _service.setData(
-      path: FirestorePath.SnapFoodItem(SnapFoodItem.id), data: SnapFoodItem.toJson());
+  Future<void> setSnapFoodItem(SnapFoodItem snapFoodItem) => _service.setData(
+      path: FirestorePath.snapFoodItem(snapFoodItem.id), data: snapFoodItem.toJson());
 
-  Future<void> setSnapFoodItemDelayed(SnapFoodItem SnapFoodItem) => Future.delayed(
+  Future<void> setSnapFoodItemDelayed(SnapFoodItem snapFoodItem) => Future.delayed(
       const Duration(milliseconds: 2000),
           () => _service.setData(
-          path: FirestorePath.SnapFoodItem(SnapFoodItem.id), data: SnapFoodItem.toJson()));
+          path: FirestorePath.snapFoodItem(snapFoodItem.id), data: snapFoodItem.toJson()));
 
-  Future<void> setSnapFoodItemError(SnapFoodItem SnapFoodItem) =>
+  Future<void> setSnapFoodItemError(SnapFoodItem snapFoodItem) =>
       Future.delayed(const Duration(milliseconds: 2000), () => throw Error());
 
-  Future<void> deleteSnapFoodItem(SnapFoodItem SnapFoodItem) =>
-      _service.deleteData(path: FirestorePath.SnapFoodItem(SnapFoodItem.id));
+  Future<void> deleteSnapFoodItem(SnapFoodItem snapFoodItem) =>
+      _service.deleteData(path: FirestorePath.snapFoodItem(snapFoodItem.id));
 }

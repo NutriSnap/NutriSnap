@@ -100,6 +100,7 @@ dependencies:
   go_router: ^12.1.1
   freezed: ^2.4.5
   json_annotation: ^4.8.1
+  provider: ^6.1.1
 
 dev_dependencies:
   # Provides testing capabilities to your Flutter app.

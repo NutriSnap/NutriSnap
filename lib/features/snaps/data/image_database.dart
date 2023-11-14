@@ -13,32 +13,32 @@ class ImageDatabase {
   final _service = FirestoreService.instance;
 
   Stream<List<Image>> watchImages() => _service.watchCollection(
-      path: FirestorePath.Images(),
+      path: FirestorePath.images(),
       builder: (data, documentId) => Image.fromJson(data!));
 
-  Stream<Image> watchImage(String ImageId) => _service.watchDocument(
-      path: FirestorePath.Image(ImageId),
+  Stream<Image> watchImage(String imageId) => _service.watchDocument(
+      path: FirestorePath.image(imageId),
       builder: (data, documentId) => Image.fromJson(data!));
 
   Future<List<Image>> fetchImages() => _service.fetchCollection(
-      path: FirestorePath.Images(),
+      path: FirestorePath.images(),
       builder: (data, documentId) => Image.fromJson(data!));
 
-  Future<Image> fetchImage(String ImageId) => _service.fetchDocument(
-      path: FirestorePath.Image(ImageId),
+  Future<Image> fetchImage(String imageId) => _service.fetchDocument(
+      path: FirestorePath.image(imageId),
       builder: (data, documentId) => Image.fromJson(data!));
 
-  Future<void> setImage(Image Image) => _service.setData(
-      path: FirestorePath.Image(Image.id), data: Image.toJson());
+  Future<void> setImage(Image image) => _service.setData(
+      path: FirestorePath.image(image.id), data: image.toJson());
 
-  Future<void> setImageDelayed(Image Image) => Future.delayed(
+  Future<void> setImageDelayed(Image image) => Future.delayed(
       const Duration(milliseconds: 2000),
           () => _service.setData(
-          path: FirestorePath.Image(Image.id), data: Image.toJson()));
+          path: FirestorePath.image(image.id), data: image.toJson()));
 
-  Future<void> setImageError(Image Image) =>
+  Future<void> setImageError(Image image) =>
       Future.delayed(const Duration(milliseconds: 2000), () => throw Error());
 
-  Future<void> deleteImage(Image Image) =>
-      _service.deleteData(path: FirestorePath.Image(Image.id));
+  Future<void> deleteImage(Image image) =>
+      _service.deleteData(path: FirestorePath.image(image.id));
 }

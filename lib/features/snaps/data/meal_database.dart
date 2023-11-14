@@ -13,32 +13,32 @@ class MealDatabase {
   final _service = FirestoreService.instance;
 
   Stream<List<Meal>> watchMeals() => _service.watchCollection(
-      path: FirestorePath.Meals(),
+      path: FirestorePath.meals(),
       builder: (data, documentId) => Meal.fromJson(data!));
 
-  Stream<Meal> watchMeal(String MealId) => _service.watchDocument(
-      path: FirestorePath.Meal(MealId),
+  Stream<Meal> watchMeal(String mealId) => _service.watchDocument(
+      path: FirestorePath.meal(mealId),
       builder: (data, documentId) => Meal.fromJson(data!));
 
   Future<List<Meal>> fetchMeals() => _service.fetchCollection(
-      path: FirestorePath.Meals(),
+      path: FirestorePath.meals(),
       builder: (data, documentId) => Meal.fromJson(data!));
 
-  Future<Meal> fetchMeal(String MealId) => _service.fetchDocument(
-      path: FirestorePath.Meal(MealId),
+  Future<Meal> fetchMeal(String mealId) => _service.fetchDocument(
+      path: FirestorePath.meal(mealId),
       builder: (data, documentId) => Meal.fromJson(data!));
 
-  Future<void> setMeal(Meal Meal) => _service.setData(
-      path: FirestorePath.Meal(Meal.id), data: Meal.toJson());
+  Future<void> setMeal(Meal meal) => _service.setData(
+      path: FirestorePath.meal(meal.id), data: meal.toJson());
 
-  Future<void> setMealDelayed(Meal Meal) => Future.delayed(
+  Future<void> setMealDelayed(Meal meal) => Future.delayed(
       const Duration(milliseconds: 2000),
           () => _service.setData(
-          path: FirestorePath.Meal(Meal.id), data: Meal.toJson()));
+          path: FirestorePath.meal(meal.id), data: meal.toJson()));
 
-  Future<void> setMealError(Meal Meal) =>
+  Future<void> setMealError(Meal meal) =>
       Future.delayed(const Duration(milliseconds: 2000), () => throw Error());
 
-  Future<void> deleteMeal(Meal Meal) =>
-      _service.deleteData(path: FirestorePath.Meal(Meal.id));
+  Future<void> deleteMeal(Meal meal) =>
+      _service.deleteData(path: FirestorePath.meal(meal.id));
 }
