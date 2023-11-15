@@ -3,7 +3,7 @@ import 'package:nutrisnap/features/profile/data/user_providers.dart';
 import 'package:nutrisnap/features/snaps/data/snap_food_item_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../profile/domain/user_db.dart';
-import 'image_model.dart';
+import 'snap_image.dart';
 import 'snap_food_item.dart';
 part 'snap.freezed.dart';
 part 'snap.g.dart';

@@ -16,4 +16,11 @@ class SnapFoodItemCollection {
         .where((snapFoodItem) => snapFoodItem.snapId == snapId) // Filters the snapFoodItems based on snapId
         .toList();
   }
+
+  List<String> getSnapFoodItemNamesBySnapId(String snapId) {
+    return _snapFoodItems
+        .where((snapFoodItem) => snapFoodItem.snapId == snapId) // Filters the snapFoodItems based on snapId
+        .map((snapFoodItem) => snapFoodItem.name)
+        .toList();
+  }
 }

@@ -12,6 +12,6 @@ class NSError extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .bodySmall!
-            .copyWith(color: Colors.white));
+            .copyWith(color: Colors.black));
   }
 }

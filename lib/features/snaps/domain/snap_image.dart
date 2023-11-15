@@ -1,17 +1,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'image_model.freezed.dart';
-part 'image_model.g.dart';
+part 'snap_image.freezed.dart';
+part 'snap_image.g.dart';
 
 @freezed
-class Image with _$Image {
-  const factory Image({
+class SnapImage with _$SnapImage {
+  const factory SnapImage({
     required String id,
     required String path,
     //required String labelId,
     required String snapId,
-  }) = _Image;
+  }) = _SnapImage;
 
-  factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
+  factory SnapImage.fromJson(Map<String, dynamic> json) => _$SnapImageFromJson(json);
 }
 
 /*

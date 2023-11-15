@@ -1,8 +1,8 @@
 import 'meal.dart';
 import 'meal_collection.dart';
 import 'snap.dart';
-import 'image_model.dart';
-import 'image_model_collection.dart';
+import 'snap_image.dart';
+import 'snap_image_collection.dart';
 import 'snap_food_item.dart';
 import 'snap_food_item_collection.dart';
 
@@ -19,6 +19,10 @@ class SnapCollection {
 
   List<Snap> getSnaps(List<String> ids) {
     return _snaps.where((snap) => ids.contains(snap.id)).toList();
+  }
+
+  List<String> getSnapIds() {
+    return _snaps.map((snap) => snap.id).toList();
   }
 
   List<Snap> getSnapsByMealId(String mealId) {
@@ -45,8 +49,8 @@ class SnapCollection {
   }
  */
 
-  Image getAssociatedImage(String snapId, ImageCollection imageCollection) {
-    return imageCollection.getImageBySnapId(snapId);
+  SnapImage getAssociatedSnapImage(String snapId, SnapImageCollection snapImageCollection) {
+    return snapImageCollection.getImageBySnapId(snapId);
   }
 
   Meal getAssociatedMeal(String snapId, MealCollection mealCollection) {

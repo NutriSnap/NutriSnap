@@ -1,4 +1,4 @@
-import 'package:nutrisnap/features/snaps/domain/image_model.dart';
+import 'package:nutrisnap/features/snaps/domain/snap_image.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:nutrisnap/features/snaps/data/image_database.dart';
 part 'image_provider.g.dart';
@@ -9,7 +9,7 @@ ImageDatabase imageDatabase(ImageDatabaseRef ref) {
 }
 
 @riverpod
-Stream<List<Image>> images(ImagesRef ref) {
+Stream<List<SnapImage>> images(ImagesRef ref) {
   final database = ref.watch(imageDatabaseProvider);
   return database.watchImages();
 }

@@ -60,10 +60,12 @@ class UserDB {
     return _users.map((user) => user.id).toList();
   }
 
+/*
   List<String> getAssociatedMealIds(String userId) {
     final MealDB mealDB = ref.read(mealDBProvider);
     return mealDB.getMealIdsByOwnerId(userId);
   }
+ */
 
   List<String> getAssociatedChallengeIds(String userId) {
     return challengeProgressDB.getChallengeProgressIdsByUser(userId);

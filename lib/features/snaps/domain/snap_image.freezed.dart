@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'image_model.dart';
+part of 'snap_image.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Image _$ImageFromJson(Map<String, dynamic> json) {
-  return _Image.fromJson(json);
+SnapImage _$SnapImageFromJson(Map<String, dynamic> json) {
+  return _SnapImage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Image {
+mixin _$SnapImage {
   String get id => throw _privateConstructorUsedError;
   String get path =>
       throw _privateConstructorUsedError; //required String labelId,
@@ -27,21 +27,22 @@ mixin _$Image {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageCopyWith<Image> get copyWith => throw _privateConstructorUsedError;
+  $SnapImageCopyWith<SnapImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImageCopyWith<$Res> {
-  factory $ImageCopyWith(Image value, $Res Function(Image) then) =
-      _$ImageCopyWithImpl<$Res, Image>;
+abstract class $SnapImageCopyWith<$Res> {
+  factory $SnapImageCopyWith(SnapImage value, $Res Function(SnapImage) then) =
+      _$SnapImageCopyWithImpl<$Res, SnapImage>;
   @useResult
   $Res call({String id, String path, String snapId});
 }
 
 /// @nodoc
-class _$ImageCopyWithImpl<$Res, $Val extends Image>
-    implements $ImageCopyWith<$Res> {
-  _$ImageCopyWithImpl(this._value, this._then);
+class _$SnapImageCopyWithImpl<$Res, $Val extends SnapImage>
+    implements $SnapImageCopyWith<$Res> {
+  _$SnapImageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -73,21 +74,22 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
 }
 
 /// @nodoc
-abstract class _$$ImageImplCopyWith<$Res> implements $ImageCopyWith<$Res> {
-  factory _$$ImageImplCopyWith(
-          _$ImageImpl value, $Res Function(_$ImageImpl) then) =
-      __$$ImageImplCopyWithImpl<$Res>;
+abstract class _$$SnapImageImplCopyWith<$Res>
+    implements $SnapImageCopyWith<$Res> {
+  factory _$$SnapImageImplCopyWith(
+          _$SnapImageImpl value, $Res Function(_$SnapImageImpl) then) =
+      __$$SnapImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String path, String snapId});
 }
 
 /// @nodoc
-class __$$ImageImplCopyWithImpl<$Res>
-    extends _$ImageCopyWithImpl<$Res, _$ImageImpl>
-    implements _$$ImageImplCopyWith<$Res> {
-  __$$ImageImplCopyWithImpl(
-      _$ImageImpl _value, $Res Function(_$ImageImpl) _then)
+class __$$SnapImageImplCopyWithImpl<$Res>
+    extends _$SnapImageCopyWithImpl<$Res, _$SnapImageImpl>
+    implements _$$SnapImageImplCopyWith<$Res> {
+  __$$SnapImageImplCopyWithImpl(
+      _$SnapImageImpl _value, $Res Function(_$SnapImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +99,7 @@ class __$$ImageImplCopyWithImpl<$Res>
     Object? path = null,
     Object? snapId = null,
   }) {
-    return _then(_$ImageImpl(
+    return _then(_$SnapImageImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -116,12 +118,12 @@ class __$$ImageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ImageImpl implements _Image {
-  const _$ImageImpl(
+class _$SnapImageImpl implements _SnapImage {
+  const _$SnapImageImpl(
       {required this.id, required this.path, required this.snapId});
 
-  factory _$ImageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImageImplFromJson(json);
+  factory _$SnapImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SnapImageImplFromJson(json);
 
   @override
   final String id;
@@ -133,14 +135,14 @@ class _$ImageImpl implements _Image {
 
   @override
   String toString() {
-    return 'Image(id: $id, path: $path, snapId: $snapId)';
+    return 'SnapImage(id: $id, path: $path, snapId: $snapId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImageImpl &&
+            other is _$SnapImageImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.snapId, snapId) || other.snapId == snapId));
@@ -153,24 +155,25 @@ class _$ImageImpl implements _Image {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
-      __$$ImageImplCopyWithImpl<_$ImageImpl>(this, _$identity);
+  _$$SnapImageImplCopyWith<_$SnapImageImpl> get copyWith =>
+      __$$SnapImageImplCopyWithImpl<_$SnapImageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ImageImplToJson(
+    return _$$SnapImageImplToJson(
       this,
     );
   }
 }
 
-abstract class _Image implements Image {
-  const factory _Image(
+abstract class _SnapImage implements SnapImage {
+  const factory _SnapImage(
       {required final String id,
       required final String path,
-      required final String snapId}) = _$ImageImpl;
+      required final String snapId}) = _$SnapImageImpl;
 
-  factory _Image.fromJson(Map<String, dynamic> json) = _$ImageImpl.fromJson;
+  factory _SnapImage.fromJson(Map<String, dynamic> json) =
+      _$SnapImageImpl.fromJson;
 
   @override
   String get id;
@@ -180,6 +183,6 @@ abstract class _Image implements Image {
   String get snapId;
   @override
   @JsonKey(ignore: true)
-  _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
+  _$$SnapImageImplCopyWith<_$SnapImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

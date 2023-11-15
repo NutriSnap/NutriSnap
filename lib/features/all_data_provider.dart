@@ -1,7 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'journal/data/date_provider.dart';
 import 'snaps/data/image_provider.dart';
-import 'snaps/domain/image_model.dart';
+import 'snaps/domain/snap_image.dart';
 import 'snaps/data/meal_provider.dart';
 import 'snaps/domain/meal.dart';
 import 'snaps/data/snap_provider.dart';
@@ -15,32 +16,36 @@ part 'all_data_provider.g.dart';
 
 class AllData {
   AllData(
-      {required this.images,
+      {required this.snapImages,
         required this.meals,
         required this.snaps,
         required this.snapFoodItems,
+        required this.date,
         //required this.currentUserID
         });
 
-  final List<Image> images;
+  final List<SnapImage> snapImages;
   final List<Meal> meals;
   final List<Snap> snaps;
   final List<SnapFoodItem> snapFoodItems;
+  final DateTime date;
   //final String currentUserID;
 }
 
 @riverpod
 Future<AllData> allData(AllDataRef ref) async {
-  final images = ref.watch(imagesProvider.future);
+  final snapImages = ref.watch(imagesProvider.future);
   final meals = ref.watch(mealsProvider.future);
   final snaps = ref.watch(snapsProvider.future);
   final snapFoodItems = ref.watch(snapFoodItemsProvider.future);
+  final date = ref.watch(dateProvider);
   //final currentUserID = ref.watch(currentUserIDProvider);
   return AllData(
-      images: await images,
+    snapImages: await snapImages,
       meals: await meals,
       snaps: await snaps,
       snapFoodItems: await snapFoodItems,
+      date: date,
       //currentUserID: currentUserID
       );
 }

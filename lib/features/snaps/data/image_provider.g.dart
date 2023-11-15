@@ -21,11 +21,11 @@ final imageDatabaseProvider = AutoDisposeProvider<ImageDatabase>.internal(
 );
 
 typedef ImageDatabaseRef = AutoDisposeProviderRef<ImageDatabase>;
-String _$imagesHash() => r'f2e12bbaf83e7384946916c25fe0c3a4fe6fcc7a';
+String _$imagesHash() => r'2a4f50714c8b3a347074dea2bcb602f78da30b50';
 
 /// See also [images].
 @ProviderFor(images)
-final imagesProvider = AutoDisposeStreamProvider<List<Image>>.internal(
+final imagesProvider = AutoDisposeStreamProvider<List<SnapImage>>.internal(
   images,
   name: r'imagesProvider',
   debugGetCreateSourceHash:
@@ -34,6 +34,6 @@ final imagesProvider = AutoDisposeStreamProvider<List<Image>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef ImagesRef = AutoDisposeStreamProviderRef<List<Image>>;
+typedef ImagesRef = AutoDisposeStreamProviderRef<List<SnapImage>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, inference_failure_on_uninitialized_variable, inference_failure_on_function_return_type, inference_failure_on_untyped_parameter
