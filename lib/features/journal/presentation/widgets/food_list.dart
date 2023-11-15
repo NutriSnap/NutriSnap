@@ -6,8 +6,16 @@ import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
 import 'package:nutrisnap/features/snaps/domain/snap_food_item.dart';
 
+import '../../../all_data_provider.dart';
+import '../../../ns_error.dart';
+import '../../../ns_loading.dart';
+import '../../../snaps/domain/meal.dart';
+
 class FoodList extends ConsumerWidget {
-  final String snapId;
+  const FoodList({
+    super.key,
+  });
+  //final String snapId;
   /*
   final List<String> foodItems;
   final int foodsCount;
@@ -19,16 +27,33 @@ class FoodList extends ConsumerWidget {
         super(key: key);
 
    */
-  const FoodList({Key? key, required this.snapId}) : super(key: key);
+  //const FoodList({Key? key, required this.snapId}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final SnapDB snapDB = ref.watch(snapDBProvider);
-    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
+    //final SnapDB snapDB = ref.watch(snapDBProvider);
+    //final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
 
-    final List<String> foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId);
-    final int foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length;
+    //final List<String> foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId);
+    //final int foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length;
+    final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
+    return asyncAllData.when(
+        data: (allData) => _build(
+            context: context,
+            snapFoodItems: allData.snapFoodItems,
+            snaps: allData.snaps,
+            meals: allData.meals,
+            images: allData.images),
+        loading: () => const NSLoading(),
+        error: (error, st) => NSError(error.toString(), st.toString()));
+  }
 
+   Widget _build(
+        {required BuildContext context,
+        required List<SnapFoodItem> snapFoodItems,
+        required List<Snap> snaps,
+        required List<Meal> meals,
+        required List<Image> images}) {
     return ListView.separated(
       itemCount: foodsCount + 1, // Added 1 for the final divider
       itemBuilder: (context, index) {
