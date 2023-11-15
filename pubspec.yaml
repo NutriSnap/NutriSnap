@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
 
   # Firebase Cloud Firestore plugin.
-  cloud_firestore: ^4.11.0
+  cloud_firestore: ^4.13.1
 
   # Default icon set for Flutter.
   cupertino_icons: ^1.0.2
@@ -27,13 +27,13 @@ dependencies:
   flex_color_scheme: ^7.3.1
 
   # Firebase authentication plugin.
-  firebase_auth: ^4.11.1
+  firebase_auth: ^4.14.0
 
   # Core Firebase library required for all Firebase plugins.
-  firebase_core: ^2.19.0
+  firebase_core: ^2.22.0
 
   # Firebase UI for authentication.
-  firebase_ui_auth: ^1.9.1
+  firebase_ui_auth: ^1.10.0
 
   # Firebase storage to store files like images, videos, etc.
   firebase_storage: ^11.2.7
