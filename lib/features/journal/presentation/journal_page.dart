@@ -4,30 +4,34 @@ import 'package:nutrisnap/features/journal/presentation/widgets/date_picker.dart
 
 import 'package:nutrisnap/features/journal/presentation/widgets/snap_card.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
-import 'package:nutrisnap/features/snaps/data/snap_providers.dart';
+import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:intl/intl.dart';
+import '../../all_data_provider.dart';
+import '../../ns_error.dart';
+import '../../ns_loading.dart';
+import '../../snaps/domain/meal.dart';
+import '../../snaps/domain/snap_collection.dart';
+import '../../snaps/domain/snap_food_item.dart';
+import '../../snaps/domain/snap_image.dart';
 import '../data/date_provider.dart';
 
-List<SnapCard> _buildGridCards(BuildContext context, WidgetRef ref) {
-  final SnapDB snapDB = ref.watch(snapDBProvider);
-  final DateTime selectedDate = ref.watch(dateProvider);
-  List<String> snapIds = snapDB.getSnapIds();
+List<SnapCard> _buildGridCards(BuildContext context, DateTime selectedDate, List<Snap> snaps) {
 
-  // Filter snapIds based on the selected date
-  List<String> filteredSnapIds = snapIds.where((snapId) {
-    Snap snap = snapDB.getSnap(snapId);
+  // Filter snaps based on the selected date
+  List<Snap> filteredSnaps = snaps.where((snap) {
     DateTime snapDate = snap.date;
     return DateFormat.yMMMd().format(snapDate) == DateFormat.yMMMd().format(selectedDate);
   }).toList();
 
   // Check if filtered list is empty
-  if (filteredSnapIds.isEmpty) {
+  if (filteredSnaps.isEmpty) {
     return const <SnapCard>[];
   }
 
-  // Map filtered snapIds to SnapCards
-  return filteredSnapIds.map((snapId) => SnapCard(snapId: snapId)).toList();
+  // Map filtered snaps to SnapCards
+  return filteredSnaps.map((snap) => SnapCard(snapId: snap.id)).toList();
 }
+
 
 
 class JournalPage extends ConsumerWidget {
@@ -37,6 +41,28 @@ class JournalPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
+    return asyncAllData.when(
+        data: (allData) => _build(
+            context: context,
+            snapFoodItems: allData.snapFoodItems,
+            snaps: allData.snaps,
+            meals: allData.meals,
+            snapImages: allData.snapImages,
+            date: allData.date,
+            ),
+        loading: () => const NSLoading(),
+        error: (error, st) => NSError(error.toString(), st.toString()));
+  }
+
+  Widget _build(
+      {required BuildContext context,
+      required List<SnapFoodItem> snapFoodItems,
+      required List<Snap> snaps,
+      required List<Meal> meals,
+      required List<SnapImage> snapImages,
+      required DateTime date,}) {
+    SnapCollection snapCollection = SnapCollection(snaps);
     return Scaffold(
       appBar: AppBar(
         leading: null,
@@ -51,7 +77,7 @@ class JournalPage extends ConsumerWidget {
           crossAxisCount: 1, // how many columns
           padding: const EdgeInsets.all(8.0), // padding around the grid
           childAspectRatio: 16.0 / 9.0, // width to height ratio
-          children: _buildGridCards(context, ref), // List of SnapCard widgets
+          children: _buildGridCards(context, date, snaps), // List of SnapCard widgets
         ),
       ),
     );

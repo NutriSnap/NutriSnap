@@ -1,5 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'snap_food_item.freezed.dart';
+part 'snap_food_item.g.dart';
 
+@freezed
+class SnapFoodItem with _$SnapFoodItem {
+  const factory SnapFoodItem({
+    required String id,
+    required String snapId,
+    required String name,
+    required String processedLevel,
+    required String servings,
+    required int calories,
+  }) = _SnapFoodItem;
+
+  factory SnapFoodItem.fromJson(Map<String, dynamic> json) => _$SnapFoodItemFromJson(json);
+}
+
+/*
 class SnapFoodItem {
   SnapFoodItem({
     required this.id,
@@ -7,12 +25,14 @@ class SnapFoodItem {
     required this.name,
     required this.processedLevel,
     required this.servings,
+    required this.calories,
   });
   String id;
   String snapId;
   String name;
   String processedLevel; // could be mealId or itemId depending on your schema
   String servings;
+  int calories;
 }
 
 class SnapFoodItemDB {
@@ -25,6 +45,7 @@ class SnapFoodItemDB {
       name: 'coffee',
       processedLevel: 'Unprocessed',
       servings: '1',
+      calories: 10,
     ),
     SnapFoodItem(
       id: 'food-002',
@@ -32,6 +53,7 @@ class SnapFoodItemDB {
       name: 'chicken',
       processedLevel: 'Unprocessed',
       servings: '1',
+      calories: 100,
     ),
     SnapFoodItem(
       id: 'food-003',
@@ -39,6 +61,7 @@ class SnapFoodItemDB {
       name: 'rice',
       processedLevel: 'Moderately Processed',
       servings: '1',
+      calories: 200,
     ),
     SnapFoodItem(
       id: 'food-004',
@@ -46,6 +69,7 @@ class SnapFoodItemDB {
       name: 'broccoli',
       processedLevel: 'Unprocessed',
       servings: '1',
+      calories: 50,
     ),
     SnapFoodItem(
       id: 'food-005',
@@ -53,6 +77,7 @@ class SnapFoodItemDB {
       name: 'tomato',
       processedLevel: 'Unprocessed',
       servings: '1',
+      calories: 17,
     ),
     SnapFoodItem(
       id: 'food-006',
@@ -60,6 +85,7 @@ class SnapFoodItemDB {
       name: 'pizza',
       processedLevel: 'Highly Processed',
       servings: '1',
+      calories: 300,
     ),
     SnapFoodItem(
       id: 'food-007',
@@ -67,6 +93,7 @@ class SnapFoodItemDB {
       name: 'spinach',
       processedLevel: 'Unprocessed',
       servings: '1',
+      calories: 7,
     ),
     SnapFoodItem(
       id: 'food-008',
@@ -74,6 +101,7 @@ class SnapFoodItemDB {
       name: 'pasta',
       processedLevel: 'Moderately Processed',
       servings: '1',
+      calories: 328,
     ),
     SnapFoodItem(
       id: 'food-009',
@@ -81,6 +109,7 @@ class SnapFoodItemDB {
       name: 'creamy sauce',
       processedLevel: 'Highly Processed',
       servings: '1',
+      calories: 233,
     ),
   ];
 
@@ -89,6 +118,7 @@ class SnapFoodItemDB {
     required String name,
     required String processedLevel,
     required String servings,
+    required int calories,
   }) {
     String id = 'food-${(_snapFoodItems.length + 1).toString().padLeft(3, '0')}';
     SnapFoodItem data = SnapFoodItem(
@@ -96,7 +126,8 @@ class SnapFoodItemDB {
       snapId: snapId,
       name: name,
       processedLevel: processedLevel,
-      servings: servings
+      servings: servings,
+      calories: calories,
     );
     _snapFoodItems.add(data);
   }
@@ -133,3 +164,5 @@ class SnapFoodItemDB {
 }
 
 // SnapFoodItemDB snapFoodItemDB = SnapFoodItemDB();
+
+ */

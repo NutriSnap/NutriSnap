@@ -1,8 +1,28 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrisnap/features/snaps/data/snap_providers.dart';
-
+import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'snap.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'meal.freezed.dart';
+part 'meal.g.dart';
 
+@freezed
+class Meal with _$Meal {
+  const factory Meal({
+    required String id,
+    required String ownerId,
+    required String name,
+    required DateTime dateTime,
+    required double unprocessedPercentage,
+    required double moderatelyProcessedPercentage,
+    required double highlyProcessedPercentage,
+    required List<String> snapsList,
+    required int calories,
+  }) = _Meal;
+
+  factory Meal.fromJson(Map<String, dynamic> json) => _$MealFromJson(json);
+}
+
+/*
 class Meal {
   Meal({
     required this.id,
@@ -119,3 +139,4 @@ class MealDB {
 }
 
 // MealDB mealDB = MealDB();
+ */

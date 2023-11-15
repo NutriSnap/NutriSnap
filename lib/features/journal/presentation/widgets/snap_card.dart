@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:nutrisnap/features/snaps/domain/meal_collection.dart';
 // import 'package:nutrisnap/core/constants/app_colors.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
-import 'package:nutrisnap/features/snaps/data/snap_providers.dart';
-import '../../../snaps/data/meal_providers.dart';
+import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
+import 'package:nutrisnap/features/snaps/domain/snap_collection.dart';
+import '../../../all_data_provider.dart';
+import '../../../ns_error.dart';
+import '../../../ns_loading.dart';
+import '../../../snaps/data/meal_provider.dart';
 import '../../../snaps/domain/meal.dart';
+import '../../../snaps/domain/snap_food_item.dart';
+import '../../../snaps/domain/snap_image.dart';
 import 'food_list.dart';
 import 'line_processing_indicator.dart';
 
@@ -16,13 +23,35 @@ class SnapCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final SnapDB snapDB = ref.watch(snapDBProvider);
-    Snap snap = snapDB.getSnap(snapId);
-    String meal = ref.watch(mealDBProvider).getMeal(snap.mealId).name;
+    //final SnapDB snapDB = ref.watch(snapDBProvider);
+    //Snap snap = snapDB.getSnap(snapId);
+   // String meal = ref.watch(mealDBProvider).getMeal(snap.mealId).name;
+    final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
+    return asyncAllData.when(
+        data: (allData) => _build(
+            context: context,
+            snapFoodItems: allData.snapFoodItems,
+            snaps: allData.snaps,
+            meals: allData.meals,
+            snapImages: allData.snapImages),
+        loading: () => const NSLoading(),
+        error: (error, st) => NSError(error.toString(), st.toString()));
+  }
+
+  Widget _build(
+      {required BuildContext context,
+      required List<SnapFoodItem> snapFoodItems,
+      required List<Snap> snaps,
+      required List<Meal> meals,
+      required List<SnapImage> snapImages}) {
+    SnapCollection snapCollection = SnapCollection(snaps);
+    MealCollection mealCollection = MealCollection(meals);
+    Snap snap = snapCollection.getSnap(snapId);
     String imageUrl = snap.imageUrl;
     String calories = snap.calories.toString();
     Image image = Image.asset(imageUrl, fit: BoxFit.cover);
-    String date = DateFormat.yMMMd().format(snap.date).toString();
+    String meal = mealCollection.getMealBySnapId(snapId, snapCollection).name;
+    //String date = DateFormat.yMMMd().format(snap.date).toString();
     return Card(
       //margin: EdgeInsets.zero, // Removes the default margin around the card
       clipBehavior: Clip.antiAlias,

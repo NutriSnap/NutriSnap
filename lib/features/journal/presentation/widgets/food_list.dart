@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:nutrisnap/features/snaps/data/snap_food_item_providers.dart';
-import 'package:nutrisnap/features/snaps/data/snap_providers.dart';
+import 'package:nutrisnap/features/snaps/data/snap_food_item_provider.dart';
+import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
 import 'package:nutrisnap/features/snaps/domain/snap_food_item.dart';
+import 'package:nutrisnap/features/snaps/domain/snap_image.dart';
+
+import '../../../all_data_provider.dart';
+import '../../../ns_error.dart';
+import '../../../ns_loading.dart';
+import '../../../snaps/domain/meal.dart';
+import '../../../snaps/domain/snap_food_item_collection.dart';
 
 class FoodList extends ConsumerWidget {
+  const FoodList({
+    super.key,
+    required this.snapId,
+  });
+
   final String snapId;
   /*
   final List<String> foodItems;
@@ -19,16 +31,37 @@ class FoodList extends ConsumerWidget {
         super(key: key);
 
    */
-  const FoodList({Key? key, required this.snapId}) : super(key: key);
+  //const FoodList({Key? key, required this.snapId}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final SnapDB snapDB = ref.watch(snapDBProvider);
-    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
+    //final SnapDB snapDB = ref.watch(snapDBProvider);
+    //final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
 
-    final List<String> foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId);
-    final int foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length;
+    //final List<String> foodItems = snapFoodItemDB.getSnapFoodItemNamesBySnapId(snapId);
+    //final int foodsCount = snapDB.getAssociatedSnapFoodItems(snapId).length;
+    final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
+    return asyncAllData.when(
+        data: (allData) => _build(
+            context: context,
+            snapFoodItems: allData.snapFoodItems,
+            snaps: allData.snaps,
+            meals: allData.meals,
+            snapImages: allData.snapImages),
+        loading: () => const NSLoading(),
+        error: (error, st) => NSError(error.toString(), st.toString()));
+  }
 
+   Widget _build(
+        {required BuildContext context,
+        required List<SnapFoodItem> snapFoodItems,
+        required List<Snap> snaps,
+        required List<Meal> meals,
+        required List<SnapImage> snapImages}) {
+    SnapFoodItemCollection snapFoodItemsCollection = SnapFoodItemCollection(snapFoodItems);
+    final List<SnapFoodItem> snapFoodItemsList = snapFoodItemsCollection.getSnapFoodItemsBySnapId(snapId);
+    final List<String> foodItems = snapFoodItemsList.map((e) => e.name).toList();
+    final int foodsCount = snapFoodItemsList.length;
     return ListView.separated(
       itemCount: foodsCount + 1, // Added 1 for the final divider
       itemBuilder: (context, index) {

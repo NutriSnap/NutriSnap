@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../camera/presentation/camera_page.dart';
-import '../data/meal_providers.dart';
-import '../data/snap_food_item_providers.dart';
-import '../data/snap_providers.dart';
+import '../data/meal_provider.dart';
+import '../data/snap_food_item_provider.dart';
+import '../data/snap_provider.dart';
 import '../domain/meal.dart';
 import '../domain/snap.dart';
 import '../domain/snap_food_item.dart';
@@ -24,9 +24,10 @@ class SnapsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    final SnapDB snapDB = ref.watch(snapDBProvider);
-    final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
-    final MealDB mealDB = ref.watch(mealDBProvider);
+    //final SnapDB snapDB = ref.watch(snapDBProvider);
+    //final SnapFoodItemDB snapFoodItemDB = ref.watch(snapFoodItemDBProvider);
+    //final MealDB mealDB = ref.watch(mealDBProvider);
+
 
     return Scaffold(
       //key: _scaffoldKey,
@@ -92,6 +93,7 @@ class SnapsPage extends ConsumerWidget {
                   onPressed: () {
                     // Navigator.of(context).pop();
                     // snapFoodItemDB.add;
+                    /*
                     mealDB.addMeal(
                         ownerId: '1',
                         name: 'Breakfast',
@@ -112,6 +114,7 @@ class SnapsPage extends ConsumerWidget {
                       moderatelyProcessedPercentage: 30,
                       highlyProcessedPercentage: 20,
                     );
+                    */
                     //Navigator.of(context).pushNamed(JournalPage.routeName);
                     Navigator.of(context).popUntil(ModalRoute.withName('/home'));
                     //Navigator.of(context).pushNamed(JournalPage.routeName);
