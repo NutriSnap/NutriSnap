@@ -66,6 +66,7 @@ class JournalPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: null,
+        automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).colorScheme.surface,
         title: const DatePicker(),
       ),
