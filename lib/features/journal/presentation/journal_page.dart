@@ -4,7 +4,6 @@ import 'package:nutrisnap/features/journal/presentation/widgets/date_picker.dart
 
 import 'package:nutrisnap/features/journal/presentation/widgets/snap_card.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
-import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:intl/intl.dart';
 import '../../all_data_provider.dart';
 import '../../ns_error.dart';
@@ -13,7 +12,6 @@ import '../../snaps/domain/meal.dart';
 import '../../snaps/domain/snap_collection.dart';
 import '../../snaps/domain/snap_food_item.dart';
 import '../../snaps/domain/snap_image.dart';
-import '../data/date_provider.dart';
 
 List<SnapCard> _buildGridCards(BuildContext context, DateTime selectedDate, List<Snap> snaps) {
 

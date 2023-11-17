@@ -1,7 +1,7 @@
 /// Defines the domain model path strings for [FirestoreService].
 class FirestorePath {
-  static String image(String imageId) => 'images/$imageId';
-  static String images() => 'images';
+  static String snapImage(String snapImageId) => 'snapImages/$snapImageId';
+  static String snapImages() => 'snapImages';
 
   static String snap(String snapId) => 'snaps/$snapId';
   static String snaps() => 'snaps';
