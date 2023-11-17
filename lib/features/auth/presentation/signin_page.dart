@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_temp/database/user_db.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nutrisnap/core/constants/app_colors.dart';
 
 /// Presents the page containing fields to enter a username and password, plus buttons.
@@ -13,6 +13,9 @@ class SigninPage extends ConsumerWidget {
   static const routeName = '/';
 
   final _formKey = GlobalKey<FormBuilderState>();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,7 +39,6 @@ class SigninPage extends ConsumerWidget {
                 Image.asset('assets/images/layout/logo1.png', width: 200),
               ],
             ),
-            // [Name]
             FormBuilder(
               key: _formKey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -46,6 +48,7 @@ class SigninPage extends ConsumerWidget {
                   children: [
                     FormBuilderTextField(
                       name: 'email',
+                      controller: _emailController,
                       decoration: const InputDecoration(labelText: 'Email'),
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(),
@@ -55,6 +58,7 @@ class SigninPage extends ConsumerWidget {
                     const SizedBox(height: 10),
                     FormBuilderTextField(
                       name: 'password',
+                      controller: _passwordController,
                       decoration: const InputDecoration(labelText: 'Password'),
                       obscureText: true,
                     ),
@@ -81,33 +85,30 @@ class SigninPage extends ConsumerWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: material3FlexScheme.light.primaryContainer,
                     ),
-                    onPressed: () {
-                      // bool validEmailAndPassword =
-                      //     _formKey.currentState?.saveAndValidate() ?? false;
-                      // UserDB userDB = ref.read(userDBProvider);
-
-                      // if (validEmailAndPassword) {
-                      //   String email = _formKey.currentState?.value['email'];
-                      //   if (userDB.isUserEmail(email)) {
-                      //     String userID = userDB.getUserID(email);
-                      //     ref.read(currentUserIDProvider.notifier).state =
-                      //         userID;
-                      //     Navigator.pushReplacementNamed(context, '/home');
-                      //   } else {
-                      //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      //       content: Text(
-                      //           "Unknown User, try one of: ${userDB.getAllEmails().join(', ')}"),
-                      //       duration: const Duration(seconds: 10),
-                      //     ));
-                      //   }
-                      // } else {
-                      //   ScaffoldMessenger.of(context)
-                      //       .showSnackBar(const SnackBar(
-                      //     content: Text('Invalid Email or Password.'),
-                      //     duration: Duration(seconds: 2),
-                      //   ));
-                      // }
-                      Navigator.pushReplacementNamed(context, '/home');
+                    onPressed: () async {
+                      try {
+                        final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: _emailController.text,
+                            password: _passwordController.text
+                        );
+                        print(credential);
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          print('No user found for that email.');
+                        } else if (e.code == 'wrong-password') {
+                          print('Wrong password provided for that user.');
+                        }
+                      } catch (e) {
+                        print(e);
+                      }
+                      FirebaseAuth.instance
+                          .authStateChanges()
+                          .listen((User? user) {
+                        if (user != null) {
+                          print('User is signed in!');
+                          Navigator.pushReplacementNamed(context, '/home');
+                        }
+                      });
                     },
                     child: const Center(
                         child: Text(

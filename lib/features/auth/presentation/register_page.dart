@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -18,8 +19,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   bool _passwordVisible = false;
   bool _confirmPasswordVisible = false;
@@ -62,6 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     FormBuilderTextField(
                       name: 'email',
+                      controller: _emailController,
                       decoration: const InputDecoration(labelText: 'Email'),
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(),
@@ -70,9 +71,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(height: 10),
                     FormBuilderTextField(
+                      name: 'password',
                       controller: _passwordController,
                       obscureText: !_passwordVisible,
-                      name: 'password',
                       decoration: InputDecoration(labelText: 'Password',
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -88,9 +89,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(height: 10),
                     FormBuilderTextField(
+                      name: 'confirm password',
                       controller: _confirmPasswordController,
                       obscureText: !_confirmPasswordVisible,
-                      name: 'confirm password',
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
                         border: const OutlineInputBorder(),
@@ -121,7 +122,31 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: material3FlexScheme.light.primaryContainer,
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    try {
+                      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                          email: _emailController.text,
+                          password: _passwordController.text
+                      );
+                      print(credential);
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'weak-password') {
+                        print('The password provided is too weak.');
+                      } else if (e.code == 'email-already-in-use') {
+                        print('The account already exists for that email.');
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
+                    FirebaseAuth.instance
+                        .authStateChanges()
+                        .listen((User? user) {
+                      if (user != null) {
+                        print('User is signed in!');
+                        Navigator.pushReplacementNamed(context, '/home');
+                      }
+                    });
+                  },
                   child: const  Center(
                       child: Text(
                         'Register',
