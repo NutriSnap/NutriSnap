@@ -24,7 +24,7 @@ mixin _$SnapFoodItem {
   String get snapId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get processedLevel => throw _privateConstructorUsedError;
-  String get servings => throw _privateConstructorUsedError;
+  int get servings => throw _privateConstructorUsedError;
   int get calories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $SnapFoodItemCopyWith<$Res> {
       String snapId,
       String name,
       String processedLevel,
-      String servings,
+      int servings,
       int calories});
 }
 
@@ -88,7 +88,7 @@ class _$SnapFoodItemCopyWithImpl<$Res, $Val extends SnapFoodItem>
       servings: null == servings
           ? _value.servings
           : servings // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       calories: null == calories
           ? _value.calories
           : calories // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$SnapFoodItemImplCopyWith<$Res>
       String snapId,
       String name,
       String processedLevel,
-      String servings,
+      int servings,
       int calories});
 }
 
@@ -152,7 +152,7 @@ class __$$SnapFoodItemImplCopyWithImpl<$Res>
       servings: null == servings
           ? _value.servings
           : servings // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       calories: null == calories
           ? _value.calories
           : calories // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ class _$SnapFoodItemImpl implements _SnapFoodItem {
   @override
   final String processedLevel;
   @override
-  final String servings;
+  final int servings;
   @override
   final int calories;
 
@@ -234,7 +234,7 @@ abstract class _SnapFoodItem implements SnapFoodItem {
       required final String snapId,
       required final String name,
       required final String processedLevel,
-      required final String servings,
+      required final int servings,
       required final int calories}) = _$SnapFoodItemImpl;
 
   factory _SnapFoodItem.fromJson(Map<String, dynamic> json) =
@@ -249,7 +249,7 @@ abstract class _SnapFoodItem implements SnapFoodItem {
   @override
   String get processedLevel;
   @override
-  String get servings;
+  int get servings;
   @override
   int get calories;
   @override

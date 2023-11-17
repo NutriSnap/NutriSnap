@@ -12,7 +12,7 @@ _$SnapFoodItemImpl _$$SnapFoodItemImplFromJson(Map<String, dynamic> json) =>
       snapId: json['snapId'] as String,
       name: json['name'] as String,
       processedLevel: json['processedLevel'] as String,
-      servings: json['servings'] as String,
+      servings: json['servings'] as int,
       calories: json['calories'] as int,
     );
 

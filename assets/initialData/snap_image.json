@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "path": "assets/images/meal1.jpg",
+    "snapId": "1"
+  },
+  {
+    "id": "2",
+    "path": "assets/images/meal2.jpg",
+    "snapId": "2"
+  },
+  {
+    "id": "3",
+    "path": "assets/images/meal3.jpg",
+    "snapId": "3"
+  },
+  {
+    "id": "4",
+    "path": "assets/images/meal4.jpg",
+    "snapId": "4"
+  },
+  {
+    "id": "5",
+    "path": "assets/images/meal5.jpg",
+    "snapId": "5"
+  }
+]

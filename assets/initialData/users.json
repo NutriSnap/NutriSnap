@@ -1,0 +1,26 @@
+[
+  {
+    "id": "user-001",
+    "name": "Jenna Deane",
+    "username": "@fluke",
+    "email": "jennacorindeane@gmail.com",
+    "imagePath": "assets/images/user-001.jpg",
+    "initials": "JD"
+  },
+  {
+    "id": "user-002",
+    "name": "Jenna Smith",
+    "username": "@fluke",
+    "email": "j_smith@hawaii.edu",
+    "imagePath": "assets/images/user-002.jpg",
+    "initials": "JS"
+  },
+  {
+    "id": "user-003",
+    "name": "Katie Yamasaki",
+    "username": "@katie",
+    "email": "katie.y@gmail.com",
+    "imagePath": "assets/images/user-003.jpg",
+    "initials": "KY"
+  }
+]

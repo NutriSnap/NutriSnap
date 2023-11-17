@@ -10,7 +10,7 @@ class SnapFoodItem with _$SnapFoodItem {
     required String snapId,
     required String name,
     required String processedLevel,
-    required String servings,
+    required int servings,
     required int calories,
   }) = _SnapFoodItem;
 
