@@ -12,7 +12,6 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: const FAB(),
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,

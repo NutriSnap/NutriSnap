@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/common/widgets/fab.dart';
 
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
 import 'package:nutrisnap/features/profile/domain/user_db.dart';
@@ -63,8 +64,6 @@ class MainScaffoldState extends State<MainScaffold> {
       case 7:
         return const FriendsPage();
       case 8:
-        return const SnapsPage();
-      case 9:
         return const CoachPage();
       default:
         return const PlaceholderWidget(Color(0xFFF44336), 'Not Found');
@@ -110,6 +109,7 @@ class MainScaffoldState extends State<MainScaffold> {
     );
 
     return Scaffold(
+      floatingActionButton: const FAB(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // title is the name of the page
