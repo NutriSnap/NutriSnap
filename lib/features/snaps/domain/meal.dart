@@ -1,6 +1,5 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
-import 'snap.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'meal.freezed.dart';
 part 'meal.g.dart';
@@ -20,6 +19,16 @@ class Meal with _$Meal {
   }) = _Meal;
 
   factory Meal.fromJson(Map<String, dynamic> json) => _$MealFromJson(json);
+
+  // Test that the json file can be converted into entities.
+  static Future<List<Meal>> checkInitialData() async {
+    String content =
+    await rootBundle.loadString("assets/initialData/meals.json");
+    List<dynamic> initialData = json.decode(content);
+    return initialData.map((jsonData) => Meal.fromJson(jsonData)).toList();
+  }
+
+
 }
 
 /*

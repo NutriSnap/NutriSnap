@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'snap_image.freezed.dart';
 part 'snap_image.g.dart';
@@ -12,6 +15,14 @@ class SnapImage with _$SnapImage {
   }) = _SnapImage;
 
   factory SnapImage.fromJson(Map<String, dynamic> json) => _$SnapImageFromJson(json);
+
+  // Test that the json file can be converted into entities.
+  static Future<List<SnapImage>> checkInitialData() async {
+    String content =
+    await rootBundle.loadString("assets/initialData/snap_images.json");
+    List<dynamic> initialData = json.decode(content);
+    return initialData.map((jsonData) => SnapImage.fromJson(jsonData)).toList();
+  }
 }
 
 /*

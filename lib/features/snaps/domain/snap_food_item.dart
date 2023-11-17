@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'snap_food_item.freezed.dart';
@@ -15,6 +18,14 @@ class SnapFoodItem with _$SnapFoodItem {
   }) = _SnapFoodItem;
 
   factory SnapFoodItem.fromJson(Map<String, dynamic> json) => _$SnapFoodItemFromJson(json);
+
+  // Test that the json file can be converted into entities.
+  static Future<List<SnapFoodItem>> checkInitialData() async {
+    String content =
+    await rootBundle.loadString("assets/initialData/foods.json");
+    List<dynamic> initialData = json.decode(content);
+    return initialData.map((jsonData) => SnapFoodItem.fromJson(jsonData)).toList();
+  }
 }
 
 /*

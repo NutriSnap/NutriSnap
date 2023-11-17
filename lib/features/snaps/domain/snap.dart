@@ -1,8 +1,11 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrisnap/features/profile/data/user_providers.dart';
 import 'package:nutrisnap/features/snaps/data/snap_food_item_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../profile/domain/user_db.dart';
+import '../../profile/domain/user_data.dart';
 import 'snap_image.dart';
 import 'snap_food_item.dart';
 part 'snap.freezed.dart';
@@ -28,6 +31,14 @@ class Snap with _$Snap {
   }) = _Snap;
 
   factory Snap.fromJson(Map<String, dynamic> json) => _$SnapFromJson(json);
+
+  // Test that the json file can be converted into entities.
+  static Future<List<Snap>> checkInitialData() async {
+    String content =
+    await rootBundle.loadString("assets/initialData/snaps.json");
+    List<dynamic> initialData = json.decode(content);
+    return initialData.map((jsonData) => Snap.fromJson(jsonData)).toList();
+  }
 }
 
 /*
