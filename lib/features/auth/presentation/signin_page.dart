@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nutrisnap/core/constants/app_colors.dart';
 
 /// Presents the page containing fields to enter a username and password, plus buttons.
@@ -10,8 +12,10 @@ class SigninPage extends ConsumerWidget {
 
   static const routeName = '/';
 
-  String email = '';
-  String password = '';
+  final _formKey = GlobalKey<FormBuilderState>();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,19 +39,32 @@ class SigninPage extends ConsumerWidget {
                 Image.asset('assets/images/layout/logo1.png', width: 200),
               ],
             ),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Email'),
-              onChanged: (value) {
-                email = value;
-              },
-            ),
-            const SizedBox(height: 10),
-            TextField(
-              obscureText: true,
-              decoration: const InputDecoration(labelText: 'Password'),
-              onChanged: (value) {
-                password = value;
-              },
+            FormBuilder(
+              key: _formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
+                  children: [
+                    FormBuilderTextField(
+                      name: 'email',
+                      controller: _emailController,
+                      decoration: const InputDecoration(labelText: 'Email'),
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.email(),
+                      ]),
+                    ),
+                    const SizedBox(height: 10),
+                    FormBuilderTextField(
+                      name: 'password',
+                      controller: _passwordController,
+                      decoration: const InputDecoration(labelText: 'Password'),
+                      obscureText: true,
+                    ),
+                  ],
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14.0),
@@ -71,8 +88,8 @@ class SigninPage extends ConsumerWidget {
                     onPressed: () async {
                       try {
                         final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                            email: email,
-                            password: password
+                            email: _emailController.text,
+                            password: _passwordController.text
                         );
                         print(credential);
                       } on FirebaseAuthException catch (e) {
@@ -87,9 +104,7 @@ class SigninPage extends ConsumerWidget {
                       FirebaseAuth.instance
                           .authStateChanges()
                           .listen((User? user) {
-                        if (user == null) {
-                          print('User is currently signed out!');
-                        } else {
+                        if (user != null) {
                           print('User is signed in!');
                           Navigator.pushReplacementNamed(context, '/home');
                         }
