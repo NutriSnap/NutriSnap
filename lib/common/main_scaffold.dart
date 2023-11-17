@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/widgets/fab.dart';
 
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
-import 'package:nutrisnap/features/profile/domain/user_db.dart';
+import 'package:nutrisnap/features/profile/domain/user_data.dart';
 import 'package:nutrisnap/features/settings/presentation/settings_page.dart';
 import 'package:nutrisnap/features/about/presentation/about_page.dart';
 import 'package:nutrisnap/features/admin/presentation/admin_page.dart';
@@ -15,7 +15,7 @@ import 'package:nutrisnap/features/profile/profile_page.dart';
 import 'package:nutrisnap/features/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/features/trends/presentation/trends_page.dart';
 import '../features/journal/presentation/journal_page.dart';
-import 'package:nutrisnap/features/profile/domain/user_db.dart';
+import 'package:nutrisnap/features/profile/domain/user_data.dart';
 
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
