@@ -14,4 +14,7 @@ class FirestorePath {
 
   static String teamMember(String teamMemberId) => 'teamMembers/$teamMemberId';
   static String teamMembers() => 'teamMembers';
+
+  static String profile(String profileId) => 'profiles/$profileId';
+  static String profiles() => 'profiles';
 }
