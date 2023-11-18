@@ -34,7 +34,7 @@ class AllData {
 
 @riverpod
 Future<AllData> allData(AllDataRef ref) async {
-  final snapImages = ref.watch(imagesProvider.future);
+  final snapImages = ref.watch(snapImagesProvider.future);
   final meals = ref.watch(mealsProvider.future);
   final snaps = ref.watch(snapsProvider.future);
   final snapFoodItems = ref.watch(snapFoodItemsProvider.future);

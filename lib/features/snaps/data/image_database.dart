@@ -5,40 +5,40 @@ import '../../../repositories/firestore/firestore_service.dart';
 import '../domain/snap_image.dart';
 
 /// Provides access to the Firestore database storing [Image] documents.
-class ImageDatabase {
-  ImageDatabase(this.ref);
+class SnapImageDatabase {
+  SnapImageDatabase(this.ref);
 
-  final ProviderRef<ImageDatabase> ref;
+  final ProviderRef<SnapImageDatabase> ref;
 
   final _service = FirestoreService.instance;
 
-  Stream<List<SnapImage>> watchImages() => _service.watchCollection(
+  Stream<List<SnapImage>> watchSnapImages() => _service.watchCollection(
       path: FirestorePath.snapImages(),
       builder: (data, documentId) => SnapImage.fromJson(data!));
 
-  Stream<SnapImage> watchImage(String snapImageId) => _service.watchDocument(
+  Stream<SnapImage> watchSnapImage(String snapImageId) => _service.watchDocument(
       path: FirestorePath.snapImage(snapImageId),
       builder: (data, documentId) => SnapImage.fromJson(data!));
 
-  Future<List<SnapImage>> fetchImages() => _service.fetchCollection(
+  Future<List<SnapImage>> fetchSnapImages() => _service.fetchCollection(
       path: FirestorePath.snapImages(),
       builder: (data, documentId) => SnapImage.fromJson(data!));
 
-  Future<SnapImage> fetchImage(String snapImageId) => _service.fetchDocument(
+  Future<SnapImage> fetchSnapImage(String snapImageId) => _service.fetchDocument(
       path: FirestorePath.snapImage(snapImageId),
       builder: (data, documentId) => SnapImage.fromJson(data!));
 
-  Future<void> setImage(SnapImage image) => _service.setData(
-      path: FirestorePath.snapImage(image.id), data: image.toJson());
+  Future<void> setSnapImage(SnapImage snapImage) => _service.setData(
+      path: FirestorePath.snapImage(snapImage.id), data: snapImage.toJson());
 
-  Future<void> setImageDelayed(SnapImage image) => Future.delayed(
+  Future<void> setSnapImageDelayed(SnapImage snapImage) => Future.delayed(
       const Duration(milliseconds: 2000),
           () => _service.setData(
-          path: FirestorePath.snapImage(image.id), data: image.toJson()));
+          path: FirestorePath.snapImage(snapImage.id), data: snapImage.toJson()));
 
-  Future<void> setImageError(SnapImage image) =>
+  Future<void> setSnapImageError(SnapImage snapImage) =>
       Future.delayed(const Duration(milliseconds: 2000), () => throw Error());
 
-  Future<void> deleteImage(SnapImage image) =>
-      _service.deleteData(path: FirestorePath.snapImage(image.id));
+  Future<void> deleteSnapImage(SnapImage snapImage) =>
+      _service.deleteData(path: FirestorePath.snapImage(snapImage.id));
 }
