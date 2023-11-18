@@ -1,10 +1,5 @@
-// import 'package:google_sign_in/google_sign_in.dart';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'features/profile/domain/user_data.dart';
-import 'features/snaps/domain/meal.dart';
 import 'features/snaps/domain/snap.dart';
 import 'features/snaps/domain/snap_food_item.dart';
 import 'firebase_options.dart';
@@ -15,9 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 Future<bool> verifyInitialData() async {
   // logger.i('Verifying initial data files: Chapter, Garden, News, User');
   //await UserData.checkInitialData();
-  await Meal.checkInitialData();
-  await Snap.checkInitialData();
-  await SnapFoodItem.checkInitialData();
+  //await Snap.checkInitialData();
   return true;
 }
 

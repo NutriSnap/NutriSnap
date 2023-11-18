@@ -8,11 +8,11 @@ import 'package:intl/intl.dart';
 import '../../all_data_provider.dart';
 import '../../ns_error.dart';
 import '../../ns_loading.dart';
-import '../../snaps/domain/meal.dart';
 import '../../snaps/domain/snap_collection.dart';
 import '../../snaps/domain/snap_food_item.dart';
 import '../../snaps/domain/snap_image.dart';
 
+/*
 List<SnapCard> _buildGridCards(BuildContext context, DateTime selectedDate, List<Snap> snaps) {
 
   // Filter snaps based on the selected date
@@ -29,8 +29,7 @@ List<SnapCard> _buildGridCards(BuildContext context, DateTime selectedDate, List
   // Map filtered snaps to SnapCards
   return filteredSnaps.map((snap) => SnapCard(snapId: snap.id)).toList();
 }
-
-
+*/
 
 class JournalPage extends ConsumerWidget {
   const JournalPage({Key? key}) : super(key: key);
@@ -43,10 +42,7 @@ class JournalPage extends ConsumerWidget {
     return asyncAllData.when(
         data: (allData) => _build(
             context: context,
-            snapFoodItems: allData.snapFoodItems,
             snaps: allData.snaps,
-            meals: allData.meals,
-            snapImages: allData.snapImages,
             date: allData.date,
             ),
         loading: () => const NSLoading(),
@@ -55,10 +51,7 @@ class JournalPage extends ConsumerWidget {
 
   Widget _build(
       {required BuildContext context,
-      required List<SnapFoodItem> snapFoodItems,
       required List<Snap> snaps,
-      required List<Meal> meals,
-      required List<SnapImage> snapImages,
       required DateTime date,}) {
     SnapCollection snapCollection = SnapCollection(snaps);
     return Scaffold(
@@ -76,7 +69,13 @@ class JournalPage extends ConsumerWidget {
           crossAxisCount: 1, // how many columns
           padding: const EdgeInsets.all(8.0), // padding around the grid
           childAspectRatio: 16.0 / 9.0, // width to height ratio
-          children: _buildGridCards(context, date, snaps), // List of SnapCard widgets
+          //children: _buildGridCards(context, date, snaps), // List of SnapCard widgets
+          children: [
+            ...snapCollection
+                .getSnaps()
+                .where((snap) => DateFormat.yMMMd().format(snap.dateTime) == DateFormat.yMMMd().format(date))
+                .map((snap) => SnapCard(snap: snap))
+          ],
         ),
       ),
     );

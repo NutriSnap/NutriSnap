@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../camera/presentation/camera_page.dart';
-import '../data/meal_provider.dart';
-import '../data/snap_food_item_provider.dart';
 import '../data/snap_provider.dart';
-import '../domain/meal.dart';
 import '../domain/snap.dart';
 import '../domain/snap_food_item.dart';
 import 'widgets/meal_dropdown_menu.dart';

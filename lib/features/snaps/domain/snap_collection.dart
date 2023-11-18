@@ -1,5 +1,3 @@
-import 'meal.dart';
-import 'meal_collection.dart';
 import 'snap.dart';
 import 'snap_image.dart';
 import 'snap_image_collection.dart';
@@ -13,32 +11,14 @@ class SnapCollection {
 
   List<Snap> get snaps => _snaps;
 
-  Snap getSnap(String id) {
-    return _snaps.firstWhere((snap) => snap.id == id);
-  }
-
-  List<Snap> getSnaps(List<String> ids) {
-    return _snaps.where((snap) => ids.contains(snap.id)).toList();
-  }
-
-  List<String> getSnapIds() {
-    return _snaps.map((snap) => snap.id).toList();
-  }
-
-  List<Snap> getSnapsByMealId(String mealId) {
+  List<Snap> getSnapsByOwnerId(String owner) {
     return _snaps
-        .where((snap) => snap.mealId == mealId) // Filters the snaps based on mealId
+        .where((snap) => snap.owner == owner) // Filters the snaps based on ownerId
         .toList();
   }
 
-  List<Snap> getSnapsByOwnerId(String ownerId) {
-    return _snaps
-        .where((snap) => snap.ownerId == ownerId) // Filters the snaps based on ownerId
-        .toList();
-  }
-
-  List<SnapFoodItem> getAssociatedSnapFoodItems(String snapId, SnapFoodItemCollection snapFoodItemCollection) {
-    return snapFoodItemCollection.getSnapFoodItemsBySnapId(snapId);
+  List<Snap> getSnaps() {
+    return _snaps.toList();
   }
 
 /*
@@ -51,9 +31,5 @@ class SnapCollection {
 
   SnapImage getAssociatedSnapImage(String snapId, SnapImageCollection snapImageCollection) {
     return snapImageCollection.getImageBySnapId(snapId);
-  }
-
-  Meal getAssociatedMeal(String snapId, MealCollection mealCollection) {
-    return mealCollection.getMealBySnapId(snapId, this);
   }
 }

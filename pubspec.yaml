@@ -147,8 +147,8 @@ flutter:
     - assets/images/people/bob.jpg
     - assets/images/people/alice.png
     - assets/initialData/foods.json
-    - assets/initialData/meals.json
-    - assets/initialData/snap_images.json
+    - assets/initialData/snaps.json
+    - assets/initialData/images.json
     - assets/initialData/users.json
     - assets/initialData/snaps.json
     - assets/initialData/team_members.json
