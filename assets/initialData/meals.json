@@ -1,6 +1,5 @@
 [
   {
-    "id": "meal-001",
     "ownerId": "1",
     "name": "Breakfast",
     "dateTime": "2023-11-17 20:18:04Z",
@@ -13,7 +12,6 @@
     "calories": 500
   },
   {
-    "id": "meal-002",
     "ownerId": "2",
     "name": "Lunch",
     "dateTime": "2023-11-17 20:18:04Z",
@@ -26,7 +24,6 @@
     "calories": 682
   },
   {
-    "id": "meal-003",
     "ownerId": "3",
     "name": "Dinner",
     "dateTime": "2023-11-17 20:18:04Z",

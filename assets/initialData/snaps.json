@@ -1,6 +1,5 @@
 [
   {
-    "id": "snap-001",
     "ownerId": "1",
     "mealId": "meal-001",
     "title": "Snap 1",
@@ -16,7 +15,6 @@
     ]
   },
   {
-    "id": "snap-002",
     "ownerId": "user-003",
     "mealId": "meal-002",
     "title": "Snap 2",
@@ -32,7 +30,6 @@
     ]
   },
   {
-    "id": "snap-003",
     "ownerId": "user-003",
     "mealId": "meal-003",
     "title": "Snap 3",
@@ -48,7 +45,6 @@
     ]
   },
   {
-    "id": "snap-004",
     "ownerId": "user-003",
     "mealId": "meal-003",
     "title": "Snap 4",
@@ -64,7 +60,6 @@
     ]
   },
   {
-    "id": "snap-005",
     "ownerId": "user-003",
     "mealId": "meal-002",
     "title": "Snap 5",
