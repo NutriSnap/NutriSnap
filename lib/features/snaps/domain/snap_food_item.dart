@@ -9,8 +9,6 @@ part 'snap_food_item.g.dart';
 @freezed
 class SnapFoodItem with _$SnapFoodItem {
   const factory SnapFoodItem({
-    required String id,
-    required String snapId,
     required String name,
     required String processedLevel,
     required int servings,

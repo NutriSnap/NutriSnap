@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:nutrisnap/features/snaps/domain/meal_collection.dart';
-// import 'package:nutrisnap/core/constants/app_colors.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
-import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:nutrisnap/features/snaps/domain/snap_collection.dart';
 import '../../../all_data_provider.dart';
 import '../../../ns_error.dart';
 import '../../../ns_loading.dart';
-import '../../../snaps/data/meal_provider.dart';
-import '../../../snaps/domain/meal.dart';
 import '../../../snaps/domain/snap_food_item.dart';
 import '../../../snaps/domain/snap_image.dart';
 import 'food_list.dart';
 import 'line_processing_indicator.dart';
 
 class SnapCard extends ConsumerWidget {
-  const SnapCard({Key? key, required this.snapId}) : super(key: key);
+  const SnapCard({Key? key, required this.snap}) : super(key: key);
 
-  final String snapId;
+  final Snap snap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,28 +23,23 @@ class SnapCard extends ConsumerWidget {
     final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
     return asyncAllData.when(
         data: (allData) => _build(
-            context: context,
-            snapFoodItems: allData.snapFoodItems,
-            snaps: allData.snaps,
-            meals: allData.meals,
-            snapImages: allData.snapImages),
+          context: context,
+          snaps: allData.snaps,
+          date: allData.date,
+        ),
         loading: () => const NSLoading(),
         error: (error, st) => NSError(error.toString(), st.toString()));
   }
 
   Widget _build(
       {required BuildContext context,
-      required List<SnapFoodItem> snapFoodItems,
-      required List<Snap> snaps,
-      required List<Meal> meals,
-      required List<SnapImage> snapImages}) {
+        required List<Snap> snaps,
+        required DateTime date,}) {
     SnapCollection snapCollection = SnapCollection(snaps);
-    MealCollection mealCollection = MealCollection(meals);
-    Snap snap = snapCollection.getSnap(snapId);
+    //Snap snap = snapCollection.getSnap(snapId);
     String imageUrl = snap.imageUrl;
     String calories = snap.calories.toString();
     Image image = Image.asset(imageUrl, fit: BoxFit.cover);
-    String meal = mealCollection.getMealBySnapId(snapId, snapCollection).name;
     //String date = DateFormat.yMMMd().format(snap.date).toString();
     return Card(
       //margin: EdgeInsets.zero, // Removes the default margin around the card
@@ -68,7 +57,7 @@ class SnapCard extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  meal,
+                  snap.meal,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ConstrainedBox(
@@ -77,7 +66,7 @@ class SnapCard extends ConsumerWidget {
                     maxHeight: 100,
                   ),
                   child: FoodList(
-                    snapId: snapId,
+                    snap: snap,
                   ), // This is a list that scrolls vertically and displays the food items
                 ),
                 ConstrainedBox(

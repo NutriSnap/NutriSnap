@@ -1,77 +1,152 @@
 [
-  {
-    "ownerId": "1",
-    "mealId": "meal-001",
-    "title": "Snap 1",
-    "description": "Snap 1 description",
-    "imageUrl": "assets/images/food/coffee.jpg",
-    "date": "2023-11-17 20:18:04Z",
-    "calories": 10,
-    "unprocessedPercentage": 100,
-    "moderatelyProcessedPercentage": 0,
-    "highlyProcessedPercentage": 0,
-    "foodsList": [
-      "food-001"
-    ]
-  },
-  {
-    "ownerId": "user-003",
-    "mealId": "meal-002",
-    "title": "Snap 2",
-    "description": "Snap 2 description",
-    "imageUrl": "assets/images/food/rice-chicken.jpg",
-    "date": "2023-11-17 20:18:04Z",
-    "calories": 367,
-    "unprocessedPercentage": 50,
-    "moderatelyProcessedPercentage": 50,
-    "highlyProcessedPercentage": 0,
-    "foodsList": [
-      "food-002", "food-003", "food-004", "food-005"
-    ]
-  },
-  {
-    "ownerId": "user-003",
-    "mealId": "meal-003",
-    "title": "Snap 3",
-    "description": "Snap 3 description",
-    "imageUrl": "assets/images/food/pizza.jpg",
-    "date": "2023-11-17 20:18:04Z",
-    "calories": 312,
-    "unprocessedPercentage": 10,
-    "moderatelyProcessedPercentage": 80,
-    "highlyProcessedPercentage": 10,
-    "foodsList": [
-      "food-006"
-    ]
-  },
-  {
-    "ownerId": "user-003",
-    "mealId": "meal-003",
-    "title": "Snap 4",
-    "description": "Snap 4 description",
-    "imageUrl": "assets/images/food/carbonara.jpg",
-    "date": "2023-11-16 20:18:04Z",
-    "calories": 980,
-    "unprocessedPercentage": 10,
-    "moderatelyProcessedPercentage": 80,
-    "highlyProcessedPercentage": 10,
-    "foodsList": [
-      "food-008", "food-009"
-    ]
-  },
-  {
-    "ownerId": "user-003",
-    "mealId": "meal-002",
-    "title": "Snap 5",
-    "description": "Snap 5 description",
-    "imageUrl": "assets/images/food/spinach.jpg",
-    "date": "2023-11-18 20:18:04Z",
-    "calories": 30,
-    "unprocessedPercentage": 100,
-    "moderatelyProcessedPercentage": 0,
-    "highlyProcessedPercentage": 0,
-    "foodsList": [
-      "food-007"
-    ]
-  }
+      {
+        "owner": "1",
+        "title": "Snap 1",
+        "meal": "Breakfast",
+        "description": "Snap 1 description",
+        "imageUrl": "assets/images/food/coffee.jpg",
+        "dateTime": "2023-11-17 20:18:04Z",
+        "calories": 10,
+        "unprocessedPercentage": 100,
+        "moderatelyProcessedPercentage": 0,
+        "highlyProcessedPercentage": 0,
+        "foodsList": [
+          {
+            "name": "coffee",
+            "processedLevel": "Unprocessed",
+            "servings": 1,
+            "calories": 10
+          }
+        ]
+      },
+      {
+        "owner": "1",
+        "title": "Snap 2",
+        "meal": "Breakfast",
+        "description": "Snap 2 description",
+        "imageUrl": "assets/images/food/rice-chicken.jpg",
+        "dateTime": "2023-11-17 20:18:04Z",
+        "calories": 367,
+        "unprocessedPercentage": 50,
+        "moderatelyProcessedPercentage": 50,
+        "highlyProcessedPercentage": 0,
+        "foodsList": [
+          {
+            "name": "chicken",
+            "processedLevel": "Unprocessed",
+            "servings": 1,
+            "calories": 100
+          },
+          {
+            "name": "rice",
+            "processedLevel": "Moderately Processed",
+            "servings": 1,
+            "calories": 200
+          },
+          {
+            "name": "broccoli",
+            "processedLevel": "Unprocessed",
+            "servings": 1,
+            "calories": 50
+          },
+          {
+            "name": "tomato",
+            "processedLevel": "Unprocessed",
+            "servings": 1,
+            "calories": 17
+          }
+        ]
+      },
+      {
+        "owner": "1",
+        "title": "Snap 3",
+        "meal": "Breakfast",
+        "description": "Snap 3 description",
+        "imageUrl": "assets/images/food/pizza.jpg",
+        "dateTime": "2023-11-17 20:18:04Z",
+        "calories": 312,
+        "unprocessedPercentage": 10,
+        "moderatelyProcessedPercentage": 80,
+        "highlyProcessedPercentage": 10,
+        "foodsList": [
+          {
+            "name": "pizza",
+            "processedLevel": "Highly Processed",
+            "servings": 1,
+            "calories": 300
+          }
+        ]
+      },
+      {
+        "owner": "1",
+        "title": "Snap 4",
+        "meal": "Lunch",
+        "description": "Snap 4 description",
+        "imageUrl": "assets/images/food/carbonara.jpg",
+        "dateTime": "2023-11-16 20:18:04Z",
+        "calories": 980,
+        "unprocessedPercentage": 10,
+        "moderatelyProcessedPercentage": 80,
+        "highlyProcessedPercentage": 10,
+        "foodsList": [
+          {
+            "name": "pasta",
+            "processedLevel": "Moderately Processed",
+            "servings": 1,
+            "calories": 328
+          },
+          {
+            "name": "creamy sauce",
+            "processedLevel": "Highly Processed",
+            "servings": 1,
+            "calories": 233
+          }
+        ]
+      },
+      {
+        "owner": "1",
+        "title": "Snap 5",
+        "meal": "Lunch",
+        "description": "Snap 5 description",
+        "imageUrl": "assets/images/food/spinach.jpg",
+        "dateTime": "2023-11-18 20:18:04Z",
+        "calories": 30,
+        "unprocessedPercentage": 100,
+        "moderatelyProcessedPercentage": 0,
+        "highlyProcessedPercentage": 0,
+        "foodsList": [
+          {
+            "name": "spinach",
+            "processedLevel": "Unprocessed",
+            "servings": 1,
+            "calories": 7
+          }
+        ]
+      },
+      {
+        "owner": "1",
+        "title": "Snap 4",
+        "meal": "Dinner",
+        "description": "Snap 4 description",
+        "imageUrl": "assets/images/food/carbonara.jpg",
+        "dateTime": "2023-11-16 20:18:04Z",
+        "calories": 980,
+        "unprocessedPercentage": 10,
+        "moderatelyProcessedPercentage": 80,
+        "highlyProcessedPercentage": 10,
+        "foodsList": [
+          {
+            "name": "pasta",
+            "processedLevel": "Moderately Processed",
+            "servings": 1,
+            "calories": 328
+          },
+          {
+            "name": "creamy sauce",
+            "processedLevel": "Highly Processed",
+            "servings": 1,
+            "calories": 233
+          }
+        ]
+      }
 ]

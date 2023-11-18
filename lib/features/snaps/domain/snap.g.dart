@@ -7,32 +7,31 @@ part of 'snap.dart';
 // **************************************************************************
 
 _$SnapImpl _$$SnapImplFromJson(Map<String, dynamic> json) => _$SnapImpl(
-      id: json['id'] as String,
-      ownerId: json['ownerId'] as String,
-      mealId: json['mealId'] as String,
+      owner: json['owner'] as String,
       title: json['title'] as String,
+      meal: json['meal'] as String,
       description: json['description'] as String,
       imageUrl: json['imageUrl'] as String,
-      date: DateTime.parse(json['date'] as String),
+      dateTime: DateTime.parse(json['dateTime'] as String),
       calories: json['calories'] as int,
       unprocessedPercentage: (json['unprocessedPercentage'] as num).toDouble(),
       moderatelyProcessedPercentage:
           (json['moderatelyProcessedPercentage'] as num).toDouble(),
       highlyProcessedPercentage:
           (json['highlyProcessedPercentage'] as num).toDouble(),
-      foodsList:
-          (json['foodsList'] as List<dynamic>).map((e) => e as String).toList(),
+      foodsList: (json['foodsList'] as List<dynamic>)
+          .map((e) => SnapFoodItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$SnapImplToJson(_$SnapImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'ownerId': instance.ownerId,
-      'mealId': instance.mealId,
+      'owner': instance.owner,
       'title': instance.title,
+      'meal': instance.meal,
       'description': instance.description,
       'imageUrl': instance.imageUrl,
-      'date': instance.date.toIso8601String(),
+      'dateTime': instance.dateTime.toIso8601String(),
       'calories': instance.calories,
       'unprocessedPercentage': instance.unprocessedPercentage,
       'moderatelyProcessedPercentage': instance.moderatelyProcessedPercentage,

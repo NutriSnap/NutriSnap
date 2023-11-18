@@ -28,6 +28,7 @@ class SnapDatabase {
       path: FirestorePath.snap(snapId),
       builder: (data, documentId) => Snap.fromJson(data!));
 
+/*
   Future<void> setSnap(Snap snap) => _service.setData(
       path: FirestorePath.snap(snap.id), data: snap.toJson());
 
@@ -41,4 +42,5 @@ class SnapDatabase {
 
   Future<void> deleteSnap(Snap snap) =>
       _service.deleteData(path: FirestorePath.snap(snap.id));
+ */
 }
