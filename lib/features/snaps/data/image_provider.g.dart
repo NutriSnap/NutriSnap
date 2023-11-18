@@ -6,7 +6,7 @@ part of 'image_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$snapImageDatabaseHash() => r'defc16faf5334128657ac49af862e1ee5f2565f3';
+String _$snapImageDatabaseHash() => r'a3123ffd6008e0fe353277ff94def5c2f0669c85';
 
 /// See also [snapImageDatabase].
 @ProviderFor(snapImageDatabase)

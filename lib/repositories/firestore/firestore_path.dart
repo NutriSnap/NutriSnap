@@ -11,4 +11,7 @@ class FirestorePath {
 
   static String snapFoodItem(String snapFoodItemId) => 'snapFoodItems/$snapFoodItemId';
   static String snapFoodItems() => 'snapFoodItems';
+
+  static String teamMember(String teamMemberId) => 'teamMembers/$teamMemberId';
+  static String teamMembers() => 'teamMembers';
 }

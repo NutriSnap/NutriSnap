@@ -26,7 +26,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await verifyInitialData();
+  //await verifyInitialData();
   runApp(const ProviderScope(
   child: MyApp(),
   ));

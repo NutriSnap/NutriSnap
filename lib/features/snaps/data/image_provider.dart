@@ -5,7 +5,7 @@ part 'image_provider.g.dart';
 
 @riverpod
 SnapImageDatabase snapImageDatabase(SnapImageDatabaseRef ref) {
-  return snapImageDatabase(ref);
+  return SnapImageDatabase(ref);
 }
 
 @riverpod

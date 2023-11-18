@@ -1,3 +1,29 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'team_member.freezed.dart';
+part 'team_member.g.dart';
+
+@freezed
+class TeamMember with _$TeamMember {
+  const factory TeamMember({
+    required String name,
+    required String role,
+    required String githubUrl,
+    required String linkedinUrl,
+  }) = _TeamMember;
+
+  factory TeamMember.fromJson(Map<String, dynamic> json) => _$TeamMemberFromJson(json);
+
+  static Future<List<TeamMember>> checkInitialData() async {
+    String content =
+    await rootBundle.loadString("assets/initialData/meals.json");
+    List<dynamic> initialData = json.decode(content);
+    return initialData.map((jsonData) => TeamMember.fromJson(jsonData)).toList();
+  }
+}
+
+/*
 class TeamMember {
   TeamMember({
     required this.id,
@@ -53,3 +79,5 @@ class TeamMemberDB {
 }
 
 TeamMemberDB teamMemberDB = TeamMemberDB();
+
+ */

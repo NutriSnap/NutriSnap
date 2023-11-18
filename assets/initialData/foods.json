@@ -1,6 +1,5 @@
 [
   {
-    "id": "food-001",
     "snapId": "snap-001",
     "name": "coffee",
     "processedLevel": "Unprocessed",
@@ -8,7 +7,6 @@
     "calories": 10
   },
   {
-    "id": "food-002",
     "snapId": "snap-002",
     "name": "chicken",
     "processedLevel": "Unprocessed",
@@ -16,7 +14,6 @@
     "calories": 100
   },
   {
-    "id": "food-003",
     "snapId": "snap-002",
     "name": "rice",
     "processedLevel": "Moderately Processed",
@@ -24,7 +21,6 @@
     "calories": 200
   },
   {
-    "id": "food-004",
     "snapId": "snap-002",
     "name": "broccoli",
     "processedLevel": "Unprocessed",
@@ -32,7 +28,6 @@
     "calories": 50
   },
   {
-    "id": "food-005",
     "snapId": "snap-002",
     "name": "tomato",
     "processedLevel": "Unprocessed",
@@ -40,7 +35,6 @@
     "calories": 17
   },
   {
-    "id": "food-006",
     "snapId": "snap-003",
     "name": "pizza",
     "processedLevel": "Highly Processed",
@@ -48,7 +42,6 @@
     "calories": 300
   },
   {
-    "id": "food-007",
     "snapId": "snap-005",
     "name": "spinach",
     "processedLevel": "Unprocessed",
@@ -56,7 +49,6 @@
     "calories": 7
   },
   {
-    "id": "food-008",
     "snapId": "snap-004",
     "name": "pasta",
     "processedLevel": "Moderately Processed",
@@ -64,7 +56,6 @@
     "calories": 328
   },
   {
-    "id": "food-009",
     "snapId": "snap-004",
     "name": "creamy sauce",
     "processedLevel": "Highly Processed",
