@@ -20,21 +20,18 @@ Snap _$SnapFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Snap {
-  String get id => throw _privateConstructorUsedError;
-  String get ownerId => throw _privateConstructorUsedError;
-  String get mealId => throw _privateConstructorUsedError;
+  String get owner => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get meal => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get dateTime => throw _privateConstructorUsedError;
   int get calories => throw _privateConstructorUsedError;
   double get unprocessedPercentage => throw _privateConstructorUsedError;
   double get moderatelyProcessedPercentage =>
       throw _privateConstructorUsedError;
-  double get highlyProcessedPercentage =>
-      throw _privateConstructorUsedError; //required Double lat,
-//required Double long,
-  List<String> get foodsList => throw _privateConstructorUsedError;
+  double get highlyProcessedPercentage => throw _privateConstructorUsedError;
+  List<SnapFoodItem> get foodsList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,18 +44,17 @@ abstract class $SnapCopyWith<$Res> {
       _$SnapCopyWithImpl<$Res, Snap>;
   @useResult
   $Res call(
-      {String id,
-      String ownerId,
-      String mealId,
+      {String owner,
       String title,
+      String meal,
       String description,
       String imageUrl,
-      DateTime date,
+      DateTime dateTime,
       int calories,
       double unprocessedPercentage,
       double moderatelyProcessedPercentage,
       double highlyProcessedPercentage,
-      List<String> foodsList});
+      List<SnapFoodItem> foodsList});
 }
 
 /// @nodoc
@@ -74,13 +70,12 @@ class _$SnapCopyWithImpl<$Res, $Val extends Snap>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? ownerId = null,
-    Object? mealId = null,
+    Object? owner = null,
     Object? title = null,
+    Object? meal = null,
     Object? description = null,
     Object? imageUrl = null,
-    Object? date = null,
+    Object? dateTime = null,
     Object? calories = null,
     Object? unprocessedPercentage = null,
     Object? moderatelyProcessedPercentage = null,
@@ -88,21 +83,17 @@ class _$SnapCopyWithImpl<$Res, $Val extends Snap>
     Object? foodsList = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      ownerId: null == ownerId
-          ? _value.ownerId
-          : ownerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      mealId: null == mealId
-          ? _value.mealId
-          : mealId // ignore: cast_nullable_to_non_nullable
+      owner: null == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      meal: null == meal
+          ? _value.meal
+          : meal // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -112,9 +103,9 @@ class _$SnapCopyWithImpl<$Res, $Val extends Snap>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
       calories: null == calories
           ? _value.calories
@@ -135,7 +126,7 @@ class _$SnapCopyWithImpl<$Res, $Val extends Snap>
       foodsList: null == foodsList
           ? _value.foodsList
           : foodsList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<SnapFoodItem>,
     ) as $Val);
   }
 }
@@ -148,18 +139,17 @@ abstract class _$$SnapImplCopyWith<$Res> implements $SnapCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String ownerId,
-      String mealId,
+      {String owner,
       String title,
+      String meal,
       String description,
       String imageUrl,
-      DateTime date,
+      DateTime dateTime,
       int calories,
       double unprocessedPercentage,
       double moderatelyProcessedPercentage,
       double highlyProcessedPercentage,
-      List<String> foodsList});
+      List<SnapFoodItem> foodsList});
 }
 
 /// @nodoc
@@ -172,13 +162,12 @@ class __$$SnapImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? ownerId = null,
-    Object? mealId = null,
+    Object? owner = null,
     Object? title = null,
+    Object? meal = null,
     Object? description = null,
     Object? imageUrl = null,
-    Object? date = null,
+    Object? dateTime = null,
     Object? calories = null,
     Object? unprocessedPercentage = null,
     Object? moderatelyProcessedPercentage = null,
@@ -186,21 +175,17 @@ class __$$SnapImplCopyWithImpl<$Res>
     Object? foodsList = null,
   }) {
     return _then(_$SnapImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      ownerId: null == ownerId
-          ? _value.ownerId
-          : ownerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      mealId: null == mealId
-          ? _value.mealId
-          : mealId // ignore: cast_nullable_to_non_nullable
+      owner: null == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      meal: null == meal
+          ? _value.meal
+          : meal // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -210,9 +195,9 @@ class __$$SnapImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
       calories: null == calories
           ? _value.calories
@@ -233,7 +218,7 @@ class __$$SnapImplCopyWithImpl<$Res>
       foodsList: null == foodsList
           ? _value._foodsList
           : foodsList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<SnapFoodItem>,
     ));
   }
 }
@@ -242,37 +227,34 @@ class __$$SnapImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SnapImpl implements _Snap {
   const _$SnapImpl(
-      {required this.id,
-      required this.ownerId,
-      required this.mealId,
+      {required this.owner,
       required this.title,
+      required this.meal,
       required this.description,
       required this.imageUrl,
-      required this.date,
+      required this.dateTime,
       required this.calories,
       required this.unprocessedPercentage,
       required this.moderatelyProcessedPercentage,
       required this.highlyProcessedPercentage,
-      required final List<String> foodsList})
+      required final List<SnapFoodItem> foodsList})
       : _foodsList = foodsList;
 
   factory _$SnapImpl.fromJson(Map<String, dynamic> json) =>
       _$$SnapImplFromJson(json);
 
   @override
-  final String id;
-  @override
-  final String ownerId;
-  @override
-  final String mealId;
+  final String owner;
   @override
   final String title;
+  @override
+  final String meal;
   @override
   final String description;
   @override
   final String imageUrl;
   @override
-  final DateTime date;
+  final DateTime dateTime;
   @override
   final int calories;
   @override
@@ -281,13 +263,9 @@ class _$SnapImpl implements _Snap {
   final double moderatelyProcessedPercentage;
   @override
   final double highlyProcessedPercentage;
-//required Double lat,
-//required Double long,
-  final List<String> _foodsList;
-//required Double lat,
-//required Double long,
+  final List<SnapFoodItem> _foodsList;
   @override
-  List<String> get foodsList {
+  List<SnapFoodItem> get foodsList {
     if (_foodsList is EqualUnmodifiableListView) return _foodsList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_foodsList);
@@ -295,7 +273,7 @@ class _$SnapImpl implements _Snap {
 
   @override
   String toString() {
-    return 'Snap(id: $id, ownerId: $ownerId, mealId: $mealId, title: $title, description: $description, imageUrl: $imageUrl, date: $date, calories: $calories, unprocessedPercentage: $unprocessedPercentage, moderatelyProcessedPercentage: $moderatelyProcessedPercentage, highlyProcessedPercentage: $highlyProcessedPercentage, foodsList: $foodsList)';
+    return 'Snap(owner: $owner, title: $title, meal: $meal, description: $description, imageUrl: $imageUrl, dateTime: $dateTime, calories: $calories, unprocessedPercentage: $unprocessedPercentage, moderatelyProcessedPercentage: $moderatelyProcessedPercentage, highlyProcessedPercentage: $highlyProcessedPercentage, foodsList: $foodsList)';
   }
 
   @override
@@ -303,15 +281,15 @@ class _$SnapImpl implements _Snap {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SnapImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.ownerId, ownerId) || other.ownerId == ownerId) &&
-            (identical(other.mealId, mealId) || other.mealId == mealId) &&
+            (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.meal, meal) || other.meal == meal) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime) &&
             (identical(other.calories, calories) ||
                 other.calories == calories) &&
             (identical(other.unprocessedPercentage, unprocessedPercentage) ||
@@ -331,13 +309,12 @@ class _$SnapImpl implements _Snap {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      ownerId,
-      mealId,
+      owner,
       title,
+      meal,
       description,
       imageUrl,
-      date,
+      dateTime,
       calories,
       unprocessedPercentage,
       moderatelyProcessedPercentage,
@@ -360,35 +337,32 @@ class _$SnapImpl implements _Snap {
 
 abstract class _Snap implements Snap {
   const factory _Snap(
-      {required final String id,
-      required final String ownerId,
-      required final String mealId,
+      {required final String owner,
       required final String title,
+      required final String meal,
       required final String description,
       required final String imageUrl,
-      required final DateTime date,
+      required final DateTime dateTime,
       required final int calories,
       required final double unprocessedPercentage,
       required final double moderatelyProcessedPercentage,
       required final double highlyProcessedPercentage,
-      required final List<String> foodsList}) = _$SnapImpl;
+      required final List<SnapFoodItem> foodsList}) = _$SnapImpl;
 
   factory _Snap.fromJson(Map<String, dynamic> json) = _$SnapImpl.fromJson;
 
   @override
-  String get id;
-  @override
-  String get ownerId;
-  @override
-  String get mealId;
+  String get owner;
   @override
   String get title;
+  @override
+  String get meal;
   @override
   String get description;
   @override
   String get imageUrl;
   @override
-  DateTime get date;
+  DateTime get dateTime;
   @override
   int get calories;
   @override
@@ -397,9 +371,8 @@ abstract class _Snap implements Snap {
   double get moderatelyProcessedPercentage;
   @override
   double get highlyProcessedPercentage;
-  @override //required Double lat,
-//required Double long,
-  List<String> get foodsList;
+  @override
+  List<SnapFoodItem> get foodsList;
   @override
   @JsonKey(ignore: true)
   _$$SnapImplCopyWith<_$SnapImpl> get copyWith =>

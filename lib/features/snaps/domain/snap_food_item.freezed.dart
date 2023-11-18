@@ -20,8 +20,6 @@ SnapFoodItem _$SnapFoodItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SnapFoodItem {
-  String get id => throw _privateConstructorUsedError;
-  String get snapId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get processedLevel => throw _privateConstructorUsedError;
   int get servings => throw _privateConstructorUsedError;
@@ -39,13 +37,7 @@ abstract class $SnapFoodItemCopyWith<$Res> {
           SnapFoodItem value, $Res Function(SnapFoodItem) then) =
       _$SnapFoodItemCopyWithImpl<$Res, SnapFoodItem>;
   @useResult
-  $Res call(
-      {String id,
-      String snapId,
-      String name,
-      String processedLevel,
-      int servings,
-      int calories});
+  $Res call({String name, String processedLevel, int servings, int calories});
 }
 
 /// @nodoc
@@ -61,22 +53,12 @@ class _$SnapFoodItemCopyWithImpl<$Res, $Val extends SnapFoodItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? snapId = null,
     Object? name = null,
     Object? processedLevel = null,
     Object? servings = null,
     Object? calories = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      snapId: null == snapId
-          ? _value.snapId
-          : snapId // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -105,13 +87,7 @@ abstract class _$$SnapFoodItemImplCopyWith<$Res>
       __$$SnapFoodItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String snapId,
-      String name,
-      String processedLevel,
-      int servings,
-      int calories});
+  $Res call({String name, String processedLevel, int servings, int calories});
 }
 
 /// @nodoc
@@ -125,22 +101,12 @@ class __$$SnapFoodItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? snapId = null,
     Object? name = null,
     Object? processedLevel = null,
     Object? servings = null,
     Object? calories = null,
   }) {
     return _then(_$SnapFoodItemImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      snapId: null == snapId
-          ? _value.snapId
-          : snapId // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -165,9 +131,7 @@ class __$$SnapFoodItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SnapFoodItemImpl implements _SnapFoodItem {
   const _$SnapFoodItemImpl(
-      {required this.id,
-      required this.snapId,
-      required this.name,
+      {required this.name,
       required this.processedLevel,
       required this.servings,
       required this.calories});
@@ -175,10 +139,6 @@ class _$SnapFoodItemImpl implements _SnapFoodItem {
   factory _$SnapFoodItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$SnapFoodItemImplFromJson(json);
 
-  @override
-  final String id;
-  @override
-  final String snapId;
   @override
   final String name;
   @override
@@ -190,7 +150,7 @@ class _$SnapFoodItemImpl implements _SnapFoodItem {
 
   @override
   String toString() {
-    return 'SnapFoodItem(id: $id, snapId: $snapId, name: $name, processedLevel: $processedLevel, servings: $servings, calories: $calories)';
+    return 'SnapFoodItem(name: $name, processedLevel: $processedLevel, servings: $servings, calories: $calories)';
   }
 
   @override
@@ -198,8 +158,6 @@ class _$SnapFoodItemImpl implements _SnapFoodItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SnapFoodItemImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.snapId, snapId) || other.snapId == snapId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.processedLevel, processedLevel) ||
                 other.processedLevel == processedLevel) &&
@@ -211,8 +169,8 @@ class _$SnapFoodItemImpl implements _SnapFoodItem {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, snapId, name, processedLevel, servings, calories);
+  int get hashCode =>
+      Object.hash(runtimeType, name, processedLevel, servings, calories);
 
   @JsonKey(ignore: true)
   @override
@@ -230,9 +188,7 @@ class _$SnapFoodItemImpl implements _SnapFoodItem {
 
 abstract class _SnapFoodItem implements SnapFoodItem {
   const factory _SnapFoodItem(
-      {required final String id,
-      required final String snapId,
-      required final String name,
+      {required final String name,
       required final String processedLevel,
       required final int servings,
       required final int calories}) = _$SnapFoodItemImpl;
@@ -240,10 +196,6 @@ abstract class _SnapFoodItem implements SnapFoodItem {
   factory _SnapFoodItem.fromJson(Map<String, dynamic> json) =
       _$SnapFoodItemImpl.fromJson;
 
-  @override
-  String get id;
-  @override
-  String get snapId;
   @override
   String get name;
   @override

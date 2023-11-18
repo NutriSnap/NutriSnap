@@ -8,20 +8,6 @@ import '../../../ns_loading.dart';
 import '../../data/team_member_provider.dart';
 import '../../domain/team_member_collection.dart';
 
-/*
-List<TeamMemberListItem> _buildListItems(BuildContext context) {
-  //List<String> teamMemberIds = teamMemberDB.getTeamMemberIds();
-
-  if (teamMembers.isEmpty) {
-    return const <TeamMemberListItem>[];
-  }
-
-  return teamMemberIds.map((teamMemberId) {
-    return TeamMemberListItem(teamMemberId: teamMemberId);
-  }).toList();
-}
- */
-
 class TeamMemberGrid extends ConsumerWidget {
   const TeamMemberGrid({Key? key}) : super(key: key);
 
@@ -40,13 +26,8 @@ class TeamMemberGrid extends ConsumerWidget {
       required List<TeamMember> teamMembers}) {
     TeamMemberCollection teamMemberCollection = TeamMemberCollection(teamMembers);
     return ListView(
-      //crossAxisCount: 1, // how many columns
-      //itemCount: teamMemberDB.getTeamMemberIds().length,
       shrinkWrap: true,
       padding: const EdgeInsets.all(8.0), // padding around the grid
-      //itemBuilder: TeamMemberListItem(),
-      //childAspectRatio: 16.0 / 9.0, // width to height ratio
-      //children: _buildListItems(context), // List of SnapCard widgets
       children: [
         ...teamMemberCollection
             .getTeamMembers()

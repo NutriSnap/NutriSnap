@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:nutrisnap/features/snaps/data/snap_food_item_provider.dart';
-import 'package:nutrisnap/features/snaps/data/snap_provider.dart';
 import 'package:nutrisnap/features/snaps/domain/snap.dart';
 import 'package:nutrisnap/features/snaps/domain/snap_food_item.dart';
 import 'package:nutrisnap/features/snaps/domain/snap_image.dart';
@@ -10,16 +7,15 @@ import 'package:nutrisnap/features/snaps/domain/snap_image.dart';
 import '../../../all_data_provider.dart';
 import '../../../ns_error.dart';
 import '../../../ns_loading.dart';
-import '../../../snaps/domain/meal.dart';
 import '../../../snaps/domain/snap_food_item_collection.dart';
 
 class FoodList extends ConsumerWidget {
   const FoodList({
     super.key,
-    required this.snapId,
+    required this.snap,
   });
 
-  final String snapId;
+  final Snap snap;
   /*
   final List<String> foodItems;
   final int foodsCount;
@@ -43,23 +39,19 @@ class FoodList extends ConsumerWidget {
     final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
     return asyncAllData.when(
         data: (allData) => _build(
-            context: context,
-            snapFoodItems: allData.snapFoodItems,
-            snaps: allData.snaps,
-            meals: allData.meals,
-            snapImages: allData.snapImages),
+          context: context,
+          snaps: allData.snaps,
+          date: allData.date,
+        ),
         loading: () => const NSLoading(),
         error: (error, st) => NSError(error.toString(), st.toString()));
   }
 
-   Widget _build(
-        {required BuildContext context,
-        required List<SnapFoodItem> snapFoodItems,
+  Widget _build(
+      {required BuildContext context,
         required List<Snap> snaps,
-        required List<Meal> meals,
-        required List<SnapImage> snapImages}) {
-    SnapFoodItemCollection snapFoodItemsCollection = SnapFoodItemCollection(snapFoodItems);
-    final List<SnapFoodItem> snapFoodItemsList = snapFoodItemsCollection.getSnapFoodItemsBySnapId(snapId);
+        required DateTime date,}) {
+    final List<SnapFoodItem> snapFoodItemsList = snap.foodsList;
     final List<String> foodItems = snapFoodItemsList.map((e) => e.name).toList();
     final int foodsCount = snapFoodItemsList.length;
     return ListView.separated(
