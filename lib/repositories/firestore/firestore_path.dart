@@ -9,9 +9,13 @@ class FirestorePath {
   static String meal(String mealId) => 'meals/$mealId';
   static String meals() => 'meals';
 
-  static String snapFoodItem(String snapFoodItemId) => 'snapFoodItems/$snapFoodItemId';
+  static String snapFoodItem(String snapFoodItemId) =>
+      'snapFoodItems/$snapFoodItemId';
   static String snapFoodItems() => 'snapFoodItems';
 
   static String teamMember(String teamMemberId) => 'teamMembers/$teamMemberId';
   static String teamMembers() => 'teamMembers';
+
+  static String user(String userID) => 'users/$userID';
+  static String users() => 'users';
 }

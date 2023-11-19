@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nutrisnap/features/auth/presentation/signin_page.dart';
+import 'package:nutrisnap/features/authentication/presentation/signin_page.dart';
+// import 'package:nutrisnap/features/authentication/presentation/signin_page.dart';
+import 'package:nutrisnap/features/authentication/presentation/verify_email_page.dart';
 import 'package:nutrisnap/features/journal/presentation/journal_page.dart';
 import 'package:nutrisnap/features/not_found_page.dart';
 import 'package:nutrisnap/features/settings/data/dark_mode_provider.dart';
@@ -21,10 +23,11 @@ import 'package:nutrisnap/features/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/features/snaps/presentation/edit_snap.dart';
 import 'package:nutrisnap/features/trends/presentation/trends_page.dart';
 import 'package:nutrisnap/features/camera/presentation/success_page.dart';
-import 'package:nutrisnap/features/auth/presentation/forgot_password_page.dart';
+// import 'package:nutrisnap/features/auth/presentation/forgot_password_page.dart';
+import 'package:nutrisnap/features/authentication/presentation/forgot_password_page.dart';
 import 'package:nutrisnap/utils/image_upload_page.dart';
 
-import 'features/auth/presentation/register_page.dart';
+// import 'features/auth/presentation/register_page.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -66,8 +69,15 @@ class MyApp extends ConsumerWidget {
           settings: routeSettings,
           builder: (BuildContext context) {
             switch (routeSettings.name) {
-              case SigninPage.routeName:
-                return SigninPage();
+              case SignInPage.routeName:
+                return const SignInPage();
+              case VerifyEmailPage.routeName:
+                return const VerifyEmailPage();
+              case ForgotPasswordPage.routeName:
+                return const ForgotPasswordPage();
+
+              // case SigninPage.routeName:
+              //   return SigninPage();
               case SettingsPage.routeName:
                 return const SettingsPage();
               case AboutPage.routeName:
@@ -76,12 +86,12 @@ class MyApp extends ConsumerWidget {
                 return const AdminPage();
               // case AuthPage.routeName:
               //   return const AuthPage();
-              case RegisterPage.routeName:
-                return const RegisterPage();
+              // case RegisterPage.routeName:
+              //   return const RegisterPage();
               // case LoginPage.routeName:
               //   return const LoginPage();
-              case ForgotPasswordPage.routeName:
-                return const ForgotPasswordPage();
+              // case ForgotPasswordPage.routeName:
+              //   return const ForgotPasswordPage();
               // case ToggleSignonPage.routeName:
               //   return const ToggleSignonPage();
               case CameraPage.routeName:

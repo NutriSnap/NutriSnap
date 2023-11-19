@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/widgets/fab.dart';
 
@@ -12,6 +12,7 @@ import 'package:nutrisnap/features/coach/presentation/coach_page.dart';
 import 'package:nutrisnap/features/dashboard/presentation/dashboard_page.dart';
 import 'package:nutrisnap/features/friends/presentation/friends_page.dart';
 import 'package:nutrisnap/features/profile/profile_page.dart';
+import 'package:nutrisnap/features/profile/domain/user.dart';
 import 'package:nutrisnap/features/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/features/trends/presentation/trends_page.dart';
 import '../features/journal/presentation/journal_page.dart';
@@ -96,17 +97,17 @@ class MainScaffoldState extends State<MainScaffold> {
   @override
   Widget build(BuildContext context) {
     // User user = FirebaseAuth.instance.currentUser!;
-    String currentUserId = 'user-003';
+    // String currentUserId = 'user-003';
 
     //UserData currentUser = userDB.getUser(currentUserId);
-    UserData currentUser = UserData(
-      id: 'user-003',
-      name: 'Katie Yamasaki',
-      username: '@katie',
-      email: 'katie.y@gmail.com',
-      imagePath: 'assets/images/user-003.jpg',
-      initials: 'KY',
-    );
+    // UserData currentUser = UserData(
+    //   id: 'user-003',
+    //   name: 'Katie Yamasaki',
+    //   username: '@katie',
+    //   email: 'katie.y@gmail.com',
+    //   imagePath: 'assets/images/user-003.jpg',
+    //   initials: 'KY',
+    // );
 
     return Scaffold(
       floatingActionButton: const FAB(),
@@ -163,14 +164,14 @@ class MainScaffoldState extends State<MainScaffold> {
       drawer: Drawer(
         child: ListView(
           children: [
-            UserAccountsDrawerHeader(
-              accountName: Text(currentUser.name),
-              accountEmail: Text(currentUser.email),
-              currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://robohash.org/${currentUser.initials}.png')),
-              // UserAvatar(userID: user.id),
-            ),
+            // UserAccountsDrawerHeader(
+            //   accountName: Text(currentUser.name),
+            //   accountEmail: Text(currentUser.email),
+            //   currentAccountPicture: CircleAvatar(
+            //       backgroundImage: NetworkImage(
+            //           'https://robohash.org/${currentUser.initials}.png')),
+            //   // UserAvatar(userID: user.id),
+            // ),
             ListTile(
               leading: const Icon(Icons.dashboard_outlined),
               title: const Text('Dashboard'),
@@ -211,9 +212,7 @@ class MainScaffoldState extends State<MainScaffold> {
           ],
         ),
       ),
-      bottomNavigationBar:
-
-      BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         onTap: _onBottomTabTapped,
         currentIndex: _onlyBottomNavTitle(_currentIndex),
         items: const [
@@ -229,7 +228,6 @@ class MainScaffoldState extends State<MainScaffold> {
               icon: Icon(Icons.account_circle_outlined), label: 'Profile'),
         ],
       ),
-
     );
   }
 }

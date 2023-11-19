@@ -1,26 +1,34 @@
 [
   {
-    "id": "user-001",
-    "name": "Jenna Deane",
-    "username": "@fluke",
-    "email": "jennacorindeane@gmail.com",
+    "id": "turtlekyng@gmail.com",
+    "name": "Michael Rogers",
+    "username": "@mike",
     "imagePath": "assets/images/user-001.jpg",
-    "initials": "JD"
+    "initials": "MR"
   },
   {
-    "id": "user-002",
-    "name": "Jenna Smith",
-    "username": "@fluke",
-    "email": "j_smith@hawaii.edu",
-    "imagePath": "assets/images/user-002.jpg",
-    "initials": "JS"
+    "id": "jessebeck@gmail.com",
+    "name": "Jesse Beck",
+    "username": "@jesse",
+    "initials": "JB"
   },
   {
-    "id": "user-003",
-    "name": "Katie Yamasaki",
-    "username": "@katie",
-    "email": "katie.y@gmail.com",
-    "imagePath": "assets/images/user-003.jpg",
-    "initials": "KY"
+    "id": "joanne.amberg@gmail.com",
+    "name": "Joanne Amberg",
+    "username": "@joanne",
+    "initials": "JA"
+  },
+  {
+    "id": "johnson@hawaii.edu",
+    "name": "Philip Johnson",
+    "username": "@fiveoclockphil",
+    "initials": "PJ"
+  },
+  {
+    "id": "katieambergjohnson@gmail.com",
+    "name": "Katie Amberg-Johnson",
+    "username": "@katiekai",
+    "imagePath": "assets/images/user-005.jpg",
+    "initials": "KAJ"
   }
 ]

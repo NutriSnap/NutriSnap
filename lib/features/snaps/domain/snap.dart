@@ -26,7 +26,7 @@ class Snap with _$Snap {
   // Test that the json file can be converted into entities.
   static Future<List<Snap>> checkInitialData() async {
     String content =
-    await rootBundle.loadString("assets/initialData/snaps.json");
+        await rootBundle.loadString("assets/initialData/snaps.json");
     List<dynamic> initialData = json.decode(content);
     return initialData.map((jsonData) => Snap.fromJson(jsonData)).toList();
   }

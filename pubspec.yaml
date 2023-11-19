@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
 
   # Firebase Cloud Firestore plugin.
-  cloud_firestore: ^4.11.0
+  # cloud_firestore: ^4.11.0
 
   # Default icon set for Flutter.
   cupertino_icons: ^1.0.2
@@ -24,16 +24,16 @@ dependencies:
   fl_chart: ^0.64.0
 
   # FlexColorScheme allows themed apps to use brand colors with ease.
-  flex_color_scheme: ^7.3.1
+  # flex_color_scheme: ^7.3.1
 
   # Firebase authentication plugin.
-  firebase_auth: ^4.11.1
+  # firebase_auth: ^4.11.1
 
   # Core Firebase library required for all Firebase plugins.
-  firebase_core: ^2.19.0
+  # firebase_core: ^2.19.0
 
   # Firebase UI for authentication.
-  firebase_ui_auth: ^1.9.1
+  # firebase_ui_auth: ^1.9.1
 
   # Firebase storage to store files like images, videos, etc.
   firebase_storage: ^11.2.7
@@ -42,13 +42,13 @@ dependencies:
   font_awesome_flutter: ^10.6.0
 
   # FormBuilder is a package for easier form creation in Flutter.
-  flutter_form_builder: ^9.1.1
+  # flutter_form_builder: ^9.1.1
 
   # Provides markdown rendering capabilities.
-  flutter_markdown: ^0.6.18
+  # flutter_markdown: ^0.6.18
 
   # Generates a native splash screen for your Flutter app.
-  flutter_native_splash: ^2.3.4
+  # flutter_native_splash: ^2.3.4
 
   # Allows usage of Google Fonts in your Flutter app.
   google_fonts: ^6.1.0
@@ -66,22 +66,22 @@ dependencies:
   image_picker: ^1.0.4
 
   # Provides localization and internationalization functionalities.
-  intl: ^0.18.1
+  # intl: ^0.18.1
 
   # A logging package to help with development.
-  logger: ^2.0.2+1
+  # logger: ^2.0.2+1
 
   # For rendering SVG images.
   flutter_svg: ^2.0.7
 
   # State management solution using Riverpod.
-  flutter_riverpod: ^2.4.4
+  # flutter_riverpod: ^2.4.4
 
   # Annotations for the Freezed package.
-  freezed_annotation: ^2.4.1
+  # freezed_annotation: ^2.4.1
 
   # Annotations for the Riverpod package.
-  riverpod_annotation: ^2.2.1
+  # riverpod_annotation: ^2.2.1
 
   # Plugin for accessing and modifying app preferences.
   shared_preferences: ^2.2.2
@@ -96,36 +96,40 @@ dependencies:
   url_launcher: ^6.1.14
 
   # Validators for use with Flutter Form Builder.
-  form_builder_validators: ^9.1.0
-  go_router: ^12.1.1
-  freezed: ^2.4.5
-  json_annotation: ^4.8.1
-  provider: ^6.1.1
+  # form_builder_validators: ^9.1.0
+  # go_router: ^12.1.1
+  # freezed: ^2.4.5
+  # json_annotation: ^4.8.1
+  # provider: ^6.1.1
+
+  badges: '>=3.1.2'
+  cloud_firestore: '>=4.9.3'
+  firebase_auth: '>=4.10.1'
+  firebase_core: '>=2.17.0'
+  firebase_ui_auth: '>=1.8.0'
+  flex_color_scheme: '>=7.3.1'
+  flutter_form_builder: '>=9.1.1'
+  flutter_markdown: '>=0.6.18'
+  flutter_native_splash: '>=2.3.3'
+  flutter_riverpod: '>=2.4.2'
+  form_builder_validators: '>=9.1.0'
+  freezed_annotation: '>=2.4.1'
+  intl: '>=0.18.1'
+  json_annotation: '>=4.8.1'
+  logger: '>=1.2.0'
+  riverpod_annotation: '>=2.2.0'
+  provider: '>=6.1.1'
 
 dev_dependencies:
-  # Provides testing capabilities to your Flutter app.
   flutter_test:
     sdk: flutter
-
-  # A build package used in combination with packages like Freezed and json_serializable.
-  build_runner: ^2.4.6
-
-  # Tool to generate code for your models.
-  json_serializable: ^6.7.1
-
-  # Recommended lint rules for Flutter apps.
-  flutter_lints: ^2.0.0
-
-  # Code generator for the Freezed package.
-
-  # Lint rules for Riverpod.
-  riverpod_lint: ^2.3.1
-
-  # Code generator for Riverpod.
-  riverpod_generator: '3.0.0-dev.3'
-
-  # Import custom_lint as riverpod_lint depends on it.
-  custom_lint: ^0.5.4
+  flutter_lints: '>=2.0.0'
+  build_runner: '>=2.3.3'
+  freezed: '>=2.4.3'
+  json_serializable: '>=6.7.1'
+  riverpod_generator: '>=2.3.3'
+  riverpod_lint: '>=2.3.0'
+  custom_lint: '>=0.5.3'
 
 flutter:
   # Uses Google's Material Design.
