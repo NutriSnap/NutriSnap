@@ -9,8 +9,6 @@ import '../../all_data_provider.dart';
 import '../../ns_error.dart';
 import '../../ns_loading.dart';
 import '../../snaps/domain/snap_collection.dart';
-import '../../snaps/domain/snap_food_item.dart';
-import '../../snaps/domain/snap_image.dart';
 
 /*
 List<SnapCard> _buildGridCards(BuildContext context, DateTime selectedDate, List<Snap> snaps) {
@@ -41,18 +39,19 @@ class JournalPage extends ConsumerWidget {
     final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
     return asyncAllData.when(
         data: (allData) => _build(
-            context: context,
-            snaps: allData.snaps,
-            date: allData.date,
+              context: context,
+              snaps: allData.snaps,
+              date: allData.date,
             ),
         loading: () => const NSLoading(),
         error: (error, st) => NSError(error.toString(), st.toString()));
   }
 
-  Widget _build(
-      {required BuildContext context,
-      required List<Snap> snaps,
-      required DateTime date,}) {
+  Widget _build({
+    required BuildContext context,
+    required List<Snap> snaps,
+    required DateTime date,
+  }) {
     SnapCollection snapCollection = SnapCollection(snaps);
     return Scaffold(
       appBar: AppBar(
@@ -73,7 +72,9 @@ class JournalPage extends ConsumerWidget {
           children: [
             ...snapCollection
                 .getSnaps()
-                .where((snap) => DateFormat.yMMMd().format(snap.dateTime) == DateFormat.yMMMd().format(date))
+                .where((snap) =>
+                    DateFormat.yMMMd().format(snap.dateTime) ==
+                    DateFormat.yMMMd().format(date))
                 .map((snap) => SnapCard(snap: snap))
           ],
         ),

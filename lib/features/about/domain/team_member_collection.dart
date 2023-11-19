@@ -1,8 +1,7 @@
 import 'team_member.dart';
-import 'team_member.dart';
 
 class TeamMemberCollection {
-  TeamMemberCollection(teamMembers): _teamMembers = teamMembers;
+  TeamMemberCollection(teamMembers) : _teamMembers = teamMembers;
 
   final List<TeamMember> _teamMembers;
 
@@ -19,5 +18,4 @@ class TeamMemberCollection {
   List<TeamMember> getTeamMembers() {
     return _teamMembers.toList();
   }
-
 }

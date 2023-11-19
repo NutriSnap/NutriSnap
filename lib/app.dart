@@ -21,7 +21,6 @@ import 'package:nutrisnap/features/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/features/snaps/presentation/edit_snap.dart';
 import 'package:nutrisnap/features/trends/presentation/trends_page.dart';
 import 'package:nutrisnap/features/camera/presentation/success_page.dart';
-import 'package:nutrisnap/features/auth/presentation/forgot_password_page.dart';
 import 'package:nutrisnap/utils/image_upload_page.dart';
 
 import 'features/auth/presentation/register_page.dart';
@@ -74,16 +73,8 @@ class MyApp extends ConsumerWidget {
                 return const AboutPage();
               case AdminPage.routeName:
                 return const AdminPage();
-              // case AuthPage.routeName:
-              //   return const AuthPage();
               case RegisterPage.routeName:
                 return const RegisterPage();
-              // case LoginPage.routeName:
-              //   return const LoginPage();
-              case ForgotPasswordPage.routeName:
-                return const ForgotPasswordPage();
-              // case ToggleSignonPage.routeName:
-              //   return const ToggleSignonPage();
               case CameraPage.routeName:
                 return const CameraPage();
               case ChallengesPage.routeName:

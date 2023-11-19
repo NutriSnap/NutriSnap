@@ -76,22 +76,22 @@ class SigninPage extends ConsumerWidget {
                 ),
               ),
             ),
-            // const SizedBox(height: 12.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: SizedBox(
                 height: 40,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: material3FlexScheme.light.primaryContainer,
+                      backgroundColor:
+                          material3FlexScheme.light.primaryContainer,
                     ),
                     onPressed: () async {
                       try {
-                        final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                            email: _emailController.text,
-                            password: _passwordController.text
-                        );
-                        print(credential);
+                        final credential = await FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
+                                email: _emailController.text,
+                                password: _passwordController.text);
+                        // print(credential);
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
                           print('No user found for that email.');

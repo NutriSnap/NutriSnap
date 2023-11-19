@@ -23,9 +23,8 @@ class DatePicker extends ConsumerWidget {
         const SizedBox(width: 10),
         TextButton(
           child: Text(
-          DateFormat.MMMEd().format(date),
-          //"${date.toLocal()}".split(' ')[0],
-          style: Theme.of(context).textTheme.titleLarge,
+            DateFormat.MMMEd().format(date),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           onPressed: () async {
             final pickedDate = await showDatePicker(
@@ -38,7 +37,6 @@ class DatePicker extends ConsumerWidget {
               ref.read(dateProvider.notifier).setDate(pickedDate);
             }
           },
-
         ),
         const SizedBox(width: 10),
         IconButton(

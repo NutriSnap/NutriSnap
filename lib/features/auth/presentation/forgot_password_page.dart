@@ -1,23 +1,22 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+/// Builds the page to handle a forgotten password.
+class ForgotPasswordView extends StatelessWidget {
+  const ForgotPasswordView({Key? key}) : super(key: key);
 
-  static const String routeName = '/forgot_password';
+  static const routeName = '/forgot-password';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Forgot Password'),
-        backgroundColor: Colors.green,
-      ),
-      body: const Center(
-        child: Text(
-          'Enter your email address to reset your password.',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+    return ForgotPasswordScreen(
+      email: arguments?['email'],
+      headerMaxExtent: 200,
+      // headerBuilder: headerIcon(Icons.lock),
+      // sideBuilder: sideIcon(Icons.lock),
     );
   }
 }

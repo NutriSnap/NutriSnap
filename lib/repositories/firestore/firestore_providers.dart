@@ -14,10 +14,3 @@ FirebaseAuth firebaseAuth(FirebaseAuthRef ref) {
 Stream<User?> authStateChanges(AuthStateChangesRef ref) {
   return ref.watch(firebaseAuthProvider).authStateChanges();
 }
-
-// Old way:
-// final firebaseAuthProvider =
-//     Provider<FirebaseAuth>((ref) => FirebaseAuth.instance);
-/// Provides access to [FirebaseAuth.authStateChanges].
-// final authStateChangesProvider = StreamProvider<User?>(
-//     (ref) => ref.watch(firebaseAuthProvider).authStateChanges());

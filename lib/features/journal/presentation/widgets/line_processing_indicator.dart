@@ -30,7 +30,7 @@ class LineGaugePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final double width = 1.4;
+    const double width = 1.4;
     final double lineHeight = size.height / 2; // Height of the line gauge
 
     // Define the paints
@@ -55,10 +55,8 @@ class LineGaugePainter extends CustomPainter {
     double ultraprocessedLength = width * ultraprocessed;
 
     // Draw the lines
-    canvas.drawLine(
-        Offset(0, lineHeight / 2),
-        Offset(unprocessedLength, lineHeight / 2),
-        unprocessedPaint);
+    canvas.drawLine(Offset(0, lineHeight / 2),
+        Offset(unprocessedLength, lineHeight / 2), unprocessedPaint);
     canvas.drawLine(
         Offset(unprocessedLength, lineHeight / 2),
         Offset(unprocessedLength + processedLength, lineHeight / 2),
@@ -73,4 +71,3 @@ class LineGaugePainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
-

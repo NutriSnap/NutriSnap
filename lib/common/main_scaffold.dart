@@ -1,9 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nutrisnap/common/widgets/fab.dart';
 
 import 'package:nutrisnap/common/widgets/placeholder_widget.dart';
-import 'package:nutrisnap/features/profile/domain/user_data.dart';
+import 'package:nutrisnap/features/all_data_provider.dart';
+import 'package:nutrisnap/features/ns_error.dart';
+import 'package:nutrisnap/features/ns_loading.dart';
+import 'package:nutrisnap/features/profile/data/user_providers.dart';
 import 'package:nutrisnap/features/settings/presentation/settings_page.dart';
 import 'package:nutrisnap/features/about/presentation/about_page.dart';
 import 'package:nutrisnap/features/admin/presentation/admin_page.dart';
@@ -12,21 +16,19 @@ import 'package:nutrisnap/features/coach/presentation/coach_page.dart';
 import 'package:nutrisnap/features/dashboard/presentation/dashboard_page.dart';
 import 'package:nutrisnap/features/friends/presentation/friends_page.dart';
 import 'package:nutrisnap/features/profile/profile_page.dart';
-import 'package:nutrisnap/features/snaps/presentation/snaps_page.dart';
 import 'package:nutrisnap/features/trends/presentation/trends_page.dart';
 import '../features/journal/presentation/journal_page.dart';
-import 'package:nutrisnap/features/profile/domain/user_data.dart';
+import '../features/profile/domain/user.dart';
 
-class MainScaffold extends StatefulWidget {
-  const MainScaffold({super.key});
-
+class MainScaffold extends ConsumerStatefulWidget {
+  const MainScaffold({Key? key}) : super(key: key);
   static const routeName = '/home';
 
   @override
-  MainScaffoldState createState() => MainScaffoldState();
+  _MainScaffoldState createState() => _MainScaffoldState();
 }
 
-class MainScaffoldState extends State<MainScaffold> {
+class _MainScaffoldState extends ConsumerState<MainScaffold> {
   int _currentIndex = 0;
   Widget _currentBody = const DashboardPage();
 
@@ -95,19 +97,32 @@ class MainScaffoldState extends State<MainScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    // User user = FirebaseAuth.instance.currentUser!;
-    String currentUserId = 'user-003';
+    final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
 
-    //UserData currentUser = userDB.getUser(currentUserId);
-    UserData currentUser = UserData(
-      id: 'user-003',
-      name: 'Katie Yamasaki',
-      username: '@katie',
-      email: 'katie.y@gmail.com',
-      imagePath: 'assets/images/user-003.jpg',
-      initials: 'KY',
+    return asyncAllData.when(
+      data: (allData) {
+        // Use 'allData' to get user data or other relevant info
+        //...
+        return _buildScaffold();
+      },
+      loading: () => const NSLoading(),
+      error: (error, st) => NSError(error.toString(), st.toString()),
     );
+  }
 
+  // User user = FirebaseAuth.instance.currentUser!;
+  // String currentUserId = 'user-003';
+
+  // UserData currentUser = userDB.getUser(currentUserId);
+  // UserData currentUser = UserData(
+  //   id: 'user-003',
+  //   name: 'Katie Yamasaki',
+  //   username: '@katie',
+  //   email: 'katie.y@gmail.com',
+  //   imagePath: 'assets/images/user-003.jpg',
+  //   initials: 'KY',
+  // );
+  Scaffold _buildScaffold() {
     return Scaffold(
       floatingActionButton: const FAB(),
       appBar: AppBar(
@@ -164,12 +179,17 @@ class MainScaffoldState extends State<MainScaffold> {
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text(currentUser.name),
-              accountEmail: Text(currentUser.email),
-              currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://robohash.org/${currentUser.initials}.png')),
-              // UserAvatar(userID: user.id),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+              accountName: const Text('Katie Yamasaki'),
+              accountEmail: const Text('Email'),
+              // accountName: Text(currentUser.name),
+              // accountEmail: Text(currentUser.email),
+              // currentAccountPicture: CircleAvatar(
+              //     backgroundImage: NetworkImage(
+              //         'https://robohash.org/${currentUser.initials}.png')),
+              // // UserAvatar(userID: user.id),
             ),
             ListTile(
               leading: const Icon(Icons.dashboard_outlined),
@@ -211,9 +231,7 @@ class MainScaffoldState extends State<MainScaffold> {
           ],
         ),
       ),
-      bottomNavigationBar:
-
-      BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         onTap: _onBottomTabTapped,
         currentIndex: _onlyBottomNavTitle(_currentIndex),
         items: const [
@@ -229,7 +247,6 @@ class MainScaffoldState extends State<MainScaffold> {
               icon: Icon(Icons.account_circle_outlined), label: 'Profile'),
         ],
       ),
-
     );
   }
 }
