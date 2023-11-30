@@ -22,7 +22,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<String>(
-      //width: 250,
+      width: 180,
       initialSelection: dropdownValue,
       onSelected: (String? newValue) {
         setState(() {

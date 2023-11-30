@@ -31,17 +31,14 @@ class Mindfulness extends StatelessWidget {
               ],
             ),
             SizedBox(height: 4),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('Check-in times: ',
-                      textAlign: TextAlign.left, style: TextStyle(fontSize: 16)),
-                  CustomDropdownMenu(values: mindfulnessTimes),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Check-in times: ',
+                    textAlign: TextAlign.left, style: TextStyle(fontSize: 16)),
+                CustomDropdownMenu(values: mindfulnessTimes),
+              ],
             ),
             SizedBox(height: 4),
             Row(

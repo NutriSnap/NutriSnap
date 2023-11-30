@@ -31,17 +31,14 @@ class Notifications extends StatelessWidget {
               ],
             ),
             SizedBox(height: 4),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('Snap Reminders: ',
-                      textAlign: TextAlign.left, style: TextStyle(fontSize: 16)),
-                  CustomDropdownMenu(values: reminderNum),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Snap Reminders: ',
+                    textAlign: TextAlign.left, style: TextStyle(fontSize: 16)),
+                CustomDropdownMenu(values: reminderNum),
+              ],
             ),
             SizedBox(height: 4),
             Row(
