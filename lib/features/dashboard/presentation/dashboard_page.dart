@@ -114,18 +114,18 @@ class DashboardPage extends StatelessWidget {
                       children: const [
                         ListTile(
                           leading: Icon(Icons.star),
-                          title: Text('Achievement 1'),
-                          subtitle: Text('Description of achievement 1'),
+                          title: Text('First Snap'),
+                          subtitle: Text('Upload the very first meal photo'),
                         ),
                         ListTile(
                           leading: Icon(Icons.star),
-                          title: Text('Achievement 2'),
-                          subtitle: Text('Description of achievement 2'),
+                          title: Text('Unprocessed Champion'),
+                          subtitle: Text('Have a high percentage of unprocessed foods in meals over a week'),
                         ),
                         ListTile(
                           leading: Icon(Icons.star),
-                          title: Text('Achievement 3'),
-                          subtitle: Text('Description of achievement 3'),
+                          title: Text('Ultra-Processed Avoider'),
+                          subtitle: Text('Have the lowest percentage of ultra-processed foods for 7 days in a row'),
                         ),
                       ],
                     )),
