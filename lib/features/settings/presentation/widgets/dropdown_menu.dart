@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
-  const CustomDropdownMenu({Key? key, required this.values}) : super(key: key);
+  const CustomDropdownMenu({super.key, required this.values});
 
   final List<String> values;
 
@@ -22,7 +22,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<String>(
-      //width: 250,
+      width: 180,
       initialSelection: dropdownValue,
       onSelected: (String? newValue) {
         setState(() {
