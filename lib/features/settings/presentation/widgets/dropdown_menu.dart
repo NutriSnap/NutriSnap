@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
-  const CustomDropdownMenu({Key? key, required this.values}) : super(key: key);
+  const CustomDropdownMenu({super.key, required this.values});
 
   final List<String> values;
 
