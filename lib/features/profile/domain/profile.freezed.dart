@@ -1,0 +1,258 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'profile.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+Profile _$ProfileFromJson(Map<String, dynamic> json) {
+  return _Profile.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Profile {
+  String get id => throw _privateConstructorUsedError;
+  String get ownerID => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName => throw _privateConstructorUsedError;
+  String? get imagePath => throw _privateConstructorUsedError;
+  String get initials => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProfileCopyWith<Profile> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProfileCopyWith<$Res> {
+  factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
+      _$ProfileCopyWithImpl<$Res, Profile>;
+  @useResult
+  $Res call(
+      {String id,
+      String ownerID,
+      String firstName,
+      String lastName,
+      String? imagePath,
+      String initials});
+}
+
+/// @nodoc
+class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
+    implements $ProfileCopyWith<$Res> {
+  _$ProfileCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? ownerID = null,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? imagePath = freezed,
+    Object? initials = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      ownerID: null == ownerID
+          ? _value.ownerID
+          : ownerID // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: freezed == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      initials: null == initials
+          ? _value.initials
+          : initials // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
+  factory _$$ProfileImplCopyWith(
+          _$ProfileImpl value, $Res Function(_$ProfileImpl) then) =
+      __$$ProfileImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String ownerID,
+      String firstName,
+      String lastName,
+      String? imagePath,
+      String initials});
+}
+
+/// @nodoc
+class __$$ProfileImplCopyWithImpl<$Res>
+    extends _$ProfileCopyWithImpl<$Res, _$ProfileImpl>
+    implements _$$ProfileImplCopyWith<$Res> {
+  __$$ProfileImplCopyWithImpl(
+      _$ProfileImpl _value, $Res Function(_$ProfileImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? ownerID = null,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? imagePath = freezed,
+    Object? initials = null,
+  }) {
+    return _then(_$ProfileImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      ownerID: null == ownerID
+          ? _value.ownerID
+          : ownerID // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: freezed == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      initials: null == initials
+          ? _value.initials
+          : initials // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ProfileImpl extends _Profile {
+  const _$ProfileImpl(
+      {required this.id,
+      required this.ownerID,
+      required this.firstName,
+      required this.lastName,
+      this.imagePath,
+      required this.initials})
+      : super._();
+
+  factory _$ProfileImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileImplFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String ownerID;
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+  @override
+  final String? imagePath;
+  @override
+  final String initials;
+
+  @override
+  String toString() {
+    return 'Profile(id: $id, ownerID: $ownerID, firstName: $firstName, lastName: $lastName, imagePath: $imagePath, initials: $initials)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.ownerID, ownerID) || other.ownerID == ownerID) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath) &&
+            (identical(other.initials, initials) ||
+                other.initials == initials));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, ownerID, firstName, lastName, imagePath, initials);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
+      __$$ProfileImplCopyWithImpl<_$ProfileImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ProfileImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Profile extends Profile {
+  const factory _Profile(
+      {required final String id,
+      required final String ownerID,
+      required final String firstName,
+      required final String lastName,
+      final String? imagePath,
+      required final String initials}) = _$ProfileImpl;
+  const _Profile._() : super._();
+
+  factory _Profile.fromJson(Map<String, dynamic> json) = _$ProfileImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get ownerID;
+  @override
+  String get firstName;
+  @override
+  String get lastName;
+  @override
+  String? get imagePath;
+  @override
+  String get initials;
+  @override
+  @JsonKey(ignore: true)
+  _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

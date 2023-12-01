@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrisnap/features/profile/presentation/add_profile_view.dart';
 import 'package:nutrisnap/features/profile/presentation/profile_photo_edit.dart';
 
 class FakeUser {
@@ -65,9 +66,10 @@ class ProfilePage extends StatelessWidget {
               ),
               onPressed: () {
                 // Navigation action
+                Navigator.pushNamed(context, AddProfileView.routeName);
               },
               child: Text(
-                'Update Profile',
+                'Update Profiles',
                 style: TextStyle(color: Theme.of(context).colorScheme.surface),
               ),
             ),

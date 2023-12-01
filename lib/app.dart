@@ -9,6 +9,7 @@ import 'package:nutrisnap/features/authentication/presentation/signin_page.dart'
 import 'package:nutrisnap/features/authentication/presentation/verify_email_page.dart';
 import 'package:nutrisnap/features/journal/presentation/journal_page.dart';
 import 'package:nutrisnap/features/not_found_page.dart';
+import 'package:nutrisnap/features/profile/presentation/add_profile_view.dart';
 import 'package:nutrisnap/features/settings/data/dark_mode_provider.dart';
 import 'package:nutrisnap/features/settings/presentation/settings_page.dart';
 import 'package:nutrisnap/features/about/presentation/about_page.dart';
@@ -108,6 +109,8 @@ class MyApp extends ConsumerWidget {
                 return const JournalPage();
               case ProfilePage.routeName:
                 return const ProfilePage();
+              case AddProfileView.routeName:
+                return AddProfileView();
               case SnapsPage.routeName:
                 return const SnapsPage();
               case SnapsEditPage.routeName:
