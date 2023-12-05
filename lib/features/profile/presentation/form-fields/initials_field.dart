@@ -14,7 +14,7 @@ class InitialsField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String fieldName = 'First Name';
+    String fieldName = 'Initials';
     return FieldPadding(
       child: FormBuilderTextField(
         name: fieldName,
@@ -22,7 +22,7 @@ class InitialsField extends StatelessWidget {
         initialValue: currinitials,
         decoration: InputDecoration(
           labelText: fieldName,
-          hintText: 'Example: ..."',
+          hintText: 'Example: JF',
         ),
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(),

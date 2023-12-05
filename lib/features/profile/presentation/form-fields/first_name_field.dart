@@ -22,7 +22,7 @@ class FirstNameField extends StatelessWidget {
         initialValue: currfirstName,
         decoration: InputDecoration(
           labelText: fieldName,
-          hintText: 'Example: ..."',
+          hintText: 'Example: John',
         ),
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(),

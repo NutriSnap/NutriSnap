@@ -22,7 +22,7 @@ class PhotoField extends StatelessWidget {
         initialValue: currPhoto,
         decoration: InputDecoration(
           labelText: fieldName,
-          hintText: 'Example: ..."',
+          hintText: 'Example: ...',
         ),
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(),

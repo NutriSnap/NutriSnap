@@ -14,7 +14,7 @@ class LastNameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String fieldName = 'First Name';
+    String fieldName = 'Last Name';
     return FieldPadding(
       child: FormBuilderTextField(
         name: fieldName,
@@ -22,7 +22,7 @@ class LastNameField extends StatelessWidget {
         initialValue: currlastName,
         decoration: InputDecoration(
           labelText: fieldName,
-          hintText: 'Example: ..."',
+          hintText: 'Example: Foo',
         ),
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(),

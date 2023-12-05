@@ -12,7 +12,6 @@ part 'profile.g.dart';
 class Profile with _$Profile {
   const factory Profile({
     required String id,
-    required String ownerID,
     required String firstName,
     required String lastName,
     String? imagePath,

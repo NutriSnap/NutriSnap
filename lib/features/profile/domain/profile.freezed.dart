@@ -20,8 +20,8 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
-  String get id => throw _privateConstructorUsedError;
-  String get ownerID => throw _privateConstructorUsedError;
+  String get id =>
+      throw _privateConstructorUsedError; //required String ownerID,
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
@@ -39,7 +39,6 @@ abstract class $ProfileCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String ownerID,
       String firstName,
       String lastName,
       String? imagePath,
@@ -60,7 +59,6 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
   @override
   $Res call({
     Object? id = null,
-    Object? ownerID = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? imagePath = freezed,
@@ -70,10 +68,6 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      ownerID: null == ownerID
-          ? _value.ownerID
-          : ownerID // ignore: cast_nullable_to_non_nullable
               as String,
       firstName: null == firstName
           ? _value.firstName
@@ -104,7 +98,6 @@ abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String ownerID,
       String firstName,
       String lastName,
       String? imagePath,
@@ -123,7 +116,6 @@ class __$$ProfileImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? ownerID = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? imagePath = freezed,
@@ -133,10 +125,6 @@ class __$$ProfileImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      ownerID: null == ownerID
-          ? _value.ownerID
-          : ownerID // ignore: cast_nullable_to_non_nullable
               as String,
       firstName: null == firstName
           ? _value.firstName
@@ -163,7 +151,6 @@ class __$$ProfileImplCopyWithImpl<$Res>
 class _$ProfileImpl extends _Profile {
   const _$ProfileImpl(
       {required this.id,
-      required this.ownerID,
       required this.firstName,
       required this.lastName,
       this.imagePath,
@@ -175,8 +162,7 @@ class _$ProfileImpl extends _Profile {
 
   @override
   final String id;
-  @override
-  final String ownerID;
+//required String ownerID,
   @override
   final String firstName;
   @override
@@ -188,7 +174,7 @@ class _$ProfileImpl extends _Profile {
 
   @override
   String toString() {
-    return 'Profile(id: $id, ownerID: $ownerID, firstName: $firstName, lastName: $lastName, imagePath: $imagePath, initials: $initials)';
+    return 'Profile(id: $id, firstName: $firstName, lastName: $lastName, imagePath: $imagePath, initials: $initials)';
   }
 
   @override
@@ -197,7 +183,6 @@ class _$ProfileImpl extends _Profile {
         (other.runtimeType == runtimeType &&
             other is _$ProfileImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.ownerID, ownerID) || other.ownerID == ownerID) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -210,8 +195,8 @@ class _$ProfileImpl extends _Profile {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, ownerID, firstName, lastName, imagePath, initials);
+  int get hashCode =>
+      Object.hash(runtimeType, id, firstName, lastName, imagePath, initials);
 
   @JsonKey(ignore: true)
   @override
@@ -230,7 +215,6 @@ class _$ProfileImpl extends _Profile {
 abstract class _Profile extends Profile {
   const factory _Profile(
       {required final String id,
-      required final String ownerID,
       required final String firstName,
       required final String lastName,
       final String? imagePath,
@@ -241,9 +225,7 @@ abstract class _Profile extends Profile {
 
   @override
   String get id;
-  @override
-  String get ownerID;
-  @override
+  @override //required String ownerID,
   String get firstName;
   @override
   String get lastName;

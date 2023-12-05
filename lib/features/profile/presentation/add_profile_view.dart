@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nutrisnap/features/profile/domain/profile.dart';
-import 'package:nutrisnap/features/snaps/domain/snap.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../all_data_provider.dart';
+import 'package:nutrisnap/features/profile/domain/profile.dart';
 import '../../global_snackbar.dart';
 import '../../ns_error.dart';
 import '../../ns_loading.dart';
-import '../domain/user.dart';
-import '../domain/user_collection.dart';
 import '../profile_page.dart';
 import 'edit_profile_controller.dart';
 import 'form-fields/first_name_field.dart';
@@ -29,48 +26,21 @@ class AddProfileView extends ConsumerWidget {
   final _photoFieldKey = GlobalKey<FormBuilderFieldState>();
   final _initialsFieldKey = GlobalKey<FormBuilderFieldState>();
 
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<AllData> asyncAllData = ref.watch(allDataProvider);
-    return asyncAllData.when(
-        data: (allData) => _build(
-            context: context,
-            currentUserID: allData.currentUserID,
-            snaps: allData.snaps,
-            users: allData.users,
-            date: allData.date,
-            profiles: allData.profiles,
-            ref: ref
-        ),
-        error: (error, stacktrace) => NSError(error.toString(), stacktrace.toString()),
-        loading: () => const NSLoading()
-    );
-  }
 
-  Widget _build({
-    required BuildContext context,
-    required String currentUserID,
-    required List<Snap> snaps,
-    required List<User> users,
-    required List<Profile> profiles,
-    required DateTime date,
-    required WidgetRef ref
-  }) {
-    void onSubmit() {
+    void onSubmit() async {
       bool isValid = _formKey.currentState?.saveAndValidate() ?? false;
       if (!isValid) return;
       // Since validation passed, we can safely access the values.
       String firstName = _firstNameFieldKey.currentState?.value;
       String lastName = _lastNameFieldKey.currentState?.value;
-      String imageFileName = _photoFieldKey.currentState?.value;
       String initials = _initialsFieldKey.currentState?.value;
-      //int numprofiles = UserCollection.size();
-      //String id = 'profile-${(numprofiles + 1).toString().padLeft(3, '0')}';
-      String id = 'profile-001';
+      String imageFileName = _photoFieldKey.currentState?.value;
       String imagePath = 'assets/images/$imageFileName';
       Profile profile = Profile(
-          id: id,
-          ownerID: currentUserID,
+          id: FirebaseAuth.instance.currentUser!.uid,
           firstName: firstName,
           lastName: lastName,
           imagePath: imagePath,
