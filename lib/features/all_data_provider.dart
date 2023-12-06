@@ -17,13 +17,13 @@ part 'all_data_provider.g.dart';
 class AllData {
   AllData({
     required this.snaps,
-    required this.users,
+    //required this.users,
     required this.date,
     required this.profiles,
     required this.currentUserID});
 
   final List<Snap> snaps;
-  final List<User> users;
+  //final List<User> users;
   final List<Profile> profiles;
   final DateTime date;
   final String currentUserID;
@@ -32,13 +32,13 @@ class AllData {
 @riverpod
 Future<AllData> allData(AllDataRef ref) async {
   final snaps = ref.watch(snapsProvider.future);
-  final users = ref.watch(usersProvider.future);
+  //final users = ref.watch(usersProvider.future);
   final profiles = ref.watch(profilesProvider.future);
   final date = ref.watch(dateProvider);
   final currentUserID = ref.watch(currentUserIDProvider);
   return AllData(
       snaps: await snaps,
-      users: await users,
+      //users: await users,
       profiles: await profiles,
       date: date,
       currentUserID: currentUserID);

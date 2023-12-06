@@ -20,8 +20,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
-  String get id =>
-      throw _privateConstructorUsedError; //required String ownerID,
+  String get id => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
@@ -162,7 +161,6 @@ class _$ProfileImpl extends _Profile {
 
   @override
   final String id;
-//required String ownerID,
   @override
   final String firstName;
   @override
@@ -225,7 +223,7 @@ abstract class _Profile extends Profile {
 
   @override
   String get id;
-  @override //required String ownerID,
+  @override
   String get firstName;
   @override
   String get lastName;
