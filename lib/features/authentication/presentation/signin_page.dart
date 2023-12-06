@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart' hide ForgotPasswordView;
 import 'package:flutter/material.dart';
 import 'package:nutrisnap/common/main_scaffold.dart';
+import 'package:nutrisnap/features/profile/presentation/add_profile_view.dart';
 
 import 'decorations.dart';
 import 'forgot_password_page.dart';
@@ -27,7 +30,16 @@ class SignInPage extends StatelessWidget {
           if (!state.user!.emailVerified) {
             Navigator.pushNamed(context, VerifyEmailPage.routeName);
           } else {
-            Navigator.pushReplacementNamed(context, MainScaffold.routeName);
+            final db = FirebaseFirestore.instance;
+            final docRef = db.collection("profiles").doc(FirebaseAuth.instance.currentUser!.uid);
+            docRef.get().then((value) => {
+              if (!value.exists) {
+                Navigator.pushReplacementNamed(context, AddProfileView.routeName)
+              }
+              else {
+                Navigator.pushReplacementNamed(context, MainScaffold.routeName)
+              }
+            });
           }
         }),
         AuthStateChangeAction<UserCreated>((context, state) {

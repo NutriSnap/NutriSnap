@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nutrisnap/common/main_scaffold.dart';
 
 import 'package:nutrisnap/features/profile/domain/profile.dart';
 import '../../global_snackbar.dart';
@@ -26,7 +27,6 @@ class AddProfileView extends ConsumerWidget {
   final _photoFieldKey = GlobalKey<FormBuilderFieldState>();
   final _initialsFieldKey = GlobalKey<FormBuilderFieldState>();
 
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
@@ -49,7 +49,7 @@ class AddProfileView extends ConsumerWidget {
       ref.read(editProfileControllerProvider.notifier).updateProfile(
         profile: profile,
         onSuccess: () {
-          Navigator.pushReplacementNamed(context, ProfilePage.routeName);
+          Navigator.pushReplacementNamed(context, MainScaffold.routeName);
           GlobalSnackBar.show('Profile "$firstName" added.');
         },
       );
@@ -90,7 +90,7 @@ class AddProfileView extends ConsumerWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Add Profile'),
+          title: const Text('Create My Profile'),
         ),
         body: asyncUpdate.when(
             data: (_) => addProfileForm(),

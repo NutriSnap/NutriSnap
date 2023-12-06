@@ -91,21 +91,6 @@ class MainScaffoldState extends State<MainScaffold> {
   int _onlyBottomNavTitle(int index) {
     if (index > 4) {
       return 0;
-    } else if (index == 4) {
-      // Creating an initial profile page for new users
-      final db = FirebaseFirestore.instance;
-      final docRef = db.collection("profiles").doc(FirebaseAuth.instance.currentUser!.uid);
-      docRef.get().then((value) => {
-        if (!value.exists) {
-          db.collection("profiles").doc(FirebaseAuth.instance.currentUser!.uid).set({
-            "id": FirebaseAuth.instance.currentUser?.uid,
-            "firstName": "Unknown",
-            "lastName": "Unknown",
-            "imagePath": "NA",
-            "initials": "UU"
-          })
-        }
-      });
     }
     return index;
   }
