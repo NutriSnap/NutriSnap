@@ -11,6 +11,7 @@ _$ProfileImpl _$$ProfileImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
+      email: json['email'] as String,
       imagePath: json['imagePath'] as String?,
       initials: json['initials'] as String,
     );
@@ -20,6 +21,7 @@ Map<String, dynamic> _$$ProfileImplToJson(_$ProfileImpl instance) =>
       'id': instance.id,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
+      'email': instance.email,
       'imagePath': instance.imagePath,
       'initials': instance.initials,
     };

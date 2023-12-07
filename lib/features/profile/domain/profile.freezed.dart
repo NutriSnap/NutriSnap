@@ -23,6 +23,7 @@ mixin _$Profile {
   String get id => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
   String get initials => throw _privateConstructorUsedError;
 
@@ -40,6 +41,7 @@ abstract class $ProfileCopyWith<$Res> {
       {String id,
       String firstName,
       String lastName,
+      String email,
       String? imagePath,
       String initials});
 }
@@ -60,6 +62,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? id = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? email = null,
     Object? imagePath = freezed,
     Object? initials = null,
   }) {
@@ -75,6 +78,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
       lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: freezed == imagePath
           ? _value.imagePath
@@ -99,6 +106,7 @@ abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       {String id,
       String firstName,
       String lastName,
+      String email,
       String? imagePath,
       String initials});
 }
@@ -117,6 +125,7 @@ class __$$ProfileImplCopyWithImpl<$Res>
     Object? id = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? email = null,
     Object? imagePath = freezed,
     Object? initials = null,
   }) {
@@ -132,6 +141,10 @@ class __$$ProfileImplCopyWithImpl<$Res>
       lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: freezed == imagePath
           ? _value.imagePath
@@ -152,6 +165,7 @@ class _$ProfileImpl extends _Profile {
       {required this.id,
       required this.firstName,
       required this.lastName,
+      required this.email,
       this.imagePath,
       required this.initials})
       : super._();
@@ -166,13 +180,15 @@ class _$ProfileImpl extends _Profile {
   @override
   final String lastName;
   @override
+  final String email;
+  @override
   final String? imagePath;
   @override
   final String initials;
 
   @override
   String toString() {
-    return 'Profile(id: $id, firstName: $firstName, lastName: $lastName, imagePath: $imagePath, initials: $initials)';
+    return 'Profile(id: $id, firstName: $firstName, lastName: $lastName, email: $email, imagePath: $imagePath, initials: $initials)';
   }
 
   @override
@@ -185,6 +201,7 @@ class _$ProfileImpl extends _Profile {
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
             (identical(other.initials, initials) ||
@@ -193,8 +210,8 @@ class _$ProfileImpl extends _Profile {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, firstName, lastName, imagePath, initials);
+  int get hashCode => Object.hash(
+      runtimeType, id, firstName, lastName, email, imagePath, initials);
 
   @JsonKey(ignore: true)
   @override
@@ -215,6 +232,7 @@ abstract class _Profile extends Profile {
       {required final String id,
       required final String firstName,
       required final String lastName,
+      required final String email,
       final String? imagePath,
       required final String initials}) = _$ProfileImpl;
   const _Profile._() : super._();
@@ -227,6 +245,8 @@ abstract class _Profile extends Profile {
   String get firstName;
   @override
   String get lastName;
+  @override
+  String get email;
   @override
   String? get imagePath;
   @override

@@ -14,13 +14,15 @@ class Profile with _$Profile {
     required String id,
     required String firstName,
     required String lastName,
+    required String email,
     String? imagePath,
     required String initials,
   }) = _Profile;
 
   const Profile._();
 
-  factory Profile.fromJson(Map<String, dynamic> json) => _$ProfileFromJson(json);
+  factory Profile.fromJson(Map<String, dynamic> json) =>
+      _$ProfileFromJson(json);
 
   // Test that the json file can be converted into entities.
   static Future<List<Profile>> checkInitialData() async {

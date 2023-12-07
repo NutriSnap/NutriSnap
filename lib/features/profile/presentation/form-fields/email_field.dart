@@ -5,24 +5,24 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'field_padding.dart';
 
 /// A text field to input garden photo file name found in images subdirectory.
-class PhotoField extends StatelessWidget {
-  const PhotoField({super.key, required this.fieldKey, this.currPhoto});
+class EmailField extends StatelessWidget {
+  const EmailField({super.key, required this.fieldKey, this.email});
 
-  final String? currPhoto;
+  final String? email;
   final GlobalKey<FormBuilderFieldState<FormBuilderField<dynamic>, dynamic>>
       fieldKey;
 
   @override
   Widget build(BuildContext context) {
-    String fieldName = 'Photo';
+    String fieldName = 'Email';
     return FieldPadding(
       child: FormBuilderTextField(
         name: fieldName,
         key: fieldKey,
-        initialValue: currPhoto,
+        initialValue: email,
         decoration: InputDecoration(
           labelText: fieldName,
-          hintText: 'Example: ./assets/images/people/mike.png',
+          hintText: 'Example: foo@bar.com',
         ),
         validator: FormBuilderValidators.compose([
           FormBuilderValidators.required(),

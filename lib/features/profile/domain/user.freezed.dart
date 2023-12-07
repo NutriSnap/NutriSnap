@@ -23,6 +23,7 @@ mixin _$User {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
   String get initials => throw _privateConstructorUsedError;
 
@@ -40,6 +41,7 @@ abstract class $UserCopyWith<$Res> {
       {String id,
       String name,
       String username,
+      String email,
       String? imagePath,
       String initials});
 }
@@ -60,6 +62,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? username = null,
+    Object? email = null,
     Object? imagePath = freezed,
     Object? initials = null,
   }) {
@@ -75,6 +78,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: freezed == imagePath
           ? _value.imagePath
@@ -99,6 +106,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       {String id,
       String name,
       String username,
+      String email,
       String? imagePath,
       String initials});
 }
@@ -116,6 +124,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? username = null,
+    Object? email = null,
     Object? imagePath = freezed,
     Object? initials = null,
   }) {
@@ -131,6 +140,10 @@ class __$$UserImplCopyWithImpl<$Res>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: freezed == imagePath
           ? _value.imagePath
@@ -151,6 +164,7 @@ class _$UserImpl extends _User {
       {required this.id,
       required this.name,
       required this.username,
+      required this.email,
       this.imagePath,
       required this.initials})
       : super._();
@@ -165,13 +179,15 @@ class _$UserImpl extends _User {
   @override
   final String username;
   @override
+  final String email;
+  @override
   final String? imagePath;
   @override
   final String initials;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, username: $username, imagePath: $imagePath, initials: $initials)';
+    return 'User(id: $id, name: $name, username: $username, email: $email, imagePath: $imagePath, initials: $initials)';
   }
 
   @override
@@ -183,6 +199,7 @@ class _$UserImpl extends _User {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.username, username) ||
                 other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
             (identical(other.initials, initials) ||
@@ -192,7 +209,7 @@ class _$UserImpl extends _User {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, username, imagePath, initials);
+      Object.hash(runtimeType, id, name, username, email, imagePath, initials);
 
   @JsonKey(ignore: true)
   @override
@@ -213,6 +230,7 @@ abstract class _User extends User {
       {required final String id,
       required final String name,
       required final String username,
+      required final String email,
       final String? imagePath,
       required final String initials}) = _$UserImpl;
   const _User._() : super._();
@@ -225,6 +243,8 @@ abstract class _User extends User {
   String get name;
   @override
   String get username;
+  @override
+  String get email;
   @override
   String? get imagePath;
   @override

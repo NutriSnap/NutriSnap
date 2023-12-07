@@ -18,6 +18,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SignInScreen(
+      headerMaxExtent: 210,
       actions: [
         ForgotPasswordAction((context, email) {
           Navigator.pushNamed(
@@ -31,15 +32,21 @@ class SignInPage extends StatelessWidget {
             Navigator.pushNamed(context, VerifyEmailPage.routeName);
           } else {
             final db = FirebaseFirestore.instance;
-            final docRef = db.collection("profiles").doc(FirebaseAuth.instance.currentUser!.uid);
+            final docRef = db
+                .collection("profiles")
+                .doc(FirebaseAuth.instance.currentUser!.uid);
             docRef.get().then((value) => {
-              if (!value.exists) {
-                Navigator.pushReplacementNamed(context, AddProfileView.routeName)
-              }
-              else {
-                Navigator.pushReplacementNamed(context, MainScaffold.routeName)
-              }
-            });
+                  if (!value.exists)
+                    {
+                      Navigator.pushReplacementNamed(
+                          context, AddProfileView.routeName)
+                    }
+                  else
+                    {
+                      Navigator.pushReplacementNamed(
+                          context, MainScaffold.routeName)
+                    }
+                });
           }
         }),
         AuthStateChangeAction<UserCreated>((context, state) {
@@ -73,16 +80,34 @@ class SignInPage extends StatelessWidget {
         );
       },
       footerBuilder: (context, action) {
-        return Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 16),
-            child: Text(
-              action == AuthAction.signIn
-                  ? 'By signing in, you agree to our terms and conditions.'
-                  : 'By registering, you agree to our terms and conditions.',
-              style: const TextStyle(color: Colors.grey),
+        return Column(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  action == AuthAction.signIn
+                      ? 'By signing in, you agree to our terms and conditions.'
+                      : 'By registering, you agree to our terms and conditions.',
+                  style: const TextStyle(color: Colors.grey),
+                ),
+              ),
             ),
-          ),
+            const SizedBox(height: 20),
+            /**
+                 * Social Media Buttons
+                 */
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SquareButton(iconPath: 'assets/svgs/github-icon.svg'),
+                SizedBox(width: 30),
+                SquareButton(iconPath: 'assets/svgs/google-icon.svg'),
+                // SizedBox(width: 30),
+                // SquareButton(iconPath: 'assets/svgs/apple-icon.svg'),
+              ],
+            )
+          ],
         );
       },
     );

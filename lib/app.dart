@@ -76,25 +76,12 @@ class MyApp extends ConsumerWidget {
                 return const VerifyEmailPage();
               case ForgotPasswordPage.routeName:
                 return const ForgotPasswordPage();
-
-              // case SigninPage.routeName:
-              //   return SigninPage();
               case SettingsPage.routeName:
                 return const SettingsPage();
               case AboutPage.routeName:
                 return const AboutPage();
               case AdminPage.routeName:
                 return const AdminPage();
-              // case AuthPage.routeName:
-              //   return const AuthPage();
-              // case RegisterPage.routeName:
-              //   return const RegisterPage();
-              // case LoginPage.routeName:
-              //   return const LoginPage();
-              // case ForgotPasswordPage.routeName:
-              //   return const ForgotPasswordPage();
-              // case ToggleSignonPage.routeName:
-              //   return const ToggleSignonPage();
               case CameraPage.routeName:
                 return const CameraPage();
               case ChallengesPage.routeName:
@@ -102,7 +89,7 @@ class MyApp extends ConsumerWidget {
               case CoachPage.routeName:
                 return const CoachPage();
               case DashboardPage.routeName:
-                return const DashboardPage();
+                return DashboardPage();
               case FriendsPage.routeName:
                 return const FriendsPage();
               case JournalPage.routeName:

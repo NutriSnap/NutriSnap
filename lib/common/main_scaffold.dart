@@ -30,10 +30,10 @@ class MainScaffold extends StatefulWidget {
 
 class MainScaffoldState extends State<MainScaffold> {
   int _currentIndex = 0;
-  Widget _currentBody = const DashboardPage();
+  Widget _currentBody = DashboardPage();
 
   final List<Widget> _bottomNavPages = [
-    const DashboardPage(),
+    DashboardPage(),
     const JournalPage(),
     const TrendsPage(),
     const ChallengesPage(),
@@ -58,7 +58,7 @@ class MainScaffoldState extends State<MainScaffold> {
   Widget _getDrawerPage(int index) {
     switch (index) {
       case 0:
-        return const DashboardPage();
+        return DashboardPage();
       case 5:
         return const AboutPage();
       case 6:

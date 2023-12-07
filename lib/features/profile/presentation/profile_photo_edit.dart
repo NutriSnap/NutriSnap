@@ -36,7 +36,9 @@ class _ProfilePhotoEditState extends State<ProfilePhotoEdit> {
           const CircleAvatar(
             radius: 100,
             backgroundImage:
-            NetworkImage('https://robohash.org/sample.png'),
+                // NetworkImage('https://robohash.org/sample.png'),
+                NetworkImage('https://robohash.org/sample.png?size=300x300'),
+            // AssetImage('assets/images/${}'),
           ),
         ElevatedButton(
           onPressed: () {

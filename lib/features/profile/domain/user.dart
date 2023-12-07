@@ -14,6 +14,7 @@ class User with _$User {
     required String id,
     required String name,
     required String username,
+    required String email,
     String? imagePath,
     required String initials,
   }) = _User;
